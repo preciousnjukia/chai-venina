@@ -180,26 +180,6 @@ p{
   height: 40px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*..trackingpage..*/
 .track-order-container {
   padding: 20px;
@@ -261,6 +241,13 @@ p{
 .order-status-form {
   max-width: 400px;
   margin: auto;
+}
+.rating-stars {
+  color: yellow; /* Default color before selection */
+}
+
+.rating-stars .star.selected {
+  color: yellow; /* Color for selected stars  */
 }
 
 form {

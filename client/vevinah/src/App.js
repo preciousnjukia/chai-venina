@@ -2,12 +2,13 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
-import CartPage from './components/CartPage';
+
+import TrackingPage from './components/TrackingPage';
 
 function App() {
   return (
     <Router>
-      <CartPage />
+      <TrackingPage />
     </Router>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaStar } from 'react-icons/fa';
 import '../App.css';
 
 function TrackingPage() {
@@ -19,6 +20,12 @@ function TrackingPage() {
         const currentStep = Math.floor(elapsedTime / stepDuration) + 1;
         return currentStep > totalSteps ? totalSteps : currentStep;
     };
+
+    const [rate, setRate] = useState(0);
+
+    const handleRateClick = (selectedRate) => {
+        setRate(selectedRate);
+      };
 
 
     return (
@@ -45,10 +52,17 @@ function TrackingPage() {
                 {/* Creative form for order status */}
                 <div className="order-status-form">
                     <h2>Your feedback is important to us</h2>
+                    <label htmlFor='status1'>Rate our Service: </label>
+                    <div className="rating-stars">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <FaStar
+                            key={star}
+                            className={`star${star <= rate ? ' selected' : ''}`}
+                            onClick={() => handleRateClick(star)}
+                          />
+                        ))}
+                    </div>
                     <form>
-                        <label htmlFor="status1">Rate our Service:</label>
-                        <img style={{width: '100%', height: '100%'}} alt="stars" src="https://via.placeholder.com/293x100" />
-
                         <label htmlFor="status2">What Makes You Feel This Way:</label>
                         <input type="text" id="status2" placeholder="Good Food, Fast dekivery etc.." />
 
