@@ -1,38 +1,294 @@
-.App {
+/*..orders..*/
+.cart-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 20%;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 10%;
+}
+
+p{
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.cart-container {
+  width: 900px;
+  height: 500px;
+  position: relative;
+  background: #fffbfb;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  align-items: center;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-image {
+  width: 200px;
+  height: 150px;
+  border-radius: 160px;
+  margin-right: 20px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.item-name {
+  font-size: 20px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.item-description {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 70px;
+  height: 42px;
+}
+
+.item-quantity {
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.item-button {
+  width: 70px;
+  height: 42px;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.vertical-line {
+  border-left: 1px solid #000;
+  height: 30px;
+  margin: 10px;
+}
+
+.item-remove {
+  width: 500px;
+  height: 49px;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  background: rgba(223, 137, 70, 1);
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 251, 251, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.summary-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.summary-label {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  margin-right: 10px;
+}
+
+.summary-value {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.summary-note {
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: center;
+}
+
+.pay-now {
+  background: rgba(255, 251, 251, 1);
+  border: 1px solid #000;
+  color: black;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-right: 10px;
+  width: 120px;
+  height: 40px;
+}
+
+.pay-later {
+  background: rgba(223, 137, 70, 1);
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*..trackingpage..*/
+.track-order-container {
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.steps-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.step {
+  padding: 10px;
+  border: 2px solid #ee7214;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #ee7214;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.step.active {
+  background-color: #ee7214;
+  color: #fff;
+}
+
+.estimate-bar {
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.estimate-progress {
+  height: 100%;
+  background-color: #ee7214;
+}
+
+.estimated-time {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.order-arrived-button {
+  background-color: #ee7214;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.order-arrived-button:hover {
+  background-color: #ff9533;
+}
+
+.order-status-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+label {
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
+
+button {
+  background-color: #ee7214;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #ff9533;
+} 
