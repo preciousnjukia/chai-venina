@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './navbar';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import '../App.css';
@@ -35,9 +34,7 @@ function Menu() {
 
   return (
     <div className='home-container'>
-      <div className="navbar">
-        <NavBar />
-      </div>
+      {/* Navbar code was removed */}
       <div className="search">
         <input
           type="text"
