@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, useNavigate } from 'react-router-dom';
 
 function CartPage() {
+  const navigate = useNavigate();
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState([]);
@@ -48,13 +49,33 @@ function CartPage() {
     setCartItems(updatedCartItems);
   }
 
+  const [confirmRemove, setConfirmRemove] = useState(false);
+  const [itemToRemove, setItemToRemove] = useState(null);
+
+  function ConfirmationDialog({ onConfirm, onCancel }) {
+    return (
+      <div className="confirmation-dialog">
+        <p>Are you sure you want to remove this item from the cart?</p>
+        <button onClick={onConfirm}>Yes</button>
+        <button onClick={onCancel}>No</button>
+      </div>
+    );
+  }
+
   function removeItem(item) {
-    const confirmRemove = window.confirm('Are you sure you want to remove this item from the cart?');
-    if (confirmRemove) {
-      const updatedCartItems = cartItems.filter(cartItem => cartItem.id !== item.id);
-      setCartItems(updatedCartItems);
-      alert('Item removed successfully.');
-    }
+    setConfirmRemove(true);
+    setItemToRemove(item);
+  }
+
+  function handleConfirmRemove() {
+    const updatedCartItems = cartItems.filter(cartItem => cartItem.id !== itemToRemove.id);
+    setCartItems(updatedCartItems);
+    setConfirmRemove(false);
+    alert('Item removed successfully.');
+  }
+
+  function handleCancelRemove() {
+    setConfirmRemove(false);
   }
 
   if (cartItems.length === 0) {
@@ -63,7 +84,7 @@ function CartPage() {
         <h2>MY CART</h2>
         <p>You haven't made any orders yet.</p>
         <Link to="/menu">
-          <button>Order Now</button>
+          <button onClick={() => navigate('/menu')}>Order Now</button>
         </Link>
       </div>
     );
@@ -118,6 +139,13 @@ function CartPage() {
           <button className="pay-now">Pay Now</button>
           <button className="pay-later">Pay on Delivery</button>
         </div>
+
+        {confirmRemove && (
+          <ConfirmationDialog
+            onConfirm={handleConfirmRemove}
+            onCancel={handleCancelRemove}
+          />
+        )}
       </div>
     </Router>
   );

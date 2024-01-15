@@ -3,12 +3,12 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
 
-import TrackingPage from './components/TrackingPage';
+import Orders from './components/Orders';
 
 function App() {
   return (
     <Router>
-      <TrackingPage />
+      <Orders />
     </Router>
   );
 }

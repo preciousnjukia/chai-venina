@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaStar } from 'react-icons/fa';
+
 import '../App.css';
 
 function TrackingPage() {
@@ -53,18 +53,10 @@ function TrackingPage() {
                 <div className="order-status-form">
                     <h2>Your feedback is important to us</h2>
                     <label htmlFor='status1'>Rate our Service: </label>
-                    <div className="rating-stars">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <FaStar
-                            key={star}
-                            className={`star${star <= rate ? ' selected' : ''}`}
-                            onClick={() => handleRateClick(star)}
-                          />
-                        ))}
-                    </div>
+                    
                     <form>
                         <label htmlFor="status2">What Makes You Feel This Way:</label>
-                        <input type="text" id="status2" placeholder="Good Food, Fast dekivery etc.." />
+                        <input type="text" id="status2" placeholder="Good Food, Fast delivery etc.." />
 
                         <button type="submit">Submit</button>
                     </form>
