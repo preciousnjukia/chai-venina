@@ -279,3 +279,32 @@ button {
 button:hover {
   background-color: #ff9533;
 } 
+
+nav {
+  background-color: #FAC898;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+a.active {
+  background-color: #555;
+}
