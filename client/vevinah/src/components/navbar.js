@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html>
+import React from 'react';
+
+function Navbar() {
+  return (
+    <html>
   <head>
     <link rel="stylesheet" type="text/css" href="App.css" />
   </head>
@@ -15,5 +18,10 @@
     </nav>
   </body>
 </html>
+  );
+}
+
+export default Navbar;
+
 
 
