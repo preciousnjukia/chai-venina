@@ -1,13 +1,14 @@
 import React from 'react';
 
 function Navbar() {
-  return (
-    <html>
+  return (  
+<html>
   <head>
-    <link rel="stylesheet" type="text/css" href="App.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <nav class="navbar">
+      <div class="navbar-brand">Vevinah</div>
       <ul class="navbar-nav">
         <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Menu</a></li>
