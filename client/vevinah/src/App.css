@@ -50,10 +50,12 @@ object-fit:cover;
 }   
 
 .search{
+  padding: 5px;
   text-align: center;
   display:inline-flex;
   margin-top: 30px;
   margin-left: 30%;
+  justify-content: center;
 } 
 
 .search-button{
@@ -62,14 +64,14 @@ object-fit:cover;
   margin-bottom: 10px;
   margin-left: 10px;
   border-radius: 0;
-  padding: 5px;
+  padding: 8px;
 }
 .button{
   background-color: #ee7214;
   border: none;
   border-radius: 25px;
   color: white;
-  padding: 5px;
+  padding: 20px;
   text-align: center;
   text-decoration: none;
   display: flex;
@@ -352,9 +354,7 @@ p{
   margin-bottom: 20px;
 }
 
-.order-arrived-button:hover {
-  background-color: #ff9533;
-}
+
 
 .order-status-form {
   max-width: 400px;
@@ -365,6 +365,7 @@ p{
   display: center;
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .rating-container button {
@@ -378,23 +379,24 @@ p{
 
 .rating-container button .star {
   fill: none;
-  stroke: rgba(255, 221, 0, 0.895);
+  stroke: rgba(255, 200, 0, 0.799);
   stroke-width: 3px;
 }
 
 .rating-container button.active .star {
-  fill: rgba(255, 221, 0, 0.895);
+  fill: rgba(255, 200, 0, 0.799);
 }
 
 form {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
+
+
 input {
-  padding: 30px;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -408,6 +410,7 @@ button {
   cursor: pointer;
   margin-top: 10px;
 }
+
 
 /*..navbar..*/
 nav {
