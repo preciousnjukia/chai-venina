@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-   
+    <div>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link
@@ -25,7 +25,7 @@ function Footer() {
         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
       </li>
       <h3 class="location">
-        Location📍: Lusengeti Road, Industrial Area, Kenya.
+        Location📍: Lusengeti Road,Industrial Area, Kenya.
       </h3>
     </ul>
   </div>
@@ -46,6 +46,7 @@ function Footer() {
   </div>
   <div class="copyright">&copy; 2024 Chai Vevinah. All Rights Reserved.</div>
 </footer>
+</div>
   );
 }
 
