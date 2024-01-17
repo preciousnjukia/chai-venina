@@ -509,3 +509,16 @@ a.active {
   color: #000;
   margin:left;
 }
+
+.footer { background-color: #D8A175; color: #fff; padding: 20px;
+color:black; } .social-media { margin-bottom: 20px; } .follow-us { font-size:
+18px; } .social-icons { list-style-type: none; padding: 0; margin: 0; }
+.social-icons li { display: inline-block; margin-right: 10px; } .social-icons
+li:last-child { margin-right: 0; } .social-icon { display: block; color: #fff;
+font-size: 24px; text-decoration: none; } .content { display: flex; align-items:
+center; } .icon-text { list-style-type: none; padding: 0; margin: 0; display:
+flex; align-items: center; } .icon-text li { margin-right: 10px; } .icon-text p
+{ margin: 0; color: black; font-size: 22px; text-align: center; padding-bottom:
+70px } .copyright { font-size: 12px; margin-top: auto; text-align: center;
+color:black; } .location { color:black; text-align: center }
+
