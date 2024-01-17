@@ -89,10 +89,11 @@ const Register = () => {
             </div>
           </div>
           <div className="card-footer">
+            <Link to={"/payment"}>
             <button type="submit" className="btn btn-primary">
               Register
-            </button>{" "}
-            |{" "}
+            </button> |
+            </Link>
             <Link to={"/sign_in"} className="btn btn-danger">
               Close
             </Link>

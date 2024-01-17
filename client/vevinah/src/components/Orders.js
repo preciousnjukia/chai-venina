@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 
 function Orders() {
   const [subtotal, setSubtotal] = useState(0);
@@ -24,8 +25,9 @@ function Orders() {
   }, [cartItems]);
 
   useEffect(() => {
+    setCartItems(cart);
     calculateTotal();
-  }, [calculateTotal]);
+  }, [cart, calculateTotal]);
 
   function decreaseQuantity(item) {
     const updatedCartItems = cartItems.map((cartItem) => {
@@ -56,15 +58,19 @@ function Orders() {
 
   function ConfirmationDialog({ onConfirm, onCancel }) {
     return (
-      <div className="confirmation-dialog">
-        <p>Are you sure you want to remove this item from the cart?</p>
-        <button onClick={onConfirm}>Yes</button>
-        <button onClick={onCancel}>No</button>
+      <div className="confirmation-dialog-container">
+        <div className="confirmation-dialog">
+          <p className="confirmation-message">Are you sure you want to remove this item from the cart?</p>
+          <div className="confirmation-buttons">
+            <button className="confirmation-button confirm" onClick={onConfirm}>Yes</button>
+            <button className="confirmation-button cancel" onClick={onCancel}>No</button>
+          </div>
+        </div>
       </div>
     );
   }
 
-  function removeItem(item) {
+  function handleRemoveItem(item) {
     setConfirmRemove(true);
     setItemToRemove(item);
   }
@@ -73,7 +79,6 @@ function Orders() {
     const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== itemToRemove.id);
     setCartItems(updatedCartItems);
     setConfirmRemove(false);
-    alert('Item removed successfully.');
   }
 
   function handleCancelRemove() {
@@ -84,70 +89,87 @@ function Orders() {
     console.log("cartItems:", cartItems);
   }, [cartItems]);
 
+  const navigate = useNavigate();
+
+  function handlePayNow() {
+    // Check if the user is signed in
+    const isLoggedIn = true; // Replace with actual logic to check if user is signed in
+
+    if (isLoggedIn) {
+      // User is signed in, proceed to checkout
+      navigate('/payment');
+    } else {
+      // User is not signed in, redirect to register page
+      navigate('/sign_up');
+    }
+  }
+
   return (
     <div>
       {/* Header */}
       <div className="navbar">
         {/* Include the NavBar component */}
       </div>
-    <div className="cart-page">
-      <h2>MY CART</h2>
+      <div className="cart-page">
+        <h2>MY CART</h2>
 
-      <div className="cart-container">
+        <div className="cart-container">
         {cartItems.map((item) => (
-          <div key={item.id} className="cart-item">
-            <div className="item-image">
-              <img src={item.image} alt={item.name} className="cart-image" />
-            </div>
-            <div className="item-details">
-              <div className="item-name">Item: {item.name}</div>
-              <div className="item-description">{item.description}</div>
-              <div className="item-price">Kshs {item.price}</div>
-              <div className="item-actions">
-                <button onClick={() => decreaseQuantity(item)}> - </button>
-                <span>{item.quantity}</span>
-                <button onClick={() => increaseQuantity(item)}> + </button>
-                <span className="vertical-line"></span>
-                <button className="remove-button" onClick={() => removeItem(item)}>
-                  Remove
-                </button>
+            <div key={item.id} className="cart-item">
+              <div className="item-image">
+                <img src={item.image} alt={item.name} className="cart-image" />
+              </div>
+              <div className="item-details">
+                <div className="item-name">Item: {item.name}</div>
+                <div className="item-description">{item.description}</div>
+                <div className="item-price">Kshs {item.price}</div>
+                <div className="item-actions">
+                  <button onClick={() => decreaseQuantity(item)}> - </button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => increaseQuantity(item)}> + </button>
+                  <span className="vertical-line"></span>
+                  <button className="remove-button" onClick={() => handleRemoveItem(item)}>
+                    Remove
+                  </button>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        <div className="cart-summary">
+          <div className="summary-item">
+            <span className="summary-label">Sub total:</span>
+            <span className="summary-value">{subtotal}</span>
           </div>
-        ))}
-      </div>
+          <div className="summary-item">
+            <span className="summary-label">Delivery charges:</span>
+            <span className="summary-value">69</span>
+          </div>
+          <div className="summary-item">
+            <span className="summary-label">TOTAL:</span>
+            <span className="summary-value">{total}</span>
+          </div>
+          <div className="summary-note">
+            * Delivery charges will be applicable based on your chosen address
+          </div>
+        </div>
 
-      <div className="cart-summary">
-        <div className="summary-item">
-          <span className="summary-label">Sub total:</span>
-          <span className="summary-value">{subtotal}</span>
-        </div>
-        <div className="summary-item">
-          <span className="summary-label">Delivery charges:</span>
-          <span className="summary-value">69</span>
-        </div>
-        <div className="summary-item">
-          <span className="summary-label">TOTAL:</span>
-          <span className="summary-value">{total}</span>
-        </div>
-        <div className="summary-note">
-          * Delivery charges will be applicable based on your chosen address
-        </div>
-      </div>
-
-      <div className="payment-options">
-          <Link to="/payment">
-            <button className="pay-now">Pay Now</button>
+        <div className="payment-options">
+        <Link to="/menu">
+            <button className="continue-shopping">Continue Shopping</button>
           </Link>
-          <Link to="/tracking">
-            <button className="pay-later">Pay Later</button>
+        <Link to="/sign_up">
+        <button className="pay-now" onClick={handlePayNow}>
+           Signin and Pay 
+        </button>
           </Link>
+        </div>
       </div>
 
       {confirmRemove && (
         <ConfirmationDialog onConfirm={handleConfirmRemove} onCancel={handleCancelRemove} />
       )}
-    </div>
     </div>
   );
 }

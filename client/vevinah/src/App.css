@@ -1,13 +1,14 @@
 /*..menupage..*/
 
-input {
+.food-search {
   background-color: white;
-  border: #3a5b3b;
+  border: 1px solid #ccc;
+  padding: 12px;
   height: 100%;
   font-size: 15px;
   font-family: 'Inter', sans-serif;
   width: 100%;
-  margin-left: 5px;
+  margin-left: 20px;
   align-content: center;
 }
 
@@ -81,11 +82,10 @@ object-fit:cover;
 
 .cart {
   position:absolute;
-  top: 23%; 
+  top: 40px; 
   right: 10px; 
   font-size: 24px;
-  background-color:#ee7214;
-  cursor: pointer; 
+  background-color: transparent;
 }
 
 .cart-length {
@@ -109,7 +109,7 @@ object-fit:cover;
   justify-content: center;
 } 
 .add-to-cart-button:hover {
-  background-color: #ee7214;
+  background-color: #ee721493;
   transition: 0.7s;
 }
 
@@ -124,7 +124,7 @@ object-fit:cover;
 
 /*..orders..*/
 .cart-page {
-  position: absolute;
+  position: left;
   left: 20%;
 }
 
@@ -238,6 +238,68 @@ p{
   cursor: pointer;
 }
 
+.continue-shopping {
+  width: 150px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+
+
+.confirmation-dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px); /* Add blur effect */
+  z-index: 9999;
+}
+
+.confirmation-dialog {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.confirmation-message {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation-button {
+  padding: 8px 16px;
+  margin: 0 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirmation-button.confirm {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+.confirmation-button.cancel {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.confirmation-button:hover {
+  background-color: #ddd;
+}
+
 .cart-summary {
   width: 100%;
   height: 200px;
@@ -290,15 +352,7 @@ p{
   height: 40px;
 }
 
-.pay-later {
-  background: rgba(223, 137, 70, 1);
-  color: white;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  width: 120px;
-  height: 40px;
-}
+
 
 /*..trackingpage..*/
 .track-order-container {
@@ -354,8 +408,6 @@ p{
   margin-bottom: 20px;
 }
 
-
-
 .order-status-form {
   max-width: 400px;
   margin: auto;
@@ -392,11 +444,10 @@ form {
   flex-direction: column;
 }
 
-
-
-input {
-  padding: 10px;
-  margin-top: 5px;
+.feedback {
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -456,5 +507,5 @@ a.active {
 .navbar-brand {
   font-size: 24px;
   color: #000;
-  mar:left
+  margin:left;
 }

@@ -76,7 +76,7 @@ function TrackingPage() {
           <div className="rating-container">{renderRatingIcons()}</div>
           <form>
             <label htmlFor="status2">What Makes You Feel This Way:</label>
-            <input type="text" id="status2" placeholder="Good Food, Fast delivery etc.." />
+            <input className='feedback' type="text" id="status2" placeholder="Good Food, Fast delivery etc.." />
 
             <button type="submit">Submit</button>
           </form>

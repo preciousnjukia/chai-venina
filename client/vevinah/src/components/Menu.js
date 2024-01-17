@@ -37,7 +37,8 @@ function Menu() {
   }, []);
 
   const handleAddToCart = (food) => {
-    setCart([...cart, food]);
+    const updatedFood = { ...food, quantity: 1 };
+    setCart([...cart, updatedFood]);
     setShowNotification(true);
   };
 
@@ -57,7 +58,7 @@ function Menu() {
     <div className="home-container">
       {showNotification && <div className="notification">Item added to cart!</div>}
       <div className="search">
-        <input
+        <input className='food-search'
           type="text"
           placeholder="Search favorite foods..."
           value={searchQuery}
@@ -83,7 +84,7 @@ function Menu() {
         </div>
       </div>
       <div className="cart">
-        <Link to={{ pathname: '/cart', state: { cart: cart } }} className="cart-link">
+      <Link to="/cart" state={{ cart: cart }}>
           <ShoppingCart />
           <div className="cart-length">{cart.length}</div>
         </Link>
