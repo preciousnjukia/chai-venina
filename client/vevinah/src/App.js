@@ -8,12 +8,14 @@ import SignIn from './components/SignIn';
 import Register from './components/SignUp';
 import PaymentPage from './components/PaymentPage';
 import TrackingPage from './components/TrackingPage';
+import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<HomePage />} />
       <Route path="/navbar" element={<Navbar />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Orders />} />

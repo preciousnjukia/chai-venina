@@ -1,77 +1,159 @@
 import React, { useState } from 'react';
+import mpesaLogo from './images/mpesa-logo.png';
+import cashLogo from './images/cash-logo.png';
+import paypalLogo from './images/paypal-logo.png';
+import binanceLogo from './images/binance-logo.png';
+import visaLogo from './images/visa-logo.png';
 import { Link } from 'react-router-dom';
-import TrackingPage from './TrackingPage';
 
-function PaymentPage() {
-  const [paymentMethod, setPaymentMethod] = useState('');
 
-  const handlePaymentMethodChange = (event) => {
-    setPaymentMethod(event.target.value);
-  };
+const PaymentPage = () => {
+  const [selectedPayment, setSelectedPayment] = useState('');
 
-  const handlePaymentSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    // Process the payment logic here
+    if (selectedPayment === 'mpesa') {
+      alert('Please make payment to Mpesa Till Number 707070.');
+    } else if (selectedPayment === 'cash') {
+      alert('Please make payment upon delivery.');
+    } else if (selectedPayment === 'paypal') {
+      window.location.href = 'https://www.paypal.com/signin';
+    } else if (selectedPayment === 'binance') {
+      window.location.href = 'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
+    } else if (selectedPayment === 'visa') {
+      window.location.href = 'https://www.visaonline.com/login/';
+    }
+    console.log('Payment submitted');
+    };    
 
-    // Reset the payment method after processing
-    setPaymentMethod('');
+  const handlePaymentChange = (e) => {
+    setSelectedPayment(e.target.value);
   };
 
   return (
-    <div>
-      {/* Header */}
-      <div className="navbar">
-        {/* Include the NavBar component */}
-      </div>
-      <div className="payment-page">
-        <h2>Payment</h2>
-        <form onSubmit={handlePaymentSubmit}>
-          <div>
-            <label>
+    <div className="payment-container">
+      <h2>Payment Details</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="payment-options">
+          {['mpesa', 'cash', 'paypal', 'visa', 'binance'].map((paymentOption) => (
+            <div key={paymentOption} className="other-option">
               <input
                 type="radio"
-                value="credit_card"
-                checked={paymentMethod === 'credit_card'}
-                onChange={handlePaymentMethodChange}
+                id={paymentOption}
+                name="paymentMethod"
+                value={paymentOption}
+                checked={selectedPayment === paymentOption}
+                onChange={handlePaymentChange}
+                required
               />
-              Credit Card
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="paypal"
-                checked={paymentMethod === 'paypal'}
-                onChange={handlePaymentMethodChange}
-              />
-              PayPal
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="stripe"
-                checked={paymentMethod === 'stripe'}
-                onChange={handlePaymentMethodChange}
-              />
-              Stripe
-            </label>
-          </div>
-          <button type="submit" disabled={!paymentMethod}>
+              <label htmlFor={paymentOption}>
+                <img src={getImageSource(paymentOption)} alt={paymentOption} />
+              </label>
+            </div>
+          ))}
+        </div>
+
+        <div className="delivery-address-form">
+          <label htmlFor="city" className="form-label">
+            City:
+          </label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            className="form-input"
+            placeholder="Nairobi/Mombasa"
+            required
+          />
+
+          <label htmlFor="area" className="form-label">
+            Area:
+          </label>
+          <input
+            type="text"
+            id="area"
+            name="area"
+            className="form-input"
+            placeholder="CBD/Upperhill/Westlands/Fedha/Kikuyu"
+            required
+          />
+
+          <label htmlFor="street" className="form-label">
+            Street:
+          </label>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            className="form-input"
+            placeholder="Monrovia, UtaliiAve"
+            required
+          />
+
+          <label htmlFor="building" className="form-label">
+            Building:
+          </label>
+          <input
+            type="text"
+            id="building"
+            name="building"
+            className="form-input"
+            placeholder="GTC, Mirage, KICC, Chancery, UAP"
+            required
+          />
+
+          <label htmlFor="room" className="form-label">
+            Room:
+          </label>
+          <input
+            type="text"
+            id="room"
+            name="room"
+            className="form-input"
+            placeholder="Room No. House No. Office Name"
+            required
+          />
+
+          <label htmlFor="notes" className="form-label">
+            Notes:
+          </label>
+          <textarea
+            id="notes"
+            name="notes"
+            className="form-input"
+            placeholder="Anything we should know before entering your property"
+          />
+        </div>
+
+        <div className="buttons-container">
+          <button type="submit" className="button full-width">
             Pay Now
           </button>
           <Link to="/tracking">
-        <button className="pay-now">
-           Pay on Delivery 
-        </button>
+            <button className="button full-width">Pay on Delivery</button>
           </Link>
-        </form>
+        </div>
+      </form>
       </div>
-    </div>
   );
-}
+};
+
+const getImageSource = (paymentOption) => {
+  switch (paymentOption) {
+    case 'mpesa':
+      return mpesaLogo;
+    case 'cash':
+      return cashLogo;
+    case 'paypal':
+      return paypalLogo;
+    case 'visa':
+        return visaLogo; 
+    case 'binance':
+      return binanceLogo;
+    default:
+      return '';
+  }
+};
 
 export default PaymentPage;

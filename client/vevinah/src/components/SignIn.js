@@ -100,9 +100,9 @@ const SignIn = () => {
               </div>
             </div>
             <div className="card-footer">
-              <button type="submit" className="btn btn-primary">
+              <Link to="/payment" className="btn btn-primary">
                 Login
-              </button>{" "}
+              </ Link>{" "}
               |{" "}
               <Link className="btn btn-success" to={"/create_account"}>
                 New User
