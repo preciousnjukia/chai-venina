@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import ItemActions from './ItemActions';
+import Footer from './Footer';
 
 
 function Orders() {
@@ -29,61 +32,6 @@ function Orders() {
     calculateTotal();
   }, [cart, calculateTotal]);
 
-  function decreaseQuantity(item) {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.id === item.id) {
-        const updatedQuantity = cartItem.quantity - 1;
-        return { ...cartItem, quantity: updatedQuantity > 0 ? updatedQuantity : 0 };
-      }
-      return cartItem;
-    });
-
-    setCartItems(updatedCartItems);
-  }
-
-  function increaseQuantity(item) {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.id === item.id) {
-        const updatedQuantity = cartItem.quantity + 1;
-        return { ...cartItem, quantity: updatedQuantity };
-      }
-      return cartItem;
-    });
-
-    setCartItems(updatedCartItems);
-  }
-
-  const [confirmRemove, setConfirmRemove] = useState(false);
-  const [itemToRemove, setItemToRemove] = useState(null);
-
-  function ConfirmationDialog({ onConfirm, onCancel }) {
-    return (
-      <div className="confirmation-dialog-container">
-        <div className="confirmation-dialog">
-          <p className="confirmation-message">Are you sure you want to remove this item from the cart?</p>
-          <div className="confirmation-buttons">
-            <button className="confirmation-button confirm" onClick={onConfirm}>Yes</button>
-            <button className="confirmation-button cancel" onClick={onCancel}>No</button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  function handleRemoveItem(item) {
-    setConfirmRemove(true);
-    setItemToRemove(item);
-  }
-
-  function handleConfirmRemove() {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== itemToRemove.id);
-    setCartItems(updatedCartItems);
-    setConfirmRemove(false);
-  }
-
-  function handleCancelRemove() {
-    setConfirmRemove(false);
-  }
 
   useEffect(() => {
     console.log("cartItems:", cartItems);
@@ -106,13 +54,9 @@ function Orders() {
 
   return (
     <div>
-      {/* Header */}
-      <div className="navbar">
-        {/* Include the NavBar component */}
-      </div>
+    <div>{<Navbar />}</div>
       <div className="cart-page">
         <h2>MY CART</h2>
-
         <div className="cart-container">
         {cartItems.map((item) => (
             <div key={item.id} className="cart-item">
@@ -123,15 +67,11 @@ function Orders() {
                 <div className="item-name">Item: {item.name}</div>
                 <div className="item-description">{item.description}</div>
                 <div className="item-price">Kshs {item.price}</div>
-                <div className="item-actions">
-                  <button onClick={() => decreaseQuantity(item)}> - </button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => increaseQuantity(item)}> + </button>
-                  <span className="vertical-line"></span>
-                  <button className="remove-button" onClick={() => handleRemoveItem(item)}>
-                    Remove
-                  </button>
-                </div>
+                <ItemActions
+                    item={item}
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                />
               </div>
             </div>
           ))}
@@ -166,10 +106,7 @@ function Orders() {
           </Link>
         </div>
       </div>
-
-      {confirmRemove && (
-        <ConfirmationDialog onConfirm={handleConfirmRemove} onCancel={handleCancelRemove} />
-      )}
+      <div>{<Footer />}</div>
     </div>
   );
 }
