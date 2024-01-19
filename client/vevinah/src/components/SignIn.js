@@ -104,7 +104,7 @@ const SignIn = () => {
                 Login
               </ Link>{" "}
               |{" "}
-              <Link className="btn btn-success" to={"/create_account"}>
+              <Link className="btn btn-success" to={"/sign_up"}>
                 New User
               </Link>
             </div>

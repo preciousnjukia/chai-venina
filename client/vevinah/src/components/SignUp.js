@@ -36,7 +36,6 @@ const Register = () => {
     e.preventDefault();
 
     if (isFormValid()) {
-      // Perform form submission logic
       fetch("http://localhost:8000/user", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -90,12 +89,12 @@ const Register = () => {
           </div>
           <div className="card-footer">
             <Link to={"/payment"}>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary signup-btn">
               Register
             </button> |
             </Link>
             <Link to={"/sign_in"} className="btn btn-danger">
-              Close
+              Sign In
             </Link>
           </div>
         </div>

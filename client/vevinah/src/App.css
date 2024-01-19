@@ -793,7 +793,7 @@ flex; align-items: center; } .icon-text li { margin-right: 10px; } .icon-text p
 70px } .copyright { font-size: 12px; margin-top: auto; text-align: center;
 color:black; } .location { color:black; text-align: center }
 
-/*payment page */
+/*..payment page..*/
 .payment-container {
   text-align: center;
   width: 100%;
@@ -860,7 +860,7 @@ color:black; } .location { color:black; text-align: center }
   border-radius: 8px;
   cursor: pointer;
 }
-/* SignIn CSS */
+/*..SignIn CSS..*/
 .container {
   display: flex;
   justify-content: center;
@@ -960,4 +960,20 @@ color:black; } .location { color:black; text-align: center }
 .btn-success,
 .btn-success:hover {
   border-radius: 20px;
+}
+
+/*..Sign Up..*/
+.btn-primary.signup-btn {
+  background-color: #5D4037;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: none;
+}
+
+.btn-primary.signup-btn:hover {
+  background-color: #5D4037; 
+  opacity: 1; 
 }
