@@ -23,7 +23,6 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
-        <Route path='/create_account' element={<create_account />} />
       </Routes>
     </Router>
   );
