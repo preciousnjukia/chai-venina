@@ -353,7 +353,7 @@ object-fit:cover;
 
 .cart {
   position:absolute;
-  top: 40px; 
+  top: 100px; 
   right: 10px; 
   font-size: 24px;
   background-color: transparent;
@@ -459,6 +459,14 @@ p{
   margin-top: 10px;
 }
 
+.cart-empty-message {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500px;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .item-actions {
   display: flex;
   align-items: center;
@@ -507,6 +515,28 @@ p{
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.quantity-button1 {
+  background-color:#ee7214;
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-right: 10px;
+  width: 200px;
+  height: 40px;
+}
+
+.quantity-button2 {
+  background-color:#ee7214;
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-left: 10px;
+  width: 140px;
+  height: 40px;
 }
 
 .continue-shopping {
@@ -609,6 +639,7 @@ p{
 .payment-options {
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .pay-now {
@@ -741,7 +772,7 @@ button {
  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  font-family: 'Your Fancy Font', cursive;
+  font-family: 'Inter', sans-serif;
 }
 
 .navbar-nav {

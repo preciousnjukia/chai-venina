@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart } from 'react-feather';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import '../App.css';
 
 function Menu() {
@@ -55,6 +57,8 @@ function Menu() {
   }, [showNotification]);
 
   return (
+    <div>
+    <div>{<Navbar />}</div>
     <div className="home-container">
       {showNotification && <div className="notification">Item added to cart!</div>}
       <div className="search">
@@ -89,6 +93,8 @@ function Menu() {
           <div className="cart-length">{cart.length}</div>
         </Link>
       </div>
+      <div>{<Footer />}</div>
+    </div>
     </div>
   );
 }

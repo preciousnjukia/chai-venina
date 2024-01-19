@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Star } from 'react-feather';
-
+import Navbar from './Navbar';
+import Footer from './Footer';
 import '../App.css';
 
 function TrackingPage() {
@@ -49,6 +50,7 @@ function TrackingPage() {
 
   return (
     <div>
+        <div>{<Navbar />}</div>
       <div className="track-order-container">
         <div className="steps-container">
           {['Ordered', 'Preparing', 'In Transit', 'Arrived'].map((step, index) => (
@@ -82,6 +84,7 @@ function TrackingPage() {
           </form>
         </div>
       </div>
+      <div>{<Footer />}</div>
     </div>
   );
 }
