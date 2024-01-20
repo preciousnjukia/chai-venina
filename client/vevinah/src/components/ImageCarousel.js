@@ -22,8 +22,8 @@ const ImageCarousel = () => {
 
   return (
     <div className="carousel-section">
-      <div className="image-carousel">
-        <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
+      <div className="image-carousel dark-box">
+        <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className='dark-box' />
         
         <div className='carousel-tagline-overlay'>
           <h4>Every Dish Tells A Story </h4>
