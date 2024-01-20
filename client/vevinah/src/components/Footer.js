@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
   return (
@@ -11,28 +13,33 @@ function Footer() {
   />
   <link rel="stylesheet" type="text/css" href="App.css" />
 </head>
-<footer class="footer">
-  <div class="social-media">
-    <h3 class="follow-us">Follow Us:</h3>
-    <ul class="social-icons">
-      <li>
-        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-      </li>
-      <li>
-        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-      </li>
-      <li>
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-      </li>
-      <h3 class="location">
-        Location📍: Lusengeti Road,Industrial Area, Kenya.
-      </h3>
-    </ul>
-  </div>
+    <footer className="footer">
+      <div className="social-media">
+        <h3 className="follow-us">Follow Us:</h3>
+        <ul className="social-icons">
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </li>
+          <h3 className="location">
+            Location📍: Lusengeti Road, Industrial Area, Kenya.
+          </h3>
+        </ul>
+      </div>
   <div class="content">
     <div class="middle-text">
-      <ul class="icon-text">
-        <li><i class="fas fa-check-circle"></i></li>
+      
         <li>
           <p>
             We're committed to great food, great coffee, great service, an
@@ -41,7 +48,7 @@ function Footer() {
             inclusive of VAT.
           </p>
         </li>
-      </ul>
+      
     </div>
   </div>
   <div class="copyright">&copy; 2024 Chai Vevinah. All Rights Reserved.</div>

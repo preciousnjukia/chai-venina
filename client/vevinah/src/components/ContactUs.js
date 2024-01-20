@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import './ContactUs.css';
 
 const ContactUs = () => {
@@ -25,6 +27,8 @@ const ContactUs = () => {
   };
 
   return (
+    <div>
+      <div>{<Navbar />}</div>
     <div className="contact-us-container">
       <div className="photo-section">
         <img src="/images/contactanos-2.jpg" alt="Contact" />
@@ -52,6 +56,8 @@ const ContactUs = () => {
         </div>
         {successMessage && <p className="success-message">{successMessage}</p>}
       </div>
+    </div>
+    <div>{<Footer />}</div>
     </div>
   );
 };
