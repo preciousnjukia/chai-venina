@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../App.css';
 import ImageCarousel from './ImageCarousel';
 import TodaysSpecialSection from './TodaysSpecialSection';
 import DineIn from './dineIn';
 import ReviewSection from './ReviewSection';
-import Footer from './Footer';
+import HomeFooter from "./HomeFooter";
+
 
 
 const HomePage = () => {
@@ -14,7 +15,7 @@ const HomePage = () => {
       <TodaysSpecialSection/>
       <DineIn/>
       <ReviewSection/>
-      <Footer/>
+      <HomeFooter />
     </div>
   );
 };

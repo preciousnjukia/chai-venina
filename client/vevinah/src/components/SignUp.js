@@ -5,11 +5,14 @@ import { toast } from 'react-toastify';
 const Register = () => {
   const [user, setUser] = useState({
     id: "",
-    name: "",
+    first_name: "",
+    last_name: "",
     password: "",
     email: "",
     phone: "",
   });
+
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,8 +21,8 @@ const Register = () => {
   };
 
   const isFormValid = () => {
-    const { id, name, password, email } = user;
-    if (!id || !name || !password || !email) {
+    const { id, first_name, last_name, password, email, phone } = user;
+    if (!id || !first_name || !last_name || !password || !email || !phone) {
       toast.warning("Please fill in all fields");
       return false;
     }
@@ -36,14 +39,14 @@ const Register = () => {
     e.preventDefault();
 
     if (isFormValid()) {
-      // Perform form submission logic
-      fetch("http://localhost:8000/user", {
+      fetch("http://localhost:5000/user", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(user),
       })
         .then((res) => {
           toast.success("Registered successfully.");
+          setRegistrationSuccess(true);
           navigate("/sign_in");
         })
         .catch((err) => {
@@ -69,7 +72,7 @@ const Register = () => {
           </div>
           <div className="card-body">
             <div className="row">
-              {["id", "password", "name", "email", "phone"].map((field) => (
+              {["id", "first_name", "last_name", "email", "phone", "password"].map((field) => (
                 <div key={field} className="col-lg-6">
                   <div className="form-group">
                     <label>
@@ -89,17 +92,20 @@ const Register = () => {
             </div>
           </div>
           <div className="card-footer">
-            <Link to={"/payment"}>
-            <button type="submit" className="btn btn-primary">
-              Register
-            </button> |
-            </Link>
+            <button type="submit" className="btn btn-primary signup-btn">
+              {registrationSuccess ? "Registered!" : "Register"}
+            </button>{" "}
             <Link to={"/sign_in"} className="btn btn-danger">
-              Close
+              Sign In
             </Link>
           </div>
         </div>
       </form>
+      {registrationSuccess && (
+        <div className="alert alert-success" role="alert">
+          Registration successful! You can now sign in.
+        </div>
+      )}
     </div>
   );
 };
