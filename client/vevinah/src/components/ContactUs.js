@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
 import './ContactUs.css';
 import Navbar from './Navbar';
-import Footer from './Footer';
+import HomeFooter from './HomeFooter';
+
 
 
 const ContactUs = () => {
@@ -60,7 +59,7 @@ const ContactUs = () => {
           {successMessage && <p className="success-message">{successMessage}</p>}
         </div>
       </div>
-      <div>{<Footer />}</div>
+      <div>{<HomeFooter />}</div>
     </div>  
   );
 };

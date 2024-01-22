@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Star } from 'react-feather';
 import Navbar from './Navbar';
-import Footer from './Footer';
 import '../App.css';
+import HomeFooter from './HomeFooter';
 
 function TrackingPage() {
   const estimatedTime = 5;
@@ -84,7 +84,7 @@ function TrackingPage() {
           </form>
         </div>
       </div>
-      <div>{<Footer />}</div>
+      <div>{<HomeFooter />}</div>
     </div>
   );
 }

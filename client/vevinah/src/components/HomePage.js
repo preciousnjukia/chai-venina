@@ -11,6 +11,11 @@ import HomeFooter from "./HomeFooter";
 
 
 const HomePage = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+const toggleMenu = () => {
+setMenuOpen(!isMenuOpen);
+};
   return (
     <div className="app">
       <header>
@@ -21,7 +26,7 @@ const HomePage = () => {
           <ul>
             <li className="SideBar-item">
               <Link to="/">Home</Link>
-              </li>
+              </li>   
             <li className="SideBar-item">
               <Link to="/menu">Menu</Link>
               </li>

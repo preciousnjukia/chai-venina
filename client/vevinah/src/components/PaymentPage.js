@@ -6,7 +6,8 @@ import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import Footer from './Footer';
+import HomeFooter from './HomeFooter';
+
 
 
 
@@ -142,7 +143,7 @@ const PaymentPage = () => {
       </form>
       </div>
       <div>
-        {<Footer />}
+        {<HomeFooter />}
       </div>
       </div>
   );

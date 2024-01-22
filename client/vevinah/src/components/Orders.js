@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import ItemActions from './ItemActions';
-import Footer from './Footer';
+import HomeFooter from './HomeFooter';
 
 
 function Orders() {
@@ -106,7 +106,7 @@ function Orders() {
           </Link>
         </div>
       </div>
-      <div>{<Footer />}</div>
+      <div>{<HomeFooter />}</div>
     </div>
   );
 }
