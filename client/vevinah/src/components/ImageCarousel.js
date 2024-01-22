@@ -4,7 +4,8 @@ import Carousel3 from '../assets/kenyan-foods.jpeg'
 import logo from '../assets/vevinah-logo.png'
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Sidebar from './sidebar';
+
+
 
 const ImageCarousel = () => {
   const images = [Carousel1, Carousel2, Carousel3];
@@ -21,7 +22,6 @@ const ImageCarousel = () => {
 
   return (
     <div className="carousel-section">
-      <Sidebar /> 
       <div className="image-carousel">
         <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
         <div className="carousel-tagline-overlay">
@@ -44,14 +44,15 @@ const ImageCarousel = () => {
         <div className="carousel-logo-overlay">
           <img src={logo} alt="vevinah" />
         </div>
-        <div>
-          <Link to="/menu">
-            <button className="carousel-button">Check out Menu</button>
-          </Link>
-        </div>
+
+        <Link to="/menu">
+        <button className="carousel-button">Check out Menu</button>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default ImageCarousel;
+
+

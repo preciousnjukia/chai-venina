@@ -24,7 +24,7 @@ header {
   flex-direction: row-reverse;
   cursor: pointer;
   color: #000;
-  position: sticky;
+  /* position: sticky; */
   z-index: 4;
   margin-right: 75px;
 }
@@ -56,7 +56,7 @@ header {
   display: flex;
   margin: 0 10px;
   color: #fff;
-  background-color: #df8946;
+  background-color: #df8846;
   padding: 20px;
 }
 
@@ -88,7 +88,7 @@ footer {
 }
 
 .image-carousel-container.menu-open {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -116,6 +116,10 @@ footer {
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
+}
+
+img.dark-box {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .carousel-tagline-overlay {
@@ -170,6 +174,16 @@ line-height: 1.5;
   box-shadow: #dcdcdc;
 }
 
+.carousel-button:hover {
+  color: #333;
+
+}
+
+
+
+
+
+
 .carousel-logo-overlay{
 position: absolute;
 top: -30px; 
@@ -180,58 +194,6 @@ transform: translateX(-50%);
 .carousel-logo-overlay img {
 width: 230px; 
 height: 180px;
-}
-
-/*..sidebar..*/
-.sidebar-icon:hover {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: rgb(217, 130, 9);
-  font-size: 36px; /* Adjust the font size to your desired value */
-  cursor: pointer;
-  z-index: 1;
-}
-
-.image-carousel {
-  position: relative;
-}
-
-.sidebar-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 36px; /* Adjust the font size to your desired value */
-  cursor: pointer;
-  z-index: 1;
-}
-
-.sidebar {
-  position: absolute;
-  top: 10px;
-  right: 56px; /* Adjust the distance from the icon as needed */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-color: #DF8946;
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 1;
-}
-
-.sidebar-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 150px;
-  height: 210px;
-}
-
-.sidebar-list li {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .sidebar-line {
@@ -299,11 +261,15 @@ height: 180px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
-  margin: 1px 0;
+  margin: 15px ;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 200px;
-  height: 100px;
+  height: 120px;
   align-items: center;
+}
+
+.customer-review-card:hover{
+  box-shadow: 0 0 5px 5px rgba(253, 132, 19, 0.5)
 }
 
 .review-header {
@@ -338,6 +304,7 @@ height: 180px;
   margin-top: 10px;
   text-align: left;
 }
+
 
 /******* DineIn.css *****/
 
@@ -474,7 +441,7 @@ height: 180px;
   justify-content: center;
 }
 .add-to-cart-button:hover {
-  background-color: #ee721493;
+  background-color: #ee721444;
   transition: 0.7s;
 }
 
@@ -1039,6 +1006,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
 /*..SignIn CSS..*/
 .container {
   display: flex;
