@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function HomeFooter() {
   return (
@@ -44,21 +46,21 @@ function HomeFooter() {
         <div class="social-media">
           <h3 class="follow-us">Follow Us:</h3>
           <ul class="social-icons">
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-square"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </li>
           </ul>
         </div>
         <div class="copyright">

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCart } from 'react-feather';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import Footer from './Footer';
 import '../App.css';
+import HomeFooter from './HomeFooter';
 
 function Menu() {
   const [menuFoods, setMenuFoods] = useState([]);
@@ -93,7 +93,7 @@ function Menu() {
           <div className="cart-length">{cart.length}</div>
         </Link>
       </div>
-      <div>{<Footer />}</div>
+      <div>{<HomeFooter />}</div>
     </div>
     </div>
   );
