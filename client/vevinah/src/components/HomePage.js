@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'; // If using React Router
 import "../App.css";
 import ImageCarousel from "./ImageCarousel";
 import TodaysSpecialSection from "./TodaysSpecialSection";
 import DineIn from "./dineIn";
 import ReviewSection from "./ReviewSection";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import HomeFooter from "./HomeFooter";
 
 const HomePage = () => {
@@ -22,11 +23,21 @@ const HomePage = () => {
         </div>
         <nav className={`menu ${isMenuOpen ? "open" : ""}`}>
           <ul>
-            <li>Home</li>
-            <li>Menu</li>
-            <li>Order Now</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li className="SideBar-item">
+              <Link to="/">Home</Link>
+              </li>
+            <li className="SideBar-item">
+              <Link to="/menu">Menu</Link>
+              </li>
+            <li className="SideBar-item">
+              <Link to="/cart">Orders</Link>
+              </li>
+            <li className="SideBar-item">
+              <Link to="/about-us">About Us</Link>
+              </li>
+              <li className="SideBar-item">
+              <Link to="/contact-us">Contact Us</Link>
+              </li>
           </ul>
         </nav>
       </header>

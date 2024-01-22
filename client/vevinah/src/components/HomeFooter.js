@@ -1,6 +1,8 @@
 import React from "react";
 
 function HomeFooter() {
+  const api_key = process.env.REACT_APP_MAPS_API_KEY;
+  // console.log("API-KEY: " + api_key);
   return (
     <div>
       <head>
@@ -37,7 +39,7 @@ function HomeFooter() {
               // style="border:0"
               loading="lazy"
               allowfullscreen
-              src="https://www.google.com/maps/embed/v1/place?q=place_id:EhxMdXNpbmdldGkgUmQsIE5haXJvYmksIEtlbnlhIi4qLAoUChIJo6kfYXcRLxgReTXv45ZeLUQSFAoSCb_95Q58ES8YEX7WtjfkRlnV&key=AIzaSyA2WNIPZdtg3U5L-y6U8tUEm9o9QraaEug"
+              src={`https://www.google.com/maps/embed/v1/place?q=place_id:EhxMdXNpbmdldGkgUmQsIE5haXJvYmksIEtlbnlhIi4qLAoUChIJo6kfYXcRLxgReTXv45ZeLUQSFAoSCb_95Q58ES8YEX7WtjfkRlnV&key=${api_key}`}
             ></iframe>
           </div>
         </div>

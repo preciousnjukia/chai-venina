@@ -4,6 +4,8 @@ import Carousel2 from '../assets/image 1.png'
 import Carousel3 from '../assets/kenyan-foods.jpeg'
 import logo from '../assets/vevinah-logo.png'
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 
 
 const ImageCarousel = () => {
@@ -43,7 +45,10 @@ const ImageCarousel = () => {
         <div className='carousel-logo-overlay'>
           <img src={logo} alt="vevinah"/>
         </div>
+
+        <Link to="/menu">
         <button className="carousel-button">Check out Menu</button>
+        </Link>
       </div>
     </div>
 
@@ -51,3 +56,5 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
+
