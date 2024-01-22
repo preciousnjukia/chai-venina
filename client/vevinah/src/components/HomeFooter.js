@@ -1,6 +1,10 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function HomeFooter() {
+  const api_key = process.env.REACT_APP_MAPS_API_KEY;
+  // console.log("API-KEY: " + api_key);
   return (
     <div>
       <head>
@@ -37,28 +41,28 @@ function HomeFooter() {
               // style="border:0"
               loading="lazy"
               allowfullscreen
-              src="https://www.google.com/maps/embed/v1/place?q=place_id:EhxMdXNpbmdldGkgUmQsIE5haXJvYmksIEtlbnlhIi4qLAoUChIJo6kfYXcRLxgReTXv45ZeLUQSFAoSCb_95Q58ES8YEX7WtjfkRlnV&key=AIzaSyA2WNIPZdtg3U5L-y6U8tUEm9o9QraaEug"
+              src={`https://www.google.com/maps/embed/v1/place?q=place_id:EhxMdXNpbmdldGkgUmQsIE5haXJvYmksIEtlbnlhIi4qLAoUChIJo6kfYXcRLxgReTXv45ZeLUQSFAoSCb_95Q58ES8YEX7WtjfkRlnV&key=${api_key}`}
             ></iframe>
           </div>
         </div>
         <div class="social-media">
           <h3 class="follow-us">Follow Us:</h3>
           <ul class="social-icons">
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-square"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-icon">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </li>
           </ul>
         </div>
         <div class="copyright">
