@@ -12,7 +12,6 @@ function Navbar() {
   <a href="#" class="navbar-brand">
     <img src="https://imgur.com/a/8xykr28" alt="Vevinah Brand" />
   </a>
-</div>
       <ul class="navbar-nav">
         <li class="nav-item">
           <Link  to="/">Home</Link>
@@ -32,6 +31,7 @@ function Navbar() {
       </ul>
     </nav>
     </body>
+    </div>
     </html>
   );
 }
