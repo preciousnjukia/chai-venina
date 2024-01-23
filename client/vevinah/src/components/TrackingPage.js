@@ -7,6 +7,12 @@ import HomeFooter from './HomeFooter';
 function TrackingPage() {
   const estimatedTime = 5;
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [rate, setRate] = useState(0);
+  const [feedback, setFeedback] = useState('');
+
+  const user = {
+    email: 'user@example.com', 
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,10 +29,42 @@ function TrackingPage() {
     return currentStep > totalSteps ? totalSteps : currentStep;
   };
 
-  const [rate, setRate] = useState(0);
-
   const handleRateClick = (selectedRate) => {
     setRate(selectedRate);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!user || !user.email) {
+      console.error('User email not found');
+      return;
+    }
+
+    // Make a POST request to the Flask API
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/reviews`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userEmail: user.email,
+          rating: rate,
+          feedback,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Review submitted successfully');
+        setRate(0);
+        setFeedback('');
+      } else {
+        console.error('Failed to submit review');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const renderRatingIcons = () => {
@@ -50,7 +88,7 @@ function TrackingPage() {
 
   return (
     <div>
-        <div>{<Navbar />}</div>
+      <div>{<Navbar />}</div>
       <div className="track-order-container">
         <div className="steps-container">
           {['Ordered', 'Preparing', 'In Transit', 'Arrived'].map((step, index) => (
@@ -76,10 +114,16 @@ function TrackingPage() {
           <h2>Your feedback is important to us</h2>
           <label htmlFor="status1">Rate our Service: </label>
           <div className="rating-container">{renderRatingIcons()}</div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="status2">What Makes You Feel This Way:</label>
-            <input className='feedback' type="text" id="status2" placeholder="Good Food, Fast delivery etc.." />
-
+            <input
+              className='feedback'
+              type="text"
+              id="status2"
+              placeholder="Good Food, Fast delivery etc.."
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+            />
             <button type="submit">Submit</button>
           </form>
         </div>

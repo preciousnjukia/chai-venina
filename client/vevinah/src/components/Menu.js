@@ -29,12 +29,15 @@ function Menu() {
   };
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/dishes')
+    fetch('http://localhost:5000/dishes')
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setMenuFoods(data);
         setOriginalMenuFoods(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching menu:', error);
       });
   }, []);
 
