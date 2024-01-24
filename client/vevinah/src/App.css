@@ -846,10 +846,11 @@ button {
   text-decoration: underline;
 }
 
-.navbar-brand {
-  font-size: 24px;
-  color: #000;
-  margin: left;
+.navbar-brand img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 3cm;
 }
 
 /* Footer */

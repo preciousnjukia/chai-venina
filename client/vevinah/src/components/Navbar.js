@@ -8,8 +8,10 @@ function Navbar() {
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-brand">Vevinah</div>
+    <div class="navbar">
+  <a href="#" class="navbar-brand">
+    <img src="https://imgur.com/a/8xykr28" alt="Vevinah Brand" />
+  </a>
       <ul class="navbar-nav">
         <li class="nav-item">
           <Link  to="/">Home</Link>
@@ -29,6 +31,7 @@ function Navbar() {
       </ul>
     </nav>
     </body>
+    </div>
     </html>
   );
 }
