@@ -8,39 +8,83 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import HomeFooter from './HomeFooter';
 
-
-
-
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
+  const [addressDetails, setAddressDetails] = useState({
+    city: '',
+    area: '',
+    street: '',
+    building: '',
+    room: '',
+    notes: '',
+  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (selectedPayment === 'mpesa') {
-      alert('Please make payment to Mpesa Till Number 707070.');
-    } else if (selectedPayment === 'cash') {
-      alert('Please make payment upon delivery.');
-    } else if (selectedPayment === 'paypal') {
-      window.location.href = 'https://www.paypal.com/signin';
-    } else if (selectedPayment === 'binance') {
-      window.location.href = 'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
-    } else if (selectedPayment === 'visa') {
-      window.location.href = 'https://www.visaonline.com/login/';
+    const userEmail = 'user@example.com';
+    const userId = await getUserId(userEmail);
+
+    if (!userId) {
+      console.error('User ID not available');
+      return;
     }
-    console.log('Payment submitted');
-    };    
+
+    const paymentMethod = e.nativeEvent.submitter.name; // Get the name of the clicked button
+
+    try {
+      const response = await fetch('http://127.0.0.1:5000/address', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: userId,
+          payment_method: paymentMethod,
+          ...addressDetails,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Address details submitted successfully');
+        // Additional logic or redirection after successful submission
+      } else {
+        console.error('Failed to submit address details');
+        // Handle the error
+      }
+    } catch (error) {
+      console.error('Error during address submission:', error);
+    }
+  };
 
   const handlePaymentChange = (e) => {
     setSelectedPayment(e.target.value);
   };
 
+  const handleAddressChange = (e) => {
+    setAddressDetails({
+      ...addressDetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAddressValidation = () => {
+    const isConfirmed = window.confirm('Have you confirmed the details of the address?');
+
+    if (isConfirmed) {
+      // Redirect to PaymentPage and highlight Pay Now button
+      window.location.href = '/payment#pay-now';
+    } else {
+      // Redirect to PaymentPage and highlight the entire address container
+      window.location.href = '/payment#address-container';
+    }
+  };
+
   return (
     <div>
-        {<Navbar />}
-    <div className="payment-container">
-      <h2>Payment Details</h2>
-      <form onSubmit={handleSubmit}>
+      <Navbar />
+      <div className="payment-container">
+        <h2>Payment Details</h2>
         <div className="payment-options">
           {['mpesa', 'cash', 'paypal', 'visa', 'binance'].map((paymentOption) => (
             <div key={paymentOption} className="other-option">
@@ -60,7 +104,8 @@ const PaymentPage = () => {
           ))}
         </div>
 
-        <div className="delivery-address-form">
+        {/* Delivery address form */}
+        <div className="delivery-address-form" id="address-container">
           <label htmlFor="city" className="form-label">
             City:
           </label>
@@ -120,7 +165,6 @@ const PaymentPage = () => {
             placeholder="Room No. House No. Office Name"
             required
           />
-
           <label htmlFor="notes" className="form-label">
             Notes:
           </label>
@@ -129,23 +173,25 @@ const PaymentPage = () => {
             name="notes"
             className="form-input"
             placeholder="Anything we should know before entering your property"
+            onChange={handleAddressChange}
           />
         </div>
 
+        
         <div className="buttons-container">
-          <button type="submit" className="button full-width">
+          <button type="submit" className="button pay-now" id="pay-now">
             Pay Now
           </button>
-          <Link to="/tracking">
-            <button className="button full-width">Pay on Delivery</button>
+          <button type="button" className="button address-validate" onClick={handleAddressValidation}>
+            Confirm Address
+          </button>
+          <Link to="/tracking" className="button pay-on-delivery" style={{ width: '150px', height: '27px'}}>
+            Pay on Delivery 
           </Link>
         </div>
-      </form>
       </div>
-      <div>
-        {<HomeFooter />}
-      </div>
-      </div>
+      <HomeFooter />
+    </div>
   );
 };
 
@@ -158,11 +204,28 @@ const getImageSource = (paymentOption) => {
     case 'paypal':
       return paypalLogo;
     case 'visa':
-        return visaLogo; 
+      return visaLogo;
     case 'binance':
       return binanceLogo;
     default:
       return '';
+  }
+};
+
+const getUserId = async (userEmail) => {
+  try {
+    const response = await fetch(`http://127.0.0.1:5000/user/id/${userEmail}`);
+    const data = await response.json();
+
+    if (response.ok) {
+      return data.user_id;
+    } else {
+      console.error('Failed to get user ID');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error during user ID retrieval:', error);
+    return null;
   }
 };
 
