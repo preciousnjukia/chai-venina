@@ -846,12 +846,14 @@ button {
   text-decoration: underline;
 }
 
-.navbar-brand {
-  font-size: 24px;
-  color: #000;
-  margin: left;
+.navbar-brand img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 3cm;
 }
 
+/* Footer */
 .footer {
   background-color: #d8a175;
   color: #fff;
@@ -937,54 +939,58 @@ button {
 .payment-container {
   text-align: center;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0; 
+  padding: 0; 
 }
 
+
 .payment-options {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
+display: flex;
+justify-content: space-around;
+margin-bottom: 20px;
 }
 
 .other-option {
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 }
 
 .other-option img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: #fff;
+padding: 10px;
+border: 1px solid #ccc;
+margin-right: 10px;
 }
 
 .delivery-address-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
 }
 
 .form-label {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  font-weight: 300;
-  color: maroon;
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+box-sizing: border-box;
+color: maroon; 
+font-weight: 300; 
 }
 
 .form-input {
-  width: 100%;
+  width: calc(100% - 40px); 
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border: 1px solid maroon;
-  border-radius: 8px; /* Rounded corners only for form input */
-  color: black;
+  background-color: #ffe6cc; 
+  border-radius: 8px; 
+  color: black; 
+  font-weight: 300; 
+  border: none; 
+  outline: none; 
 }
 
 .buttons-container {
@@ -992,15 +998,38 @@ button {
   justify-content: space-between;
 }
 
-.pay-later {
-  background-color: #ee7214;
-  color: white;
+.button {
   padding: 10px;
-  width: fit-content;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px; 
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  background-color: #ff9800; 
+  color: white;
+  width: 150px; 
+  height: 40px;
+  text-decoration: none; 
+  display: inline-block;
 }
+
+.button:hover {
+  background-color: #e08000;
+}
+
+.pay-now {
+  background-color: #ff9800; 
+}
+
+.pay-on-delivery {
+  background-color: #ff9800; 
+}
+
+.address-validate {
+  background-color: #ff9800; 
+}
+
 
 /*..SignIn CSS..*/
 .container {

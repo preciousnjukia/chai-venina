@@ -18,22 +18,22 @@ const SignIn = () => {
     e.preventDefault();
 
     if (validate()) {
-      fetch("http://localhost:5000/user/" + userCredentials.username)  // Update the port to 5000
-      .then((res) => res.json())
-      .then((resp) => {
-        if (Object.keys(resp).length === 0) {
-          toast.error("Please enter a valid username");
-        } else {
-          if (resp.password === userCredentials.password) {
-            toast.success("Success");
-            sessionStorage.setItem("username", userCredentials.username);
-            sessionStorage.setItem("userrole", resp.role);
-            navigate("/menu");
+      fetch("http://localhost:5000/user/" + userCredentials.username)
+        .then((res) => res.json())
+        .then((resp) => {
+          if (Object.keys(resp).length === 0) {
+            toast.error("Please enter a valid username");
           } else {
-            toast.error("Please enter valid credentials");
+            if (resp.password === userCredentials.password) {
+              toast.success("Success");
+              sessionStorage.setItem("username", userCredentials.username);
+              sessionStorage.setItem("userrole", resp.role);
+              navigate("/menu");
+            } else {
+              toast.error("Please enter valid credentials");
+            }
           }
-        }
-      })
+        })
         .catch((err) => {
           toast.error("Login failed due to: " + err.message);
         });
