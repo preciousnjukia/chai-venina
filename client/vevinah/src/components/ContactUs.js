@@ -59,7 +59,7 @@ const ContactUs = () => {
           {successMessage && <p className="success-message">{successMessage}</p>}
         </div>
       </div>
-      <div>{<HomeFooter />}</div>
+      {<HomeFooter />}
     </div>  
   );
 };

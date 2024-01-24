@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart } from 'react-feather';
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import '../App.css';
 import HomeFooter from './HomeFooter';
@@ -58,7 +56,7 @@ function Menu() {
 
   return (
     <div>
-    <div>{<Navbar />}</div>
+    {<Navbar />}
     <div className="home-container">
       {showNotification && <div className="notification">Item added to cart!</div>}
       <div className="search">
@@ -87,13 +85,7 @@ function Menu() {
           ))}
         </div>
       </div>
-      <div className="cart">
-      <Link to="/cart" state={{ cart: cart }}>
-          <ShoppingCart />
-          <div className="cart-length">{cart.length}</div>
-        </Link>
-      </div>
-      <div>{<HomeFooter />}</div>
+      {<HomeFooter />}
     </div>
     </div>
   );

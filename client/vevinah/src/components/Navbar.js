@@ -1,5 +1,6 @@
 import React from 'react';
-import { LifeBuoy } from 'react-feather';
+import { ShoppingCart } from 'react-feather';
+
 import { Link } from 'react-router-dom';
 function Navbar() {
   return (  
@@ -18,14 +19,16 @@ function Navbar() {
           <Link to="/menu">Menu</Link>
           </li>
         <li class="nav-item">
-          <Link to="/cart">Orders</Link>
-          </li>
-        <li class="nav-item">
           <Link to="/contact-us" >Contact Us</Link>
         </li>
         <li class="nav-item">
           <Link to="/about-us">About Us</Link>
           </li>
+        <li>
+        <Link to="/cart" className="cart-link">
+          <ShoppingCart size={24} />
+        </Link>
+      </li>
       </ul>
     </nav>
     </body>

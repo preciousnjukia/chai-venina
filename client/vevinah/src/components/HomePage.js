@@ -31,9 +31,6 @@ setMenuOpen(!isMenuOpen);
               <Link to="/menu">Menu</Link>
               </li>
             <li className="SideBar-item">
-              <Link to="/cart">Orders</Link>
-              </li>
-            <li className="SideBar-item">
               <Link to="/about-us">About Us</Link>
               </li>
               <li className="SideBar-item">

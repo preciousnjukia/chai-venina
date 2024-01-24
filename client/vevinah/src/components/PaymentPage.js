@@ -142,9 +142,7 @@ const PaymentPage = () => {
         </div>
       </form>
       </div>
-      <div>
-        {<HomeFooter />}
-      </div>
+      {<HomeFooter />}
       </div>
   );
 };

@@ -3,15 +3,19 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import ItemActions from './ItemActions';
 import HomeFooter from './HomeFooter';
+import { ShoppingCart } from 'react-feather';
 
-
-function Orders() {
+function Cart() {
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState([]);
 
   const location = useLocation();
-  const cart = location.state ? location.state.cart : [];
+
+  useEffect(() => {
+    const cart = location.state ? location.state.cart : []; // Initialize cart with an empty array if it's undefined
+    setCartItems(cart);
+  }, [location.state]);
 
   const calculateTotal = useCallback(() => {
     let subtotal = 0;
@@ -28,37 +32,40 @@ function Orders() {
   }, [cartItems]);
 
   useEffect(() => {
-    setCartItems(cart);
     calculateTotal();
-  }, [cart, calculateTotal]);
-
+  }, [cartItems, calculateTotal]);
 
   useEffect(() => {
-    console.log("cartItems:", cartItems);
+    console.log('cartItems:', cartItems);
   }, [cartItems]);
+
+  const handleAddToCart = (food) => {
+    const updatedFood = { ...food, quantity: 1 };
+    setCartItems([...cartItems, updatedFood]);
+  };
 
   const navigate = useNavigate();
 
   function handlePayNow() {
     // Check if the user is signed in
-    const isLoggedIn = true; // Replace with actual logic to check if user is signed in
+    const isLoggedIn = true; // Replace with actual logic to check if the user is signed in
 
     if (isLoggedIn) {
       // User is signed in, proceed to checkout
       navigate('/payment');
     } else {
-      // User is not signed in, redirect to register page
+      // User is not signed in, redirect to the register page
       navigate('/sign_up');
     }
   }
 
   return (
     <div>
-    <div>{<Navbar />}</div>
+      <Navbar />
       <div className="cart-page">
         <h2>MY CART</h2>
         <div className="cart-container">
-        {cartItems.map((item) => (
+          {cartItems.map((item) => (
             <div key={item.id} className="cart-item">
               <div className="item-image">
                 <img src={item.image} alt={item.name} className="cart-image" />
@@ -66,11 +73,12 @@ function Orders() {
               <div className="item-details">
                 <div className="item-name">Item: {item.name}</div>
                 <div className="item-description">{item.description}</div>
+                <br />
                 <div className="item-price">Kshs {item.price}</div>
                 <ItemActions
-                    item={item}
-                    cartItems={cartItems}
-                    setCartItems={setCartItems}
+                  item={item}
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
                 />
               </div>
             </div>
@@ -96,19 +104,25 @@ function Orders() {
         </div>
 
         <div className="payment-options">
-        <Link to="/menu">
+          <Link to="/menu">
             <button className="continue-shopping">Continue Shopping</button>
           </Link>
-        <Link to="/sign_up">
-        <button className="pay-now" onClick={handlePayNow}>
-           Signin and Pay 
-        </button>
+          <Link to="/sign_up">
+            <button className="pay-now" onClick={handlePayNow}>
+              Sign in and Pay
+            </button>
+          </Link>
+        </div>
+        <div className="cart">
+          <Link to="/cart" state={{ cart: cartItems }}>
+            <ShoppingCart />
+            <div className="cart-length">{cartItems.length}</div>
           </Link>
         </div>
       </div>
-      <div>{<HomeFooter />}</div>
+      <HomeFooter />
     </div>
   );
 }
 
-export default Orders;
+export default Cart;

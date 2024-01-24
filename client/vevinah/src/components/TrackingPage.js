@@ -84,7 +84,7 @@ function TrackingPage() {
           </form>
         </div>
       </div>
-      <div>{<HomeFooter />}</div>
+      {<HomeFooter />}
     </div>
   );
 }

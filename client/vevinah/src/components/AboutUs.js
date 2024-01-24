@@ -29,7 +29,7 @@ const AboutUs = () => {
           <img src="/images/pngtree-african-american-chef-expertly-grilling-meat-on-bbq-animated-representation-of-image_13895979.png" alt="About Us" />
           </div>
         </div>
-      <div>{<HomeFooter />}</div>
+      {<HomeFooter />}
     </div>
     </div>
   );
