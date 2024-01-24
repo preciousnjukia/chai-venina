@@ -12,7 +12,7 @@ function Navbar() {
       <body>
         <div class="navbar">
           <a href="#" class="navbar-brand">
-            <img src="https://imgur.com/a/8xykr28" alt="Vevinah Brand" />
+            <img src="https://i.imgur.com/0XiqcXc.png" alt="Vevinah Brand" />
           </a>
           <ul class="navbar-nav">
             <li class="nav-item">
