@@ -81,11 +81,6 @@ main {
   font-style: italic;
 }
 
-footer {
-  background-color: #dfb08d;
-  color: #000;
-  padding: 10px;
-}
 
 .image-carousel-container.menu-open {
   /* position: fixed; */
@@ -857,7 +852,7 @@ button {
 .footer {
   background-color: #d8a175;
   color: #fff;
-  padding: 20px;
+  padding: 7px;
   color: black;
 }
 .footer h1 {

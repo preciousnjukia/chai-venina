@@ -1,13 +1,10 @@
 import React from 'react';
 import './AboutUs.css';
-import Navbar from './Navbar';
-import HomeFooter from './HomeFooter';
-// import Footer from './Footer';
+
 
 const AboutUs = () => {
     return (
-    <div>
-      <div>{<Navbar />}</div>
+      <div>
         <div className="about-us-container">
           <div className="top-section">
             <div className="left-photo">
@@ -29,7 +26,6 @@ const AboutUs = () => {
           <img src="/images/pngtree-african-american-chef-expertly-grilling-meat-on-bbq-animated-representation-of-image_13895979.png" alt="About Us" />
           </div>
         </div>
-      {<HomeFooter />}
     </div>
     </div>
   );

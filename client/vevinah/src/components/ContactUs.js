@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './ContactUs.css';
-import Navbar from './Navbar';
-import HomeFooter from './HomeFooter';
-
-
 
 const ContactUs = () => {
   const [email, setEmail] = useState('');
@@ -29,8 +25,6 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
-    <div>{<Navbar />}</div>
       <div className="contact-us-container">
         <div className="photo-section">
           <img src="/images/contactanos-2.jpg" alt="Contact" />
@@ -58,9 +52,7 @@ const ContactUs = () => {
           </div>
           {successMessage && <p className="success-message">{successMessage}</p>}
         </div>
-      </div>
-      {<HomeFooter />}
-    </div>  
+      </div> 
   );
 };
 

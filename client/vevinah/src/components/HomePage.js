@@ -5,9 +5,6 @@ import ImageCarousel from "./ImageCarousel";
 import TodaysSpecialSection from "./TodaysSpecialSection";
 import DineIn from "./dineIn";
 import ReviewSection from "./ReviewSection";
-// import Footer from "./Footer";
-import HomeFooter from "./HomeFooter";
-
 
 
 const HomePage = () => {
@@ -53,8 +50,6 @@ setMenuOpen(!isMenuOpen);
         <DineIn />
         <ReviewSection />
       </main>
-
-      <HomeFooter />
     </div>
   );
 };
