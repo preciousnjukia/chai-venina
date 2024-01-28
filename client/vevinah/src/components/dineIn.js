@@ -1,8 +1,8 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
-import '../App.css';
-
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 
 const DineIn = () => {
@@ -18,15 +18,18 @@ const DineIn = () => {
         ></iframe>
       </div>
       <div className="dine-in-description">
-      <FontAwesomeIcon icon={faUtensils} className='utensils' />
-      <h2>DINE IN</h2>
+        <FontAwesomeIcon icon={faUtensils} className="utensils" />
+        <h2>DINE IN</h2>
         <p>
-        Savor the essence of culinary bliss in our cozy ambiance. Join us for an unforgettable DINE IN experience!
+          Savor the essence of culinary bliss in our cozy ambiance. Join us for
+          an unforgettable DINE IN experience!
         </p>
-        <button className="reservation-button"> Book a reservation</button>
+        <Link to="/dine-in">
+          <button className="reservation-button"> Book a reservation</button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default DineIn
+export default DineIn;

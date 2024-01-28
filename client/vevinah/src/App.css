@@ -292,6 +292,7 @@ height: 180px;
 
 .dine-in-description {
   flex: 1;
+  margin-top: 20px;
 }
 
 .dine-in-description h2 {
@@ -313,15 +314,107 @@ height: 180px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 40px;
-  width: 150px;
+  width: fit-content;
   height: 50px;
-  margin-top: 10px;
+  margin-top: 80px;
   
 }
 
 .reservation-button:hover {
   background-color: #47311d;
 }
+
+/********* Dine In Form **********/
+*{
+  margin:0px
+}
+.app-title > h1 {
+  color: white;
+}
+
+.app-tagline > h3 {
+  color: white;
+  font-size: small;
+  font-style: italic;
+}
+
+.login-dialogue {
+  width: 100vw;
+  height: 100vh;
+  color: rgb(24, 23, 23);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url(D:\Development\vevinah\client\vevinah\src\assets\restaurant-449952_1280.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-dialogue {
+  background: #fff;
+  border: solid thin grey;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 350px;
+  padding-bottom: 20px;
+}
+
+.form-dialogue > form > .form-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-dialogue > form > .form-item > label {
+  color:black;
+  width: 100%;
+  text-align: left;
+}
+
+.form-dialogue > form > .form-item > input {
+  border: solid thin lightgray;
+  border-radius: 3px;
+  background: white;
+}
+
+.form-dialogue > form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+form > .login-btn {
+  font-weight: 550;
+  color: #ffffff;
+  padding: 10px;
+  height: auto;
+  border: none;
+  border-radius: 40px;
+  background-color: #b77638;
+  cursor: pointer;
+  font-weight: bold;
+  width:fit-content;
+  position: relative;
+  
+}
+
+
+  
+
 /*..menupage..*/
 .menu-image img {
   width: 100%;

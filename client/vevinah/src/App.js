@@ -10,6 +10,7 @@ import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
+import DineInForm from './components/DineInForm';
 
 import HomeFooter from './components/HomeFooter';
 
@@ -41,6 +42,9 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
+        <Route path="/dine-in" element={<DineInForm/>} />
+
+
       </Routes>
     </Router>
   );
