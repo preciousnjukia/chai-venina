@@ -1,7 +1,7 @@
 import Carousel1 from '../assets/Dishes-of-Kenyan-cuisine.jpeg'
 import Carousel2 from '../assets/image 1.png'
 import Carousel3 from '../assets/kenyan-foods.jpeg'
-import logo from '../assets/vevinah-logo.png'
+import logo from '../assets/chai-vevinah-logo.png'
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
