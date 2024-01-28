@@ -11,7 +11,7 @@ function Navbar() {
       <body>
         <div class="navbar">
           <a href="#" class="navbar-brand">
-            <img src="https://i.imgur.com/KbjAYMj.png" alt="Vevinah Brand" />
+            <img src="https://i.imgur.com/7GlAUJx.png" alt="Vevinah Brand" />
           </a>
           <ul class="navbar-nav">
             <li class="nav-item">
