@@ -3,6 +3,8 @@ body {
   /* margin: 0; */
   /* padding: 0; */
   font-family: 'Inter', sans-serif;
+  background-color: #ff9d5723;
+  
 }
 
 .app {
@@ -11,7 +13,6 @@ body {
 }
 
 header {
-  color: #fff;
   padding: 10px;
   z-index: 3;
   position: fixed;
@@ -23,10 +24,10 @@ header {
   display: flex;
   flex-direction: row-reverse;
   cursor: pointer;
-  color: #000;
-  /* position: sticky; */
-  z-index: 4;
-  margin-right: 75px;
+  color: rgba(255, 255, 255, 0.728); 
+  left: 95%;
+  position: fixed;
+ 
 }
 
 .menu {
@@ -83,7 +84,6 @@ main {
 
 
 .image-carousel-container.menu-open {
-  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -94,7 +94,6 @@ main {
 /******* ImageCarousel.css *****/
 .carousel-section {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
 
@@ -104,7 +103,7 @@ main {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 500px;
+  height: 650px;
 }
 
 .image-carousel img {
@@ -120,65 +119,59 @@ img.dark-box {
 .carousel-tagline-overlay {
   position: absolute;
   bottom: 50px;
-  left: 20px;
+  left: 5px;
 }
 
 .carousel-tagline-overlay h2{
-font-size: 2em;
-margin-bottom: 10px;
-color: whitesmoke;
+font-size: 30px;
+color: rgba(255, 255, 255, 0.728);
 text-align: left;
-text-shadow: #555;
 font-family: 'Inter' sans-serif;
-line-height: 1.5;
 }
 
 .carousel-tagline-overlay h4 {
-  font-size: 1em;
-  margin-bottom: 10px;
-  color: white;
-  text-align: left;
-  text-shadow: #555;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.728);
   font-weight: bold;
+  text-align: left;
+  margin-left: 29px;
 }
 
 .carousel-location-overlay {
   position: absolute;
   bottom: 50px;
-  right: 20px;
+  right: 8px;
 }
 
 .carousel-location-overlay h3 {
-  font-size: 1em;
-  margin-bottom: 10px;
-  color: white;
-  text-align: left;
-  text-shadow: #555;
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.728);
 }
 
 .carousel-button {
   position: relative;
-  bottom: 80px;
+  bottom: 75px;
   left: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #b77638;
-  border: 1px solid #b77638;
   cursor: pointer;
   border-radius: 40px;
-  font-weight: bold;
-  box-shadow: #dcdcdc;
+  width:fit-content;
+ 
 }
 
 .carousel-button:hover {
-  color: #333;
+  background-color: #47311d;
 
 }
 
 .carousel-logo-overlay{
 position: absolute;
-top: -30px; 
+top: 5px; 
 left: 52%;
 transform: translateX(-50%);
+height: 1cm;
 }
 
 .carousel-logo-overlay img {
@@ -186,30 +179,19 @@ width: 230px;
 height: 180px;
 }
 
-.sidebar-line {
-  border: none;
-  border-top: 1px solid #000000; /* Adjust the color to your desired value */
-  margin: 5px auto;
-  width: 50%;
-}
-
-.sidebar-list li a {
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-}
-
 /****** Todays Special css ******/
 .todays-special-heading h3 {
-  background-color: #ff9d57;
-  padding: 25px;
+  padding: 15px;
+  font-size: 30px;
+  margin-top: 10px;
+  color: #ff9d57;
   text-align: left;
-  margin: 0;
 }
 .card-section {
   display: flex;
   justify-content: space-around;
-  margin: 20px;
+  margin-top: -25px;
+  margin-bottom: 55px;
 }
 
 .card {
@@ -227,8 +209,8 @@ height: 180px;
   margin-bottom: 10px;
 }
 
-.card h3 {
-  font-size: 1.5rem;
+.card h4 {
+  font-size: 19px;
   margin-bottom: 10px;
 }
 
@@ -240,27 +222,23 @@ height: 180px;
 /****** CustomerReview.css ******/
 
 .review-cards {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  justify-content: space-between;
-  width: 100vw;
+  display:inline-flex;
+  padding: 30px;
+  margin: 0;
 }
 
 .customer-review-card {
-  border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
-  margin: 15px ;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
   width: 200px;
-  height: 120px;
+  height: 160px;
   align-items: center;
+  margin-top: 40px;
+  margin-bottom: 35px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
-.customer-review-card:hover{
-  box-shadow: 0 0 5px 5px rgba(253, 132, 19, 0.5)
-}
 
 .review-header {
   display: flex;
@@ -300,13 +278,11 @@ height: 180px;
 
 .dine-in-section {
   display: flex;
-  justify-content: space-between;
-  margin: 20px;
 }
 
 .video-card {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .video-card iframe {
@@ -318,10 +294,55 @@ height: 180px;
   flex: 1;
 }
 
+.dine-in-description h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-left: 15px;
+  margin-top: -25px;
+  color: #ff9d57
+}
+ .utensils {
+  display: flex;
+  align-items: center;
+  margin-left: 39%;
+  color: #ff9d57
+ }
+
+.reservation-button {
+  background-color: #b77638;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 40px;
+  width: 150px;
+  height: 50px;
+  margin-top: 10px;
+  
+}
+
+.reservation-button:hover {
+  background-color: #47311d;
+}
 /*..menupage..*/
+.menu-image img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  filter:blur(1.5px);
+}
+.menu-title{
+    max-width: 1216px;
+    width: 100%;
+    position: absolute;
+    font-size: 32px;
+    margin: 0;
+    top: 27%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    padding: 0px 15px;
+}
 
 .food-search {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid #ccc;
   padding: 12px;
   height: 100%;
@@ -332,25 +353,19 @@ height: 180px;
   align-content: center;
 }
 
-#search-icon {
-  color: #ee7214;
-  font-size: 25px;
-}
-
 .body {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 251, 251, 1);
   line-height: 1.5;
 }
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 0;
+  margin-left: 10px;
 }
 
 .cards-container {
@@ -363,65 +378,21 @@ height: 180px;
   justify-content: space-between;
   align-items: center;
   flex: 1 1 21rem;
+  margin-left: -10%;
 }
 
 .images {
   height: 250px;
   width: 280px;
   object-fit: cover;
+  border-radius: 20px;
 }
-
-.search {
-  padding: 5px;
-  text-align: center;
-  display: inline-flex;
-  margin-top: 30px;
-  margin-left: 30%;
-  justify-content: center;
-}
-
-.search-button {
-  background-color: #ee7214;
-  color: rgb(0, 0, 0);
-  margin-bottom: 10px;
-  margin-left: 10px;
-  border-radius: 0;
-  padding: 8px;
-}
-.button {
-  background-color: #ee7214;
-  border: none;
-  border-radius: 25px;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.cart {
-  position: absolute;
-  top: 100px;
-  right: 10px;
-  font-size: 24px;
-  background-color: transparent;
-}
-
-.cart-length {
-  display: block;
-  font-size: 16px;
-  margin-top: -45px;
-  text-align: right;
-}
-
 
 .add-to-cart-button {
   border: none;
-  border-radius: 20px;
-  color: black;
-  background-color: #ee7214;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: #b77638;
   padding: 10px;
   font-size: 15px;
   font-family: "Inter", sans-serif;
@@ -450,6 +421,7 @@ height: 180px;
 .cart-page {
   position: left;
   left: 20%;
+  background-color: #ff9d5722;
 }
 
 h2 {
@@ -811,7 +783,7 @@ button {
 
 /*..navbar..*/
 .navbar {
-  background-color: #fac898;
+  background-color: #ff9d5768;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -828,12 +800,10 @@ button {
 
 .nav-item {
   margin-right: 30px;
+  text-decoration: none;
+  color: #000000;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #353535;
-}
 
 .nav-link:hover {
   color:#210801;
@@ -843,16 +813,16 @@ button {
 
 .navbar-brand img {
   position: absolute;
-  top: 10px;
+  top: 7px;
   left: 10px;
-  height: 3cm;
+  height: 1.4cm;
 }
 
 /* Footer */
 .footer {
-  background-color: #d8a175;
+  background-color: #ff9d5768;
   color: #fff;
-  padding: 7px;
+  padding: 4px;
   color: black;
 }
 .footer h1 {

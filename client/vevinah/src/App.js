@@ -10,7 +10,7 @@ import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
-import Navbar from './components/Navbar';
+
 import HomeFooter from './components/HomeFooter';
 
 function App() {
@@ -31,7 +31,6 @@ function App() {
 
   return (
     <Router>
-      <Navbar onAddToCart={handleAddToCart} cartItems={cartItems} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<Menu onAddToCart={onAddToCart} cartItems={cartItems} />} />
@@ -43,7 +42,6 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
       </Routes>
-      <HomeFooter />
     </Router>
   );
 }

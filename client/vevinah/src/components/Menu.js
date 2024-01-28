@@ -1,10 +1,13 @@
 // Menu.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Carousel1 from '../assets/slide-image.jpg'
 
 
 function Menu() {
+  const image = [Carousel1];
   const [menuItems, setMenuItems] = useState([]);
   const [originalMenuItems, setOriginalMenuItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -40,7 +43,6 @@ function Menu() {
       });
   }, []);
 
-  const navigate = useNavigate();
 
 
   const handleAddToCart = (item) => {
@@ -74,27 +76,19 @@ function Menu() {
 
   return (
     <div>
+      <Navbar />
+      <section className="menu-image">
+      <img src={image} alt='menu-image' />
+      <h2 className='menu-title'>Menu</h2>
+        </section>
       <div className="home-container">
         {showNotification && <div className="notification">Item added to cart!</div>}
-        <div className="search">
-          <input
-            className="food-search"
-            type="text"
-            placeholder="Search favorite foods..."
-            value={searchQuery}
-            onChange={handleInputChange}
-          />
-          <button className="search-button" onClick={handleSearch}>
-            Search
-          </button>
-        </div>
         <div className="container">
           <div className="cards-container">
             {menuItems.map((item) => (
               <div key={item.id}>
                 <img className="images" src={item.image} alt={item.name} />
                 <h3>{item.name}</h3>
-                <p>{item.description}</p>
                 <p>Kshs {item.price}</p>
                 <button className="add-to-cart-button" onClick={() => handleAddToCart(item)}>
                   Order
@@ -104,6 +98,7 @@ function Menu() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

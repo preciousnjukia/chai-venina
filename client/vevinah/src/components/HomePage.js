@@ -5,6 +5,9 @@ import ImageCarousel from "./ImageCarousel";
 import TodaysSpecialSection from "./TodaysSpecialSection";
 import DineIn from "./dineIn";
 import ReviewSection from "./ReviewSection";
+// import Footer from "./Footer";
+import HomeFooter from "./HomeFooter";
+
 
 
 const HomePage = () => {
@@ -16,7 +19,7 @@ setMenuOpen(!isMenuOpen);
   return (
     <div className="app">
       <header>
-        <div className="menu-icon" onClick={toggleMenu}>
+        <div className="menu-icon" onClick={toggleMenu} style={{ fontSize: '28px'}}>
           &#9776; {/* Hamburger icon */}
         </div>
         <nav className={`menu ${isMenuOpen ? "open" : ""}`}>
@@ -50,6 +53,8 @@ setMenuOpen(!isMenuOpen);
         <DineIn />
         <ReviewSection />
       </main>
+
+      <HomeFooter />
     </div>
   );
 };
