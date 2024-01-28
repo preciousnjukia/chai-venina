@@ -9,7 +9,7 @@ import TrackingPage from './components/TrackingPage';
 import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-
+import PaymentForm from './components/PaymentForm';
 
 function App() {
   return (
@@ -22,11 +22,8 @@ function App() {
         <Route path="/sign_in" element={<SignIn />} />
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/tracking" element={<TrackingPage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/payment-form" element={<PaymentForm />} />
       </Routes>
     </Router>
   );

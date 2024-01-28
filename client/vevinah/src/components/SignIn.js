@@ -8,6 +8,8 @@ const SignIn = () => {
     password: "",
   });
 
+  const [userEmail, setUserEmail] = useState(""); // state to store user email
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +28,8 @@ const SignIn = () => {
           } else {
             if (resp.password === userCredentials.password) {
               toast.success("Success");
+              // Store user email in state
+              setUserEmail(resp.email);
               sessionStorage.setItem("username", userCredentials.username);
               sessionStorage.setItem("userrole", resp.role);
               navigate("/menu");

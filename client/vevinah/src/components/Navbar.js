@@ -1,6 +1,5 @@
 import React from 'react';
 import { ShoppingCart } from 'react-feather';
-
 import { Link } from 'react-router-dom';
 
 function Navbar() {
