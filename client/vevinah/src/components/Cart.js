@@ -50,7 +50,7 @@ if (isLoggedIn) {
   }
 
   return (
-    <div>
+  <div>
       <Navbar />
     <div className="cart-page">
       <h2>MY CART</h2>
@@ -94,23 +94,22 @@ if (isLoggedIn) {
         <div className="summary-note">
 
       * Delivery charges will be applicable based on your chosen address
+      <div className="payment-options">
+          <Link to="/menu">
+              <button className="continue-shopping">Continue Shopping</button>
+          </Link>
+          <Link to="/sign_up">
+              <button className="sign-and-pay" onClick={handlePayNow}>
+                  Sign in and Pay
+              </button>
+          </Link>
+       </div>
+     </div>
     </div>
-  </div>
-
-  <div className="payment-options">
-    <Link to="/menu">
-      <button className="continue-shopping">Continue Shopping</button>
-    </Link>
-    <Link to="/sign_up">
-    <button className="pay-now" onClick={handlePayNow}>
-      Sign in and Pay
-    </button>
-    </Link>
-  </div>
+  <Footer />
 </div>
-<Footer />
 </div>
-  );
+);
 }
 
 export default Cart;

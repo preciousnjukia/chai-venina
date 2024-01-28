@@ -437,7 +437,7 @@ p {
 
 .cart-container {
   position: relative;
-  background: #fffbfb;
+  background-color: #ff9d5723;
   display: flex;
   flex-direction: column;
   padding-left: 30px;
@@ -560,6 +560,7 @@ p {
   width: 150px;
   height: 40px;
   margin-right: 10px;
+  background: #b77638;
 }
 
 .confirmation-dialog-container {
@@ -619,7 +620,7 @@ p {
 .cart-summary {
   width: 100%;
   height: 200px;
-  background: rgba(255, 251, 251, 1);
+  background-color: #ff9d5723;;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -651,21 +652,15 @@ p {
   margin-top: 10px;
 }
 
-.payment-options {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.pay-now {
-  background: rgba(255, 251, 251, 1);
-  border: 1px solid #000;
-  color: black;
+.sign-and-pay {
+  background-color: #b77638;
+  color: rgb(255, 255, 255);
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   text-align: center;
   width: 120px;
   height: 40px;
+  margin-bottom: 15px;
 }
 
 .remove-button {
