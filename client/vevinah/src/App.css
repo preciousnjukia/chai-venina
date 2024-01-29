@@ -20,16 +20,6 @@ header {
   width: 100%;
 }
 
-.menu-icon {
-  display: flex;
-  flex-direction: row-reverse;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.728); 
-  left: 95%;
-  position: fixed;
- 
-}
-
 .menu {
   display: none;
   position: relative;
@@ -91,6 +81,64 @@ main {
   z-index: 1; /* Set a lower z-index for the carousel when the menu is open */
 }
 
+/**sidebar**/
+.sidebar-wrapper {
+  position: fixed;
+  right: 20px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 26px;
+  position: fixed;
+  opacity: 0.8;
+  top: 20px;
+  transition: opacity 0.3s ease;
+  right: 20px; /* Position the icon on the right side */
+}
+
+.sidebar {
+  background-color: rgba(255, 165, 0, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  color: white;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  margin-bottom: 10px;
+}
+
+.sidebar-list a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar-line {
+  border: none;
+  height: 1px;
+  background-color: white;
+  margin: 5px 0;
+}
+
+.side-menu,
+.about-icon,
+.contact-icon,
+.order-icon {
+  margin-right: 10px;
+}
+
 /******* ImageCarousel.css *****/
 .carousel-section {
   position: relative;
@@ -117,36 +165,41 @@ img.dark-box {
 }
 
 .carousel-tagline-overlay {
-  position: absolute;
-  bottom: 50px;
+  position:absolute;
+  bottom: 105px;
   left: 5px;
 }
 
 .carousel-tagline-overlay h2{
-font-size: 30px;
-color: rgba(255, 255, 255, 0.728);
-text-align: left;
-font-family: 'Inter' sans-serif;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.895);
+  font-family:'Times New Roman', Times, serif;
+  display:contents;
+  margin-left: 5px;
 }
 
 .carousel-tagline-overlay h4 {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.728);
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.895);
   font-weight: bold;
   text-align: left;
-  margin-left: 29px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  font-family:'Times New Roman', Times, serif;
 }
 
 .carousel-location-overlay {
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   right: 8px;
 }
 
 .carousel-location-overlay h3 {
-  font-size: 16px;
+  font-size: 22px;
   margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.728);
+  text-align: left;
+  font-family:'Times New Roman', Times, serif;
+  color: rgba(255, 255, 255, 0.895);
 }
 
 .carousel-button {
@@ -154,7 +207,7 @@ font-family: 'Inter' sans-serif;
   bottom: 75px;
   left: 10px;
   padding: 10px 20px;
-  background-color: #b77638;
+  background-color: #ff964c;
   cursor: pointer;
   border-radius: 40px;
   width:fit-content;
@@ -162,20 +215,19 @@ font-family: 'Inter' sans-serif;
 }
 
 .carousel-button:hover {
-  background-color: #47311d;
+  background-color: #9f4603e2;
 
 }
 
 .carousel-logo-overlay{
 position: absolute;
 top: 5px; 
-left: 52%;
+left: 51%;
 transform: translateX(-50%);
-height: 1cm;
 }
 
 .carousel-logo-overlay img {
-width: 230px; 
+width: 200px; 
 height: 180px;
 }
 
@@ -184,7 +236,7 @@ height: 180px;
   padding: 15px;
   font-size: 30px;
   margin-top: 10px;
-  color: #ff9d57;
+  color: #ff6a00;
   text-align: left;
 }
 .card-section {
@@ -299,17 +351,17 @@ height: 180px;
   text-align: center;
   margin-left: 15px;
   margin-top: -25px;
-  color: #ff9d57
+  color: #ff6a00;
 }
  .utensils {
   display: flex;
   align-items: center;
   margin-left: 39%;
-  color: #ff9d57
+  color: #ff6a00;
  }
 
 .reservation-button {
-  background-color: #b77638;
+  background-color: #ff964c;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 40px;
@@ -320,7 +372,7 @@ height: 180px;
 }
 
 .reservation-button:hover {
-  background-color: #47311d;
+  background-color: #9f4603e2;
 }
 /*..menupage..*/
 .menu-image img {
@@ -392,7 +444,7 @@ height: 180px;
   border: none;
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  background-color: #b77638;
+  background-color: #ff964c;
   padding: 10px;
   font-size: 15px;
   font-family: "Inter", sans-serif;
@@ -402,7 +454,7 @@ height: 180px;
   justify-content: center;
 }
 .add-to-cart-button:hover {
-  background-color: #ee721444;
+  background-color: #9f4603e2;
   transition: 0.7s;
 }
 
@@ -560,7 +612,26 @@ p {
   width: 150px;
   height: 40px;
   margin-right: 10px;
-  background: #b77638;
+  font-size: 14px;
+  background: #ff964c;
+}
+
+.continue-shopping:hover{
+  background: #9f4603e2;
+}
+
+.sign-and-pay {
+  background-color: #ff964c;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.sign-and-pay:hover {
+  background-color: #9f4603e2;
 }
 
 .confirmation-dialog-container {
@@ -650,17 +721,6 @@ p {
   font-family: "Inter", sans-serif;
   text-align: center;
   margin-top: 10px;
-}
-
-.sign-and-pay {
-  background-color: #b77638;
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  width: 120px;
-  height: 40px;
-  margin-bottom: 15px;
 }
 
 .remove-button {
@@ -778,7 +838,7 @@ button {
 
 /*..navbar..*/
 .navbar {
-  background-color: #ff9d5768;
+  background-color: #f9680088;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -815,7 +875,7 @@ button {
 
 /* Footer */
 .footer {
-  background-color: #ff9d5768;
+  background-color: #f9680088;
   color: #fff;
   padding: 4px;
   color: black;
