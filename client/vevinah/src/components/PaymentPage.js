@@ -1,36 +1,29 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import mpesaLogo from './images/mpesa-logo.png';
 import cashLogo from './images/cash-logo.png';
 import paypalLogo from './images/paypal-logo.png';
 import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
-import { Link } from 'react-router-dom'; 
 import Navbar from './Navbar';
 import HomeFooter from './HomeFooter';
-import PaymentForm from './PaymentForm'; 
 
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [paymentAmount, setPaymentAmount] = useState('');
+  const [redirect, setRedirect] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (selectedPayment === 'mpesa') {
-      // Instead of alert, render the PaymentForm component
-      return <PaymentForm number={phoneNumber} amount={paymentAmount} />;
+      setRedirect('/mpesa_payment');
     } else if (selectedPayment === 'cash') {
-      // Show alert or perform actions for Cash
       alert('Please make payment upon delivery.');
     } else if (selectedPayment === 'paypal') {
-      // Redirect to PayPal login page
       window.location.href = 'https://www.paypal.com/signin';
     } else if (selectedPayment === 'binance') {
-      // Redirect to Binance login page or perform Binance-specific actions
       window.location.href = 'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
     } else if (selectedPayment === 'visa') {
-      // Redirect to Visa login page
       window.location.href = 'https://www.visaonline.com/login/';
     }
 
@@ -41,13 +34,9 @@ const PaymentPage = () => {
     setSelectedPayment(e.target.value);
   };
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
-  const handleAmountChange = (e) => {
-    setPaymentAmount(e.target.value);
-  };
+  if (redirect) {
+    return <Navigate to={redirect} />;
+  }
 
   return (
     <div className="payment-container">
@@ -126,35 +115,7 @@ const PaymentPage = () => {
             </label>
           </div>
         </div>
-  
-        {selectedPayment === 'mpesa' && (
-          <div className="phone-input">
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input
-              type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={phoneNumber}
-              onChange={handlePhoneNumberChange}
-              required
-            />
-          </div>
-        )}
-  
-        {selectedPayment === 'mpesa' && (
-          <div className="amount-input">
-            <label htmlFor="paymentAmount">Amount:</label>
-            <input
-              type="text"
-              id="paymentAmount"
-              name="paymentAmount"
-              value={paymentAmount}
-              onChange={handleAmountChange}
-              required
-            />
-          </div>
-        )}
-        {/* Delivery address form */}
+
         <div className="delivery-address-form">
           <label htmlFor="city" className="form-label">
             City:
@@ -228,11 +189,11 @@ const PaymentPage = () => {
         </div>
 
         <div className="buttons-container">
-          <button type="submit" className="button full-width">
+          <button type="submit" className="button full-width" to={selectedPayment === 'mpesa' ? '/mpesa-payment' : '#'}>
             Pay Now
           </button>
           <Link to="/tracking" className="button pay-on-delivery">
-            Pay on Delivery
+            Pay Later
           </Link>
         </div>
       </form>

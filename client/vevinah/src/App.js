@@ -9,7 +9,7 @@ import TrackingPage from './components/TrackingPage';
 import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-import PaymentForm from './components/PaymentForm';
+import MpesaPaymentPage from './components/PaymentForm.js';  // Updated import
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
-        <Route path="/payment-form" element={<PaymentForm />} />
+        <Route path="/mpesa-payment" element={<MpesaPaymentPage />} />  {/* Updated route */}
       </Routes>
     </Router>
   );
