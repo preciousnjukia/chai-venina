@@ -41,7 +41,7 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
-        <Route path="/mpesa-payment" element={<MpesaPaymentPage />} /> 
+        <Route path="/mpesa_payment" element={<MpesaPaymentPage />} /> 
         <Route path="/dine-in" element={<DineInForm/>} />
       </Routes>
     </Router>
