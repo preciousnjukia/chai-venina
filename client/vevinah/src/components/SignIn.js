@@ -16,9 +16,10 @@ const SignIn = () => {
     sessionStorage.clear();
   }, []);
 
-  const proceedLogin = (e) => {
-    e.preventDefault();
+const proceedLogin = (e) => {
+  e.preventDefault();
 
+<<<<<<< HEAD
     if (validate()) {
       fetch("http://localhost:5000/user/" + userCredentials.username)
         .then((res) => res.json())
@@ -43,6 +44,33 @@ const SignIn = () => {
         });
     }
   };
+=======
+  if (validate()) {
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userCredentials),
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.success) {
+          toast.success("Logged in successfully.");
+
+          // Store the token or session identifier in local storage or a cookie
+          localStorage.setItem("token", response.token);
+          sessionStorage.setItem("username", userCredentials.username);
+          sessionStorage.setItem("userrole", response.role);
+          navigate("/menu");
+        } else {
+          toast.error("Failed to log in: " + response.message);
+        }
+      })
+      .catch((err) => {
+        toast.error("Failed to log in: " + err.message);
+      });
+  }
+};
+>>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
 
   const validate = () => {
     const { username, password } = userCredentials;
