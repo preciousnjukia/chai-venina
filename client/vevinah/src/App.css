@@ -1190,3 +1190,74 @@ button {
   background-color: #5d4037;
   opacity: 1;
 }
+
+/* Mpesa Payment Page */
+
+.login-dialogue {
+  width: 100vw;
+  height: 100vh;
+  color: rgb(24, 23, 23);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-dialogue {
+  background: #fff;
+  border: solid thin grey;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  padding-bottom: 20px;
+}
+
+.form-dialogue h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff9d57;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-item label {
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+
+.form-item input {
+  border: solid thin lightgray;
+  border-radius: 3px;
+  background: white;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.button-submit,
+.button.continue {
+  flex: 1;
+  padding: 10px;
+  background-color: #FFA500;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button.continue {
+  margin-left: 20px;
+}

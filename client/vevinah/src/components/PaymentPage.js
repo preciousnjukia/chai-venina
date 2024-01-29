@@ -7,7 +7,7 @@ import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
 import Navbar from './Navbar';
 import Footer from './Footer';
-
+import HomeFooter from './HomeFooter';
 
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -197,13 +197,8 @@ const PaymentPage = () => {
             Pay Later
           </Link>
         </div>
-<<<<<<< HEAD
       </form>
       <HomeFooter />
-=======
-      </div>
-      <Footer />
->>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
     </div>
   );
 };

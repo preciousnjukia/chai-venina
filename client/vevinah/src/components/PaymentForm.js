@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
-function MpesaPaymentPag() {
+const MpesaPaymentPage = () => {
   const initialFormData = {
-    phone: "",
-    amount: ""
+    phone: '',
+    amount: '',
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -17,21 +20,20 @@ function MpesaPaymentPag() {
   const submitForm = (event) => {
     event.preventDefault();
     setLoading(true);
-  
+
     fetch('http://127.0.0.1:5000/payment', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Set Content-Type to application/json
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
       .then((response) => {
         setLoading(false);
-        console.log(formData);
-  
+
         if (response.ok) {
           window.alert('Payment made');
-          setFormData(initialFormData); // Clear the form
+          setFormData(initialFormData);
         } else {
           window.alert('Payment failed');
         }
@@ -43,31 +45,51 @@ function MpesaPaymentPag() {
   };
 
   return (
-    <div className='mpesaPage'>
-      <h1>Mpesa Payment</h1>
-      <form className='mpesaForm' onSubmit={submitForm}>
-        <input
-          type='number'
-          placeholder='Enter number'
-          name='phone'
-          value={formData.phone}
-          onChange={handleChange}
-        />
+    <div>
+      <Navbar />
+      <div className='login-dialogue'>
+        <div className='form-dialogue'>
+          <form onSubmit={submitForm}>
+            <h2>Mpesa Payment</h2>
 
-        <input
-          type='number'
-          placeholder='Enter amount'
-          name='amount'
-          value={formData.amount}
-          onChange={handleChange}
-        />
+            <div className='form-item'>
+              <label htmlFor='phone'>Phone:</label>
+              <input
+                type='number'
+                id='phone'
+                name='phone'
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <button type='submit' disabled={loading}>
-          {loading ? 'Processing...' : 'Submit'}
-        </button>
-      </form>
+            <div className='form-item'>
+              <label htmlFor='amount'>Amount:</label>
+              <input
+                type='number'
+                id='amount'
+                name='amount'
+                value={formData.amount}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className='form-buttons'>
+              <button type='submit' className='button-submit' disabled={loading}>
+                {loading ? 'Processing...' : 'Submit'}
+              </button>
+              <Link to='/tracking' className='button continue'>
+                Continue
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
-}
+};
 
-export default MpesaPaymentPag;
+export default MpesaPaymentPage;

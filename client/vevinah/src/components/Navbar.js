@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
-import { ShoppingCart } from 'react-feather';
-import { Link } from 'react-router-dom';
-=======
-// Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "react-feather";
 import logo from "../assets/chai-vevinah-logo.png";
 import { useEffect, useState } from "react";
->>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
-
 function Navbar() {
   const savedCart = localStorage.getItem("cart");
   const [cartItems, setCartItems] = useState(

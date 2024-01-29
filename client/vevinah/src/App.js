@@ -9,14 +9,9 @@ import TrackingPage from './components/TrackingPage';
 import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-<<<<<<< HEAD
-import MpesaPaymentPage from './components/PaymentForm.js';  // Updated import
-=======
 import Cart from './components/Cart';
 import DineInForm from './components/DineInForm';
-
-
->>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
+import MpesaPaymentPage from './components/PaymentForm';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -46,21 +41,11 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
-<<<<<<< HEAD
-        <Route path="/mpesa-payment" element={<MpesaPaymentPage />} />  {/* Updated route */}
-=======
+        <Route path="/mpesa-payment" element={<MpesaPaymentPage />} /> 
         <Route path="/dine-in" element={<DineInForm/>} />
-
-
->>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
       </Routes>
     </Router>
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
-
->>>>>>> 1e6700c26f0b3650602c824815db7ec9790b5e1e
