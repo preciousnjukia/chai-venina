@@ -23,8 +23,8 @@ function Sidebar() {
       </div>
 
       {isSidebarOpen && (
-        <div className="sidebar">
-          <ul className='sidebar-list'>
+        <div className="sidebar" onMouseLeave={isSidebarOpen ? false : true}>
+          <ul className="sidebar-list">
             <li>
               <Link to="/menu">
               <FontAwesomeIcon icon={faUtensils} className='side-menu' />
