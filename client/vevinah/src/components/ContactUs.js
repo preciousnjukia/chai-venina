@@ -30,11 +30,8 @@ const ContactUs = () => {
     <div>
       <Navbar />
       <div className="contact-us-container">
-        <div className="photo-section">
-          <img src="/images/contactanos-2.jpg" alt="Contact" />
-        </div>
         <div className="form-section">
-          <h1>CONTACT US</h1>
+          <h3>CONTACT US</h3>
           <p className="form-statement">PROVIDE YOUR EMAIL TO CONTACT US:</p>
           <form onSubmit={handleSubmit}>
             <input

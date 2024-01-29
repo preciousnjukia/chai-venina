@@ -1,43 +1,33 @@
 .contact-us-container {
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 65vh;
+    font-family: 'Times New Roman', Times, serif;
   }
-  
-  .photo-section {
-    flex: 1;
-    overflow: hidden;
-  }
-  
-  .photo-section img {
-    width: 100%;
-    height: 60%;
-    object-fit: cover;
-  }
-  
+
   .form-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    align-items: left;
+    padding: 10px;
+    margin-left: 15px;
   }
   
   form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80%;
+    width: 65%;
   }
   
   .form-title {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-bottom: 10px;
   }
   
   .form-statement {
-    font-size: 18px;
-    margin-bottom: 16px;
+    font-size: 15px;
+    margin-bottom: 14px;
   }
   
   label {
@@ -52,15 +42,16 @@
   }
 
   input::placeholder {
-    color: grey;
+    color: rgb(109, 108, 108);
 
   }
   
   button {
     padding: 8px;
     margin-left: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
-    background-color: rgb(241, 119, 4);
+    background-color: #ff964c;
     color: white;
     border: none;
     transition: background-color 0.3s;
@@ -68,17 +59,17 @@
   }
   
   button:hover {
-    background-color: rgb(128, 127, 121);
+    background-color: #9f4603e2;
   }
   
   .phone-section {
-    margin-top: 20px;
-    font-size: 25px;
-    text-decoration: underline;
+    margin-top: 13px;
+    font-size: 14px;
   }
 
   .success-message {
-    font-size: 30px;
-    color: green;
+    font-size: 18px;
+    color: rgba(164, 54, 7, 0.838);
     margin-top: 10px;
+    
   }
