@@ -12,7 +12,7 @@ import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
 import DineInForm from './components/DineInForm';
 
-import HomeFooter from './components/HomeFooter';
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);

@@ -117,7 +117,6 @@ function Menu() {
           </div>
         </div>
       </div>
-      <div>{cart.length}</div>
       <Footer />
     </div>
   );
