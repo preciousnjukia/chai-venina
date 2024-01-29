@@ -1,61 +1,58 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import ItemActions from './ItemActions';
-import HomeFooter from './HomeFooter';
-import { ShoppingCart } from 'react-feather';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ItemActions from "./ItemActions";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Cart() {
+  const savedCart = localStorage.getItem("cart");
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    savedCart ? JSON.parse(savedCart) : []
+  );
 
-  const location = useLocation();
+  // const location = useLocation();
+  // const cart = location.state ? location.state.cart : [];
+
+  // useEffect(() => {
+  //   console.log("Cart items:", cart);
+  //   if (JSON.stringify(cart) !== JSON.stringify(cartItems)) {
+  //     setCartItems(cart);
+  //   }
+  // }, [cart]);
 
   useEffect(() => {
-    const cart = location.state ? location.state.cart : []; // Initialize cart with an empty array if it's undefined
-    setCartItems(cart);
-  }, [location.state]);
-
-  const calculateTotal = useCallback(() => {
-    let subtotal = 0;
-
-    for (let i = 0; i < cartItems.length; i++) {
-      const price = cartItems[i].price;
-      const quantity = cartItems[i].quantity;
-
-      subtotal += price * quantity;
-    }
-
-    setTotal(subtotal.toFixed(2));
-    setSubtotal(subtotal.toFixed(2));
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
   useEffect(() => {
+    const calculateTotal = () => {
+      let newSubtotal = 0;
+
+      for (let i = 0; i < cartItems.length; i++) {
+        const price = parseFloat(cartItems[i].price);
+        const quantity = cartItems[i].quantity;
+
+        newSubtotal += price * quantity;
+      }
+
+      setTotal(newSubtotal.toFixed(2));
+      setSubtotal(newSubtotal.toFixed(2));
+    };
+
     calculateTotal();
-  }, [cartItems, calculateTotal]);
-
-  useEffect(() => {
-    console.log('cartItems:', cartItems);
   }, [cartItems]);
-
-  const handleAddToCart = (food) => {
-    const updatedFood = { ...food, quantity: 1 };
-    setCartItems([...cartItems, updatedFood]);
-  };
 
   const navigate = useNavigate();
 
   function handlePayNow() {
-    // Check if the user is signed in
-    const isLoggedIn = true; // Replace with actual logic to check if the user is signed in
+    const isLoggedIn = true;
 
     if (isLoggedIn) {
-      // User is signed in, proceed to checkout
-      navigate('/payment');
+      navigate("/payment");
     } else {
-      // User is not signed in, redirect to the register page
-      navigate('/sign_up');
+      navigate("/sign_up");
     }
   }
 
@@ -65,26 +62,33 @@ function Cart() {
       <div className="cart-page">
         <h2>MY CART</h2>
         <div className="cart-container">
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <div className="item-image">
-                <img src={item.image} alt={item.name} className="cart-image" />
+          {cartItems.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            cartItems.map((item) => (
+              <div key={item.id} className="cart-item">
+                <div className="item-image">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="cart-image"
+                  />
+                </div>
+                <div className="item-details">
+                  <div className="item-name">Item: {item.name}</div>
+                  <div className="item-description">{item.description}</div>
+                  <br />
+                  <div className="item-price">Kshs {item.price}</div>
+                  <ItemActions
+                    item={item}
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                  />
+                </div>
               </div>
-              <div className="item-details">
-                <div className="item-name">Item: {item.name}</div>
-                <div className="item-description">{item.description}</div>
-                <br />
-                <div className="item-price">Kshs {item.price}</div>
-                <ItemActions
-                  item={item}
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
-                />
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
-
         <div className="cart-summary">
           <div className="summary-item">
             <span className="summary-label">Sub total:</span>
@@ -92,7 +96,7 @@ function Cart() {
           </div>
           <div className="summary-item">
             <span className="summary-label">Delivery charges:</span>
-            <span className="summary-value">69</span>
+            <span className="summary-value">N/A</span>
           </div>
           <div className="summary-item">
             <span className="summary-label">TOTAL:</span>
@@ -113,14 +117,8 @@ function Cart() {
             </button>
           </Link>
         </div>
-        <div className="cart">
-          <Link to="/cart" state={{ cart: cartItems }}>
-            <ShoppingCart />
-            <div className="cart-length">{cartItems.length}</div>
-          </Link>
-        </div>
       </div>
-      <HomeFooter />
+      <Footer />
     </div>
   );
 }

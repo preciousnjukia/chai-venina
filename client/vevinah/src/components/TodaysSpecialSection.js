@@ -2,6 +2,7 @@ import React from 'react';
 import breakfast from '../assets/Toast.png';
 import lunch from '../assets/RiceCurry.png';
 import soup from '../assets/PumpkinSoup.png';
+import { useNavigate } from 'react-router-dom';
 
 
 const TodaysSpecialSection = () => {
@@ -11,41 +12,52 @@ const TodaysSpecialSection = () => {
       image: breakfast,
       title: 'Breakfast',
       description: 'Toast served alongside African Tea and fruit salad',
+      price: 500
     },
     {
       id: 2,
       image: lunch,
       title: 'Lunch',
       description: 'Rice and coconut chicken curry offered with fresh juice',
+      price: 1050
     },
     {
       id: 3,
       image: soup,
       title: 'Soup of the day',
       description: 'Pumpkin soup and other descriptions',
+      price: 450
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/cart`);
+  };
+
   return (
     <>
-    <div className='todays-special-heading'>
+      <div className="todays-special-heading">
         <h3>Today's Special</h3>
-     
-    </div>
-    <div className="card-section">
-        
-       {cardsData.map((card) => (
-         <div key={card.id} className="card">
-           <img src={card.image} alt={`Card ${card.id}`} />
-           <h3>{card.title}</h3>
-           <p>{card.description}</p>
-         </div>
-       ))}
-     </div>
+      </div>
+      <div className="card-section" style={{ cursor: 'pointer'}}>
+        {cardsData.map((card) => (
+          <div
+            key={card.id}
+            className="card"
+            onClick={() => handleCardClick(card.id) }
+          >
+            <img src={card.image} alt={`Card ${card.id}`} />
+            <h4>{card.title}</h4>
+            <p>{card.description}</p>
+            <p> Kshs {card.price}</p>
+          </div>
+        ))}
+      </div>
     </>
-    
-       
   );
 };
+
 
 export default TodaysSpecialSection;

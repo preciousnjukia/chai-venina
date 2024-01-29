@@ -6,7 +6,8 @@ import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import HomeFooter from './HomeFooter';
+import Footer from './Footer';
+
 
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -190,7 +191,7 @@ const PaymentPage = () => {
           </Link>
         </div>
       </div>
-      <HomeFooter />
+      <Footer />
     </div>
   );
 };
