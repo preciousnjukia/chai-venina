@@ -5,6 +5,8 @@ import paypalLogo from './images/paypal-logo.png';
 import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 
 const PaymentPage = () => {
@@ -81,6 +83,7 @@ const PaymentPage = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="payment-container">
         <h2>Payment Details</h2>
         <div className="payment-options">
@@ -188,6 +191,7 @@ const PaymentPage = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

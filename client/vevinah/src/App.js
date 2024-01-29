@@ -10,8 +10,9 @@ import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
-import Navbar from './components/Navbar';
-import HomeFooter from './components/HomeFooter';
+import DineInForm from './components/DineInForm';
+
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -31,7 +32,6 @@ function App() {
 
   return (
     <Router>
-      <Navbar onAddToCart={handleAddToCart} cartItems={cartItems} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<Menu onAddToCart={onAddToCart} cartItems={cartItems} />} />
@@ -42,8 +42,10 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
+        <Route path="/dine-in" element={<DineInForm/>} />
+
+
       </Routes>
-      <HomeFooter />
     </Router>
   );
 }

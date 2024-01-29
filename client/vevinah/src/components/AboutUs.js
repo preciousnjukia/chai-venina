@@ -1,10 +1,13 @@
 import React from 'react';
 import './AboutUs.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 
 const AboutUs = () => {
     return (
       <div>
+        <Navbar />
         <div className="about-us-container">
           <div className="top-section">
             <div className="left-photo">
@@ -27,6 +30,7 @@ const AboutUs = () => {
           </div>
         </div>
     </div>
+    <Footer />
     </div>
   );
 };

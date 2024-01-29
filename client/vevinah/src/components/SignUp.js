@@ -22,7 +22,7 @@ const Register = () => {
 
   const isFormValid = () => {
     const { id, first_name, last_name, password, email, phone } = user;
-    if (!id || !first_name || !last_name || !password || !email || !phone) {
+    if ( !first_name || !last_name || !password || !email || !phone) {
       toast.warning("Please fill in all fields");
       return false;
     }
@@ -72,7 +72,7 @@ const Register = () => {
           </div>
           <div className="card-body">
             <div className="row">
-              {["id", "first_name", "last_name", "email", "phone", "password"].map((field) => (
+              {["First name", "Last name", "Email", "Phone", "Password"].map((field) => (
                 <div key={field} className="col-lg-6">
                   <div className="form-group">
                     <label>
