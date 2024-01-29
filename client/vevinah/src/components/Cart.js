@@ -57,7 +57,7 @@ function Cart() {
   }
 
   return (
-    <div>
+  <div>
       <Navbar />
       <div className="cart-page">
         <h2>MY CART</h2>
