@@ -1,112 +1,123 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import mpesaLogo from './images/mpesa-logo.png';
 import cashLogo from './images/cash-logo.png';
 import paypalLogo from './images/paypal-logo.png';
 import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-
+import HomeFooter from './HomeFooter';
 
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
-  const [addressDetails, setAddressDetails] = useState({
-    city: '',
-    area: '',
-    street: '',
-    building: '',
-    room: '',
-    notes: '',
-  });
+  const [redirect, setRedirect] = useState(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const userEmail = 'user@example.com';
-    const userId = await getUserId(userEmail);
-
-    if (!userId) {
-      console.error('User ID not available');
-      return;
+    if (selectedPayment === 'mpesa') {
+      setRedirect('/mpesa_payment');
+    } else if (selectedPayment === 'cash') {
+      alert('Please make payment upon delivery.');
+    } else if (selectedPayment === 'paypal') {
+      window.location.href = 'https://www.paypal.com/signin';
+    } else if (selectedPayment === 'binance') {
+      window.location.href = 'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
+    } else if (selectedPayment === 'visa') {
+      window.location.href = 'https://www.visaonline.com/login/';
     }
 
-    const paymentMethod = e.nativeEvent.submitter.name; // Get the name of the clicked button
-
-    try {
-      const response = await fetch('http://127.0.0.1:5000/address', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_id: userId,
-          payment_method: paymentMethod,
-          ...addressDetails,
-        }),
-      });
-
-      if (response.ok) {
-        console.log('Address details submitted successfully');
-        // Additional logic or redirection after successful submission
-      } else {
-        console.error('Failed to submit address details');
-        // Handle the error
-      }
-    } catch (error) {
-      console.error('Error during address submission:', error);
-    }
+    console.log('Payment submitted');
   };
 
   const handlePaymentChange = (e) => {
     setSelectedPayment(e.target.value);
   };
 
-  const handleAddressChange = (e) => {
-    setAddressDetails({
-      ...addressDetails,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleAddressValidation = () => {
-    const isConfirmed = window.confirm('Have you confirmed the details of the address?');
-
-    if (isConfirmed) {
-      // Redirect to PaymentPage and highlight Pay Now button
-      window.location.href = '/payment#pay-now';
-    } else {
-      // Redirect to PaymentPage and highlight the entire address container
-      window.location.href = '/payment#address-container';
-    }
-  };
+  if (redirect) {
+    return <Navigate to={redirect} />;
+  }
 
   return (
-    <div>
+    <div className="payment-container">
       <Navbar />
-      <div className="payment-container">
-        <h2>Payment Details</h2>
+      <h2>Payment Details</h2>
+      <form onSubmit={handleSubmit}>
         <div className="payment-options">
-          {['mpesa', 'cash', 'paypal', 'visa', 'binance'].map((paymentOption) => (
-            <div key={paymentOption} className="other-option">
-              <input
-                type="radio"
-                id={paymentOption}
-                name="paymentMethod"
-                value={paymentOption}
-                checked={selectedPayment === paymentOption}
-                onChange={handlePaymentChange}
-                required
-              />
-              <label htmlFor={paymentOption}>
-                <img src={getImageSource(paymentOption)} alt={paymentOption} />
-              </label>
-            </div>
-          ))}
+          <div className="other-option">
+            <input
+              type="radio"
+              id="mpesa"
+              name="paymentMethod"
+              value="mpesa"
+              checked={selectedPayment === 'mpesa'}
+              onChange={handlePaymentChange}
+              required
+            />
+            <label htmlFor="mpesa">
+              <img src={mpesaLogo} alt="Mpesa" />
+            </label>
+          </div>
+          <div className="other-option">
+            <input
+              type="radio"
+              id="cash"
+              name="paymentMethod"
+              value="cash"
+              checked={selectedPayment === 'cash'}
+              onChange={handlePaymentChange}
+              required
+            />
+            <label htmlFor="cash">
+              <img src={cashLogo} alt="Cash" />
+            </label>
+          </div>
+          <div className="other-option">
+            <input
+              type="radio"
+              id="paypal"
+              name="paymentMethod"
+              value="paypal"
+              checked={selectedPayment === 'paypal'}
+              onChange={handlePaymentChange}
+              required
+            />
+            <label htmlFor="paypal">
+              <img src={paypalLogo} alt="PayPal" />
+            </label>
+          </div>
+          <div className="other-option">
+            <input
+              type="radio"
+              id="binance"
+              name="paymentMethod"
+              value="binance"
+              checked={selectedPayment === 'binance'}
+              onChange={handlePaymentChange}
+              required
+            />
+            <label htmlFor="binance">
+              <img src={binanceLogo} alt="Binance" />
+            </label>
+          </div>
+          <div className="other-option">
+            <input
+              type="radio"
+              id="visa"
+              name="paymentMethod"
+              value="visa"
+              checked={selectedPayment === 'visa'}
+              onChange={handlePaymentChange}
+              required
+            />
+            <label htmlFor="visa">
+              <img src={visaLogo} alt="Visa" />
+            </label>
+          </div>
         </div>
 
-        {/* Delivery address form */}
-        <div className="delivery-address-form" id="address-container">
+        <div className="delivery-address-form">
           <label htmlFor="city" className="form-label">
             City:
           </label>
@@ -166,6 +177,7 @@ const PaymentPage = () => {
             placeholder="Room No. House No. Office Name"
             required
           />
+
           <label htmlFor="notes" className="form-label">
             Notes:
           </label>
@@ -174,60 +186,21 @@ const PaymentPage = () => {
             name="notes"
             className="form-input"
             placeholder="Anything we should know before entering your property"
-            onChange={handleAddressChange}
           />
         </div>
 
-        
         <div className="buttons-container">
-          <button type="submit" className="button pay-now" id="pay-now">
+          <button type="submit" className="button full-width" to={selectedPayment === 'mpesa' ? '/mpesa-payment' : '#'}>
             Pay Now
           </button>
-          <button type="button" className="button address-validate" onClick={handleAddressValidation}>
-            Confirm Address
-          </button>
-          <Link to="/tracking" className="button pay-on-delivery" style={{ width: '150px', height: '27px'}}>
-            Pay on Delivery 
+          <Link to="/tracking" className="button pay-on-delivery">
+            Pay Later
           </Link>
         </div>
-      </div>
-      <Footer />
+      </form>
+      <HomeFooter />
     </div>
   );
-};
-
-const getImageSource = (paymentOption) => {
-  switch (paymentOption) {
-    case 'mpesa':
-      return mpesaLogo;
-    case 'cash':
-      return cashLogo;
-    case 'paypal':
-      return paypalLogo;
-    case 'visa':
-      return visaLogo;
-    case 'binance':
-      return binanceLogo;
-    default:
-      return '';
-  }
-};
-
-const getUserId = async (userEmail) => {
-  try {
-    const response = await fetch(`http://127.0.0.1:5000/user/id/${userEmail}`);
-    const data = await response.json();
-
-    if (response.ok) {
-      return data.user_id;
-    } else {
-      console.error('Failed to get user ID');
-      return null;
-    }
-  } catch (error) {
-    console.error('Error during user ID retrieval:', error);
-    return null;
-  }
 };
 
 export default PaymentPage;
