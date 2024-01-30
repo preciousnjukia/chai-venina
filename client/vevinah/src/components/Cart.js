@@ -60,8 +60,8 @@ function Cart() {
   <div>
       <Navbar />
       <div className="cart-page">
-        <h2>MY CART</h2>
         <div className="cart-container">
+        <h2>MY CART</h2>
           {cartItems.length === 0 ? (
             <p>Your cart is empty.</p>
           ) : (
@@ -105,17 +105,16 @@ function Cart() {
           <div className="summary-note">
             * Delivery charges will be applicable based on your chosen address
           </div>
-        </div>
-
-        <div className="payment-options">
+          <div className="payment-options">
           <Link to="/menu">
             <button className="continue-shopping">Continue Shopping</button>
           </Link>
           <Link to="/sign_up">
-            <button className="pay-now" onClick={handlePayNow}>
+            <button className="continue-shopping" onClick={handlePayNow}>
               Sign in and Pay
             </button>
           </Link>
+        </div>
         </div>
       </div>
       <Footer />

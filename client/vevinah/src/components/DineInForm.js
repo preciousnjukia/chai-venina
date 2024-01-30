@@ -51,8 +51,6 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-      <Navbar />
       <div className="login-dialogue">
         <div className="app-title">{/* <h1>Reservation</h1> */}</div>
 
@@ -100,7 +98,5 @@ export default function SignUp() {
           </form>
         </div>
       </div>
-      <Footer />
-    </div>
   );
 }

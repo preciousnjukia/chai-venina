@@ -104,8 +104,9 @@ function Menu() {
             {menuItems.map((item) => (
               <div key={item.id}>
                 <img className="images" src={item.image} alt={item.name} />
-                <h3>{item.name}</h3>
-                <p>Kshs {item.price}</p>
+                <h3 className="item-name">{item.name}</h3>
+                
+                <p className="item-price">Kshs {item.price}</p>
                 <button
                   className="add-to-cart-button"
                   onClick={() => handleAddToCart(item)}

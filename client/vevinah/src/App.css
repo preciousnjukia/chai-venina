@@ -473,8 +473,8 @@ height: 180px;
   font-family: "Inter", sans-serif;
   transition: background-color 0.3s ease;
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin-left: 0;
 }
 .add-to-cart-button:hover {
   background-color: #9f4603e2;
@@ -490,23 +490,24 @@ height: 180px;
   margin-left: 40%;
   margin-top: 20%;
 }
-
+.item-name {
+  margin-bottom: 10px;
+  font-family:'Times New Roman', Times, serif;
+}
+.item-price {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 18px;
+}
 /*..orders..*/
 .cart-page {
   position: left;
   left: 20%;
-  background-color: #ff9d5722;
+  
 }
 
 h2 {
-  text-align: left;
-  margin-left: 10%;
-}
-
-p {
-  font-size: 20px;
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
+  margin-left: -85%;
+  margin-bottom: 10px;
 }
 
 .cart-container {
@@ -600,7 +601,7 @@ p {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   text-align: center;
-  background: rgba(223, 137, 70, 1);
+  background: rgb(223, 90, 70);
   color: white;
   display: flex;
   align-items: center;
@@ -636,6 +637,7 @@ p {
   margin-right: 10px;
   font-size: 14px;
   background: #ff964c;
+  margin-top: 20px;
 }
 
 .continue-shopping:hover{
@@ -748,6 +750,7 @@ p {
 .remove-button {
   padding: 13px;
   width: fit-content;
+  background-color: #d9534f;
 }
 
 /*..trackingpage..*/
@@ -896,7 +899,7 @@ button {
 .footer {
   background-color: #f9680088;
   color: #fff;
-  padding: 4px;
+  padding: 5px;
   color: black;
 }
 .footer h1 {

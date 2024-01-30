@@ -51,7 +51,7 @@ const TodaysSpecialSection = () => {
             <img src={card.image} alt={`Card ${card.id}`} />
             <h4>{card.title}</h4>
             <p>{card.description}</p>
-            <p> Kshs {card.price}</p>
+            <h5 style={{marginTop:'15px'}} > Kshs {card.price} </h5>
           </div>
         ))}
       </div>
