@@ -8,40 +8,41 @@ const SignIn = () => {
     password: "",
   });
 
+  const [userEmail, setUserEmail] = useState(""); // state to store user email
+
   const navigate = useNavigate();
 
   useEffect(() => {
     sessionStorage.clear();
   }, []);
 
-const proceedLogin = (e) => {
-  e.preventDefault();
+  const proceedLogin = (e) => {
+    e.preventDefault();
 
-  if (validate()) {
-    fetch("http://localhost:5000/login", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(userCredentials),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        if (response.success) {
-          toast.success("Logged in successfully.");
-
-          // Store the token or session identifier in local storage or a cookie
-          localStorage.setItem("token", response.token);
-          sessionStorage.setItem("username", userCredentials.username);
-          sessionStorage.setItem("userrole", response.role);
-          navigate("/menu");
-        } else {
-          toast.error("Failed to log in: " + response.message);
-        }
-      })
-      .catch((err) => {
-        toast.error("Failed to log in: " + err.message);
-      });
-  }
-};
+    if (validate()) {
+      fetch("http://localhost:5000/user/" + userCredentials.username)
+        .then((res) => res.json())
+        .then((resp) => {
+          if (Object.keys(resp).length === 0) {
+            toast.error("Please enter a valid username");
+          } else {
+            if (resp.password === userCredentials.password) {
+              toast.success("Success");
+              // Store user email in state
+              setUserEmail(resp.email);
+              sessionStorage.setItem("username", userCredentials.username);
+              sessionStorage.setItem("userrole", resp.role);
+              navigate("/menu");
+            } else {
+              toast.error("Please enter valid credentials");
+            }
+          }
+        })
+        .catch((err) => {
+          toast.error("Login failed due to: " + err.message);
+        });
+    }
+  };
 
   const validate = () => {
     const { username, password } = userCredentials;
@@ -105,7 +106,7 @@ const proceedLogin = (e) => {
             <div className="card-footer">
               <Link to="/payment" className="btn btn-primary">
                 Login
-              </ Link>{" "}
+              </Link>{" "}
               |{" "}
               <Link className="btn btn-success" to={"/sign_up"}>
                 New User

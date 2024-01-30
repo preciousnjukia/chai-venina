@@ -19,16 +19,6 @@ header {
   width: 100%;
 }
 
-.menu-icon {
-  display: flex;
-  flex-direction: row-reverse;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.728);
-  left: 95%;
-  position: fixed;
-  z-index:2;
-}
-
 .menu {
   display: none;
   position: relative;
@@ -86,9 +76,66 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; 
+  z-index: 1; /* Set a lower z-index for the carousel when the menu is open */
 }
 
+/**sidebar**/
+.sidebar-wrapper {
+  position: fixed;
+  right: 20px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 26px;
+  position: fixed;
+  opacity: 0.8;
+  top: 20px;
+  transition: opacity 0.3s ease;
+  right: 20px; /* Position the icon on the right side */
+}
+
+.sidebar {
+  background-color: rgba(255, 165, 0, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  color: white;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  margin-bottom: 10px;
+}
+
+.sidebar-list a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar-line {
+  border: none;
+  height: 1px;
+  background-color: white;
+  margin: 5px 0;
+}
+
+.side-menu,
+.about-icon,
+.contact-icon,
+.order-icon {
+  margin-right: 10px;
+}
 /******* ImageCarousel.css *****/
 .carousel-section {
   position: relative;
@@ -115,36 +162,41 @@ img.dark-box {
 }
 
 .carousel-tagline-overlay {
-  position: absolute;
-  bottom: 50px;
+  position:absolute;
+  bottom: 105px;
   left: 5px;
 }
 
-.carousel-tagline-overlay h2 {
-  font-size: 30px;
-  color: rgba(255, 255, 255, 0.728);
-  text-align: left;
-  font-family: "Inter" sans-serif;
+.carousel-tagline-overlay h2{
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.895);
+  font-family:'Times New Roman', Times, serif;
+  display:contents;
+  margin-left: 5px;
 }
 
 .carousel-tagline-overlay h4 {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.728);
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.895);
   font-weight: bold;
   text-align: left;
-  margin-left: 29px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  font-family:'Times New Roman', Times, serif;
 }
 
 .carousel-location-overlay {
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   right: 8px;
 }
 
 .carousel-location-overlay h3 {
-  font-size: 16px;
+  font-size: 22px;
   margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.728);
+  text-align: left;
+  font-family:'Times New Roman', Times, serif;
+  color: rgba(255, 255, 255, 0.895);
 }
 
 .carousel-button {
@@ -152,27 +204,27 @@ img.dark-box {
   bottom: 75px;
   left: 10px;
   padding: 10px 20px;
-  background-color: #b77638;
+  background-color: #ff964c;
   cursor: pointer;
   border-radius: 40px;
   width: fit-content;
 }
 
 .carousel-button:hover {
-  background-color: #47311d;
+  background-color: #9f4603e2;
+
 }
 
-.carousel-logo-overlay {
-  position: absolute;
-  top: 5px;
-  left: 52%;
-  transform: translateX(-50%);
-  height: 1cm;
+.carousel-logo-overlay{
+position: absolute;
+top: 5px; 
+left: 51%;
+transform: translateX(-50%);
 }
 
 .carousel-logo-overlay img {
-  width: 230px;
-  height: 180px;
+width: 200px; 
+height: 180px;
 }
 
 /****** Todays Special css ******/
@@ -180,7 +232,7 @@ img.dark-box {
   padding: 15px;
   font-size: 30px;
   margin-top: 10px;
-  color: #ff9d57;
+  color: #ff6a00;
   text-align: left;
 }
 .card-section {
@@ -294,17 +346,17 @@ img.dark-box {
   text-align: center;
   margin-left: 15px;
   margin-top: -25px;
-  color: #ff9d57;
+  color: #ff6a00;
 }
 .utensils {
   display: flex;
   align-items: center;
   margin-left: 39%;
-  color: #ff9d57;
-}
+  color: #ff6a00;
+ }
 
 .reservation-button {
-  background-color: #b77638;
+  background-color: #ff964c;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 40px;
@@ -314,7 +366,7 @@ img.dark-box {
 }
 
 .reservation-button:hover {
-  background-color: #47311d;
+  background-color: #9f4603e2;
 }
 
 /********* Dine In Form **********/
@@ -345,65 +397,6 @@ img.dark-box {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.form-dialogue {
-  background: #fff;
-  border: solid thin grey;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  width: 350px;
-  padding-bottom: 20px;
-}
-
-.form-dialogue > form > .form-item {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
-.form-dialogue > form > .form-item > label {
-  color: black;
-  width: 100%;
-  text-align: left;
-}
-
-.form-dialogue > form > .form-item > input {
-  border: solid thin lightgray;
-  border-radius: 3px;
-  background: white;
-}
-
-.form-dialogue > form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: center;
-  row-gap: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: center;
-}
-
-form > .login-btn {
-  font-weight: 550;
-  color: #ffffff;
-  padding: 10px;
-  height: auto;
-  border: none;
-  border-radius: 40px;
-  background-color: #b77638;
-  cursor: pointer;
-  font-weight: bold;
-  width: fit-content;
-  position: relative;
-}
-
 /*..menupage..*/
 .menu-image img {
   width: 100%;
@@ -474,7 +467,7 @@ form > .login-btn {
   border: none;
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  background-color: #b77638;
+  background-color: #ff964c;
   padding: 10px;
   font-size: 15px;
   font-family: "Inter", sans-serif;
@@ -484,7 +477,7 @@ form > .login-btn {
   justify-content: center;
 }
 .add-to-cart-button:hover {
-  background-color: #ee721444;
+  background-color: #9f4603e2;
   transition: 0.7s;
 }
 
@@ -518,7 +511,7 @@ p {
 
 .cart-container {
   position: relative;
-  background: #fffbfb;
+  background-color: #ff9d5723;
   display: flex;
   flex-direction: column;
   padding-left: 30px;
@@ -641,6 +634,26 @@ p {
   width: 150px;
   height: 40px;
   margin-right: 10px;
+  font-size: 14px;
+  background: #ff964c;
+}
+
+.continue-shopping:hover{
+  background: #9f4603e2;
+}
+
+.sign-and-pay {
+  background-color: #ff964c;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.sign-and-pay:hover {
+  background-color: #9f4603e2;
 }
 
 .confirmation-dialog-container {
@@ -700,7 +713,7 @@ p {
 .cart-summary {
   width: 100%;
   height: 200px;
-  background: rgba(255, 251, 251, 1);
+  background-color: #ff9d5723;;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -730,23 +743,6 @@ p {
   font-family: "Inter", sans-serif;
   text-align: center;
   margin-top: 10px;
-}
-
-.payment-options {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.pay-now {
-  background: rgba(255, 251, 251, 1);
-  border: 1px solid #000;
-  color: black;
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  width: 120px;
-  height: 40px;
 }
 
 .remove-button {
@@ -862,7 +858,7 @@ button {
 
 /*..navbar..*/
 .navbar {
-  background-color: #ff9d5768;
+  background-color: #f9680088;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -898,7 +894,7 @@ button {
 
 /* Footer */
 .footer {
-  background-color: #ff9d5768;
+  background-color: #f9680088;
   color: #fff;
   padding: 4px;
   color: black;
@@ -1189,4 +1185,75 @@ button {
 .btn-primary.signup-btn:hover {
   background-color: #5d4037;
   opacity: 1;
+}
+
+/* Mpesa Payment Page */
+
+.login-dialogue {
+  width: 100vw;
+  height: 100vh;
+  color: rgb(24, 23, 23);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-dialogue {
+  background: #fff;
+  border: solid thin grey;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  padding-bottom: 20px;
+}
+
+.form-dialogue h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff9d57;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-item label {
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+
+.form-item input {
+  border: solid thin lightgray;
+  border-radius: 3px;
+  background: white;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.button-submit,
+.button.continue {
+  flex: 1;
+  padding: 10px;
+  background-color: #FFA500;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button.continue {
+  margin-left: 20px;
 }

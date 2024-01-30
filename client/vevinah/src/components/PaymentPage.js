@@ -8,7 +8,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
   const [locations, setLocations] = useState([]);
@@ -25,23 +24,31 @@ const PaymentPage = () => {
   }, []);
 
 
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (selectedPayment === 'mpesa') {
+
       alert('Please make payment to Mpesa Till Number 707070.');
+
+//       setRedirect('/mpesa_payment');
+
     } else if (selectedPayment === 'cash') {
       alert('Please make payment upon delivery.');
     } else if (selectedPayment === 'paypal') {
       window.location.href = 'https://www.paypal.com/signin';
     } else if (selectedPayment === 'binance') {
+
       window.location.href =
         'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
+
     } else if (selectedPayment === 'visa') {
       window.location.href = 'https://www.visaonline.com/login/';
     }
     console.log('Payment submitted');
     alert('Payment submitted');
+
 
     const data = new FormData(e.target);
     const formObject = Object.fromEntries(data.entries());
@@ -75,6 +82,7 @@ const PaymentPage = () => {
     console.log(JSON.stringify(order));
     // Navigate to tracking page with order details as props
     navigate('/tracking', { replace: false, state: order });
+
   };
 
 
