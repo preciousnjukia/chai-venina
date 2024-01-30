@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -16,51 +16,49 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const isEmailValid = (email) => {
-    return /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email);
-  };
+  // const isEmailValid = (email) => {
+  //   return /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email);
+  // };
 
-  const isFormValid = () => {
-    const { id, first_name, last_name, password, email, phone } = user;
-    if ( !first_name || !last_name || !password || !email || !phone) {
-      toast.warning("Please fill in all fields");
-      return false;
-    }
+  // const isFormValid = () => {
+  //   const {first_name, last_name, password, email, phone } = user;
+  //   if ( !first_name || !last_name || !password || !email || !phone) {
+  //     toast.warning("Please fill in all fields");
+  //     return false;
+  //   }
 
-    if (!isEmailValid(email)) {
-      toast.warning("Please enter a valid email");
-      return false;
-    }
+  //   if (!isEmailValid(email)) {
+  //     toast.warning("Please enter a valid email");
+  //     return false;
+  //   }
 
-    return true;
+  //   return true;
+  // };
+
+  const handleChange = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setUser({ ...user, [id]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isFormValid()) {
-      fetch("http://localhost:5000/user", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(user),
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => {
+        toast.success("Registered successfully.");
+        setRegistrationSuccess(true);
+        navigate("/sign_in");
       })
-        .then((res) => {
-          toast.success("Registered successfully.");
-          setRegistrationSuccess(true);
-          navigate("/sign_in");
-        })
-        .catch((err) => {
-          toast.error("Failed: " + err.message);
-        });
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
+      .catch((err) => {
+        toast.error("Failed: " + err.message);
+        alert("Invalid");
+      });
   };
 
   return (
@@ -72,23 +70,25 @@ const Register = () => {
           </div>
           <div className="card-body">
             <div className="row">
-              {["First name", "Last name", "Email", "Phone", "Password"].map((field) => (
-                <div key={field} className="col-lg-6">
-                  <div className="form-group">
-                    <label>
-                      {field.charAt(0).toUpperCase() + field.slice(1)}{" "}
-                      <span className="errmsg">*</span>
-                    </label>
-                    <input
-                      type={field === "password" ? "password" : "text"}
-                      value={user[field]}
-                      onChange={handleChange}
-                      name={field}
-                      className="form-control"
-                    />
+              {["First name", "Last name", "Email", "Phone", "Password"].map(
+                (field) => (
+                  <div key={field} className="col-lg-6">
+                    <div className="form-group">
+                      <label>
+                        {field.charAt(0).toUpperCase() + field.slice(1)}{" "}
+                        <span className="errmsg">*</span>
+                      </label>
+                      <input
+                        type={field === "password" ? "password" : "text"}
+                        value={user[field]}
+                        onChange={handleChange}
+                        name={field}
+                        className="form-control"
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
           <div className="card-footer">
