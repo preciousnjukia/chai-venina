@@ -19,6 +19,16 @@ header {
   width: 100%;
 }
 
+.menu-icon {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.728);
+  left: 95%;
+  position: absolute;
+  z-index: 2;
+}
+
 .menu {
   display: none;
   position: relative;
@@ -237,12 +247,12 @@ height: 180px;
 }
 .card-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: -22px;
   margin-bottom: 55px;
 }
 
-.card {
+.cards {
   width: 280px;
   padding: 10px;
   border: 1px solid #979797;
@@ -251,8 +261,8 @@ height: 180px;
   text-align: left;
 }
 
-.card img {
-  width: 80%;
+.cards img {
+  width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
@@ -276,7 +286,6 @@ height: 180px;
   margin-left: 40%;
   margin-top: 20%;
 }
-
 /****** CustomerReview.css ******/
 
 .review-cards {
@@ -448,19 +457,6 @@ height: 180px;
   transform: translate(-50%, -50%);
   padding: 0px 15px;
 }
-
-.food-search {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #ccc;
-  padding: 12px;
-  height: 100%;
-  font-size: 15px;
-  font-family: "Inter", sans-serif;
-  width: 100%;
-  margin-left: 20px;
-  align-content: center;
-}
-
 .body {
   width: 100%;
   min-height: 100vh;
@@ -475,7 +471,7 @@ height: 180px;
   align-items: center;
   margin-left: 10px;
 }
-
+  
 .cards-container {
   width: 100%;
   display: grid;
@@ -488,31 +484,31 @@ height: 180px;
   flex: 1 1 21rem;
   margin-left: -10%;
 }
-
+  
 .images {
   height: 250px;
   width: 280px;
   object-fit: cover;
   border-radius: 20px;
-}
-
-.add-to-cart-button {
-  border: none;
-  border-radius: 10px;
-  color: rgb(255, 255, 255);
-  background-color: #b77638;
-  padding: 10px;
-  font-size: 15px;
-  font-family: "Inter", sans-serif;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.add-to-cart-button:hover {
-  background-color: #ee721444;
-  transition: 0.7s;
-}
+}  
+ 
+  .add-to-cart-button {
+    border: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: #ff964c;
+    padding: 10px;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-to-cart-button:hover {
+    background-color: #9f4603e2;
+    transition: 0.7s;
+  }
 
 .notification {
   position: fixed;
@@ -888,7 +884,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 8px;
   font-family: "Inter", sans-serif;
 }
 
@@ -899,20 +895,20 @@ h2 {
   display: flex;
 }
 
-.nav-item {
+.navlink {
   margin-right: 30px;
   text-decoration: none;
   color: #000000;
 }
 
-.nav-link:hover {
+.navlink:hover {
   color: #210801;
   font-size: 18px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .navbar-brand img {
-  position: absolute;
+  position: relative;
   top: 7px;
   left: 10px;
   height: 1.4cm;
@@ -1018,11 +1014,26 @@ h2 {
   justify-content:space-evenly;
 }
 
-.card {
+.card-payment1 {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card-payment2 {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card-total {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: 120px;
+  margin-top: 20px;
 }
 
 .card-payment-options {
@@ -1082,123 +1093,147 @@ h2 {
 }
 
 
-/*..SignIn CSS..*/
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10%;
-}
-
+/*..Signup..*/
 .card {
-  width: 100%;
-  max-width: 400px;
+  width: 500px;
+  margin: 0 auto;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 520px;
 }
 
 .card-header {
-  background-color: #df8946;
-  color: #fff;
-  padding: 10px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  width: 40%;
+  padding: 20px;
+  background-color: #fac898;
+  border-radius: 5px 0 0 5px;
+}
+.card-header h1 {
+  margin-top:50%;
 }
 
 .card-body {
-  padding: 20px;
+  padding: 30px;
+  width: 50%;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
+label {
+  font-weight: 400;
 }
 
-.form-control {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.errmsg {
-  color: #ff0000;
+.form-footer {
+  margin-top: 36%;
+  position: absolute;
 }
 
-.card-footer {
-  background-color: #df8946;
-  color: #fff;
-  padding: 10px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+.alert {
+  margin-top: 20px;
 }
 
-.btn-primary {
-  background-color: #5d4037;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #c5703c;
-  opacity: 0.8;
-}
-
-.btn-success {
-  background-color: #28a745;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
+.alert-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border-color: #d6e9c6;
+  padding: 15px;
   border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-.btn-success:hover {
-  background-color: #218838;
-  opacity: 0.8;
+/*..Login..*/
+.login-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+  background-color: transparent;
+  height: 300px;
 }
 
-.btn-success {
-  background-color: #5d4037;
+.login-card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fac898;
+  padding: 20px;
+  border-radius: 0 5px 5px 0;
+  width: 40%;
 }
 
-.btn-success:hover {
-  background-color: #333;
+.login-card-body {
+  padding: 30px;
+  width: 60%;
 }
 
-.btn-success,
-.btn-success:hover {
-  border-radius: 20px;
+.login-card-header h2 {
+  margin: 0;
+  margin-left: auto;
 }
 
-/*..Sign Up..*/
-.btn-primary.signup-btn {
-  background-color: #5d4037;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: none;
+.login-form-footer {
+  text-align: center;
+  position: absolute;
+  margin-top: 18%;
+}
+.login-form-group {
+  margin-bottom: 2px;
 }
 
-.btn-primary.signup-btn:hover {
-  background-color: #5d4037;
-  opacity: 1;
+/*signinandsignup*/
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.left-section {
+  width:50%;
+  background-color: #fac898;
+}
+
+@media (max-width: 768px) {
+  .left-section {
+    width: 100%;
+  }
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #030303;
+}
+
+.col-lg-6 {
+  width: 70%;
+  padding: 10px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .col-lg-6 {
+    width: 100%;
+  }
 }
 
 /* Mpesa Payment Page */

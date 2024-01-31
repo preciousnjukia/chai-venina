@@ -16,25 +16,6 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  // const isEmailValid = (email) => {
-  //   return /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email);
-  // };
-
-  // const isFormValid = () => {
-  //   const {first_name, last_name, password, email, phone } = user;
-  //   if ( !first_name || !last_name || !password || !email || !phone) {
-  //     toast.warning("Please fill in all fields");
-  //     return false;
-  //   }
-
-  //   if (!isEmailValid(email)) {
-  //     toast.warning("Please enter a valid email");
-  //     return false;
-  //   }
-
-  //   return true;
-  // };
-
   const handleChange = (e) => {
     const id = e.target.id;
     const value = e.target.value;
@@ -63,12 +44,12 @@ const Register = () => {
 
   return (
     <div className="offset-lg-3 col-lg-6">
-      <form className="container" onSubmit={handleSubmit}>
-        <div className="card">
-          <div className="card-header">
-            <h1>User Registration</h1>
-          </div>
-          <div className="card-body">
+      <div className="card">
+        <div className="card-header">
+          <h1>Sign up</h1>
+        </div>
+        <div className="card-body">
+          <form className="container" onSubmit={handleSubmit}>
             <div className="row">
               {["First name", "Last name", "Email", "Phone", "Password"].map(
                 (field) => (
@@ -90,17 +71,14 @@ const Register = () => {
                 )
               )}
             </div>
-          </div>
-          <div className="card-footer">
-            <button type="submit" className="btn btn-primary signup-btn">
-              {registrationSuccess ? "Registered!" : "Register"}
-            </button>{" "}
-            <Link to={"/sign_in"} className="btn btn-danger">
-              Sign In
-            </Link>
-          </div>
+            <div className="form-footer">
+              <button type="submit" className="continue-shopping">
+                {registrationSuccess ? "Registered!" : "Signup"}
+              </button>{" "}
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
       {registrationSuccess && (
         <div className="alert alert-success" role="alert">
           Registration successful! You can now sign in.

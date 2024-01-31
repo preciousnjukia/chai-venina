@@ -73,12 +73,12 @@ const SignIn = () => {
     <div className="row">
       <div className="offset-lg-3 col-lg-6" style={{ marginTop: "100px" }}>
         <form onSubmit={proceedLogin} className="container">
-          <div className="card">
-            <div className="card-header">
-              <h2>User Login</h2>
+          <div className="card login-card">
+            <div className="card-header login-card-header">
+              <h2>Login</h2>
             </div>
-            <div className="card-body">
-              <div className="form-group">
+            <div className="card-body login-card-body">
+              <div className="login-form-group">
                 <label>
                   User Name <span className="errmsg">*</span>
                 </label>
@@ -103,13 +103,11 @@ const SignIn = () => {
                 />
               </div>
             </div>
-            <div className="card-footer">
-              <Link to="/payment" className="btn btn-primary">
-                Login
-              </Link>{" "}
-              |{" "}
-              <Link className="btn btn-success" to={"/sign_up"}>
-                New User
+            <div className="form-footer login-form-footer">
+              <Link to="/payment">
+                <button className="continue-shopping">
+                  Login
+                </button>
               </Link>
             </div>
           </div>

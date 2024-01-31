@@ -109,7 +109,7 @@ function Cart() {
           <Link to="/menu">
             <button className="continue-shopping">Continue Shopping</button>
           </Link>
-          <Link to="/sign_up">
+          <Link to="/signin_signup">
             <button className="continue-shopping" onClick={handlePayNow}>
               Sign in and Pay
             </button>

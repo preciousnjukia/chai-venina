@@ -29,19 +29,19 @@ function Navbar() {
         <img src={logo} alt="Vevinah Brand" />
       </a>
       <ul className="navbar-nav">
-        <li className="nav-item">
+        <li className="navlink">
           <Link to="/">Home</Link>
         </li>
-        <li className="nav-item">
+        <li className="navlink">
           <Link to="/menu">Menu</Link>
         </li>
-        <li className="nav-item">
+        <li className="navlink">
           <Link to="/contact-us">Contact Us</Link>
         </li>
-        <li className="nav-item">
+        <li className="navlink">
           <Link to="/about-us">About Us</Link>
         </li>
-        <li>
+        <li className="navlink">
           <Link to={{ pathname: "/cart", state: { cartItems: cartItems } }}>
             <ShoppingCart />
             {cartLength > 0 && <span>{cartLength}</span>}
