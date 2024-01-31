@@ -362,7 +362,7 @@ height: 180px;
   border-radius: 40px;
   width: fit-content;
   height: 50px;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .reservation-button:hover {
@@ -370,33 +370,56 @@ height: 180px;
 }
 
 /********* Dine In Form **********/
-* {
-  margin: 0px;
-}
-.app-title > h1 {
-  color: white;
-}
-
-.app-tagline > h3 {
-  color: white;
-  font-size: small;
-  font-style: italic;
-}
-
 .login-dialogue {
-  width: 100vw;
-  height: 100vh;
-  color: rgb(24, 23, 23);
-  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+}
+
+.form-dialogue {
+  z-index: 1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+.form-dialogue form {
+  display:inline-block;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* background-image: url(D:\Development\vevinah\client\vevinah\src\assets\restaurant-449952_1280.jpg); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
+
+.form-item {
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  width: fit-content;
+  padding: 10px;
+  background-color: #ff9d57;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color:#5d4037;
+}
+
+
 /*..menupage..*/
 .menu-image img {
   width: 100%;
@@ -473,8 +496,8 @@ height: 180px;
   font-family: "Inter", sans-serif;
   transition: background-color 0.3s ease;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-left: 0;
 }
 .add-to-cart-button:hover {
   background-color: #9f4603e2;
@@ -489,14 +512,6 @@ height: 180px;
   border-radius: 4px;
   margin-left: 40%;
   margin-top: 20%;
-}
-.item-name {
-  margin-bottom: 10px;
-  font-family:'Times New Roman', Times, serif;
-}
-.item-price {
-  font-family:'Times New Roman', Times, serif;
-  font-size: 18px;
 }
 /*..orders..*/
 .cart-page {
@@ -755,14 +770,15 @@ h2 {
 
 /*..trackingpage..*/
 .track-order-container {
-  padding: 20px;
+  padding: 70px;
   text-align: center;
 }
 
 .steps-container {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: -40px;
 }
 
 .step {
@@ -815,30 +831,24 @@ h2 {
 .rating-container {
   display: center;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .rating-container button {
   background-color: transparent;
-  border: none;
-  margin: 0;
+  margin: -20px;
   cursor: pointer;
 }
 
 .rating-container button .star {
   fill: none;
   stroke: rgba(255, 200, 0, 0.799);
-  stroke-width: 3px;
+  stroke-width: 1.5px;
 }
 
 .rating-container button.active .star {
   fill: rgba(255, 200, 0, 0.799);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
 }
 
 .feedback {
@@ -849,14 +859,17 @@ form {
   border-radius: 5px;
 }
 
-button {
-  background-color: #ee7214;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
+.submit-review-button {
+  width: 150px;
+  height: 40px;
+  margin-right: 10px;
+  font-size: 14px;
+  background: #ff964c;
+  margin-top: 20px;
+}
+
+.submit-review-button:hover{
+  background: #9f4603e2;
 }
 
 /*..navbar..*/
@@ -979,97 +992,85 @@ button {
 
 /*..payment page..*/
 .payment-container {
-  text-align: center;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.cards-container {
+  display:inline-flex;
+  justify-content:space-evenly;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-payment-options {
+  width:max-content;
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .payment-options {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .other-option {
   display: flex;
   align-items: center;
-}
-
-.other-option img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-}
-
-.delivery-address-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
+.other-option input[type="radio"] {
+  display: none;
+}
+
+.other-option label {
+  cursor: pointer;
+}
+
+.other-option img {
+  width: 70px;
+  height: auto;
+}
+
+.delivery-address-form {
+  width: 45%;
+  display: block ;
+  margin-left: 30px;
+}
+
 .form-label {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  color: maroon;
-  font-weight: 300;
+  margin-left: -90px;
 }
 
 .form-input {
-  width: calc(100% - 40px);
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  background-color: #ffe6cc;
-  border-radius: 8px;
-  color: black;
-  font-weight: 300;
-  border: none;
-  outline: none;
+  width: 180%;
+  padding: 8px;
+  margin-bottom: 15px;
+  display: inline-block;
 }
 
 .buttons-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: -8px;
 }
 
-.button {
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  background-color: #ff9800;
-  color: white;
-  width: 150px;
-  height: 40px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.button:hover {
-  background-color: #e08000;
-}
-
-.pay-now {
-  background-color: #ff9800;
-}
-
-.pay-on-delivery {
-  background-color: #ff9800;
-}
-
-.address-validate {
-  background-color: #ff9800;
-}
 
 /*..SignIn CSS..*/
 .container {

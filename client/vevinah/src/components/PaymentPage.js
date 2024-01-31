@@ -7,7 +7,7 @@ import binanceLogo from './images/binance-logo.png';
 import visaLogo from './images/visa-logo.png';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import HomeFooter from './HomeFooter';
+
 
 const PaymentPage = () => {
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -40,12 +40,15 @@ const PaymentPage = () => {
   }
 
   return (
+    <div>
+    <Navbar />
     <div className="payment-container">
-      <Navbar />
       <h2>Payment Details</h2>
       <form onSubmit={handleSubmit}>
-        <div className="payment-options">
-          <div className="other-option">
+        <div className="cards-container">
+          <div className="card-payment-options">
+            <p>Select a payment option:</p>
+          <div className="payment-options">
             <input
               type="radio"
               id="mpesa"
@@ -56,7 +59,7 @@ const PaymentPage = () => {
               required
             />
             <label htmlFor="mpesa">
-              <img src={mpesaLogo} alt="Mpesa" />
+              <img src={mpesaLogo} alt="Mpesa" /> M-pesa
             </label>
           </div>
           <div className="other-option">
@@ -70,7 +73,7 @@ const PaymentPage = () => {
               required
             />
             <label htmlFor="cash">
-              <img src={cashLogo} alt="Cash" />
+              <img src={cashLogo} alt="Cash" /> Cash
             </label>
           </div>
           <div className="other-option">
@@ -84,7 +87,7 @@ const PaymentPage = () => {
               required
             />
             <label htmlFor="paypal">
-              <img src={paypalLogo} alt="PayPal" />
+              <img src={paypalLogo} alt="PayPal" /> PayPal
             </label>
           </div>
           <div className="other-option">
@@ -98,7 +101,7 @@ const PaymentPage = () => {
               required
             />
             <label htmlFor="binance">
-              <img src={binanceLogo} alt="Binance" />
+              <img src={binanceLogo} alt="Binance" /> Binance
             </label>
           </div>
           <div className="other-option">
@@ -112,16 +115,18 @@ const PaymentPage = () => {
               required
             />
             <label htmlFor="visa">
-              <img src={visaLogo} alt="Visa" />
+              <img src={visaLogo} alt="Visa" /> Visa
             </label>
           </div>
         </div>
 
+        <div className="card">
         <div className="delivery-address-form">
           <label htmlFor="city" className="form-label">
             City:
           </label>
           <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             type="text"
             id="city"
             name="city"
@@ -134,6 +139,7 @@ const PaymentPage = () => {
             Area:
           </label>
           <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             type="text"
             id="area"
             name="area"
@@ -146,6 +152,7 @@ const PaymentPage = () => {
             Street:
           </label>
           <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             type="text"
             id="street"
             name="street"
@@ -158,6 +165,7 @@ const PaymentPage = () => {
             Building:
           </label>
           <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             type="text"
             id="building"
             name="building"
@@ -170,6 +178,7 @@ const PaymentPage = () => {
             Room:
           </label>
           <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             type="text"
             id="room"
             name="room"
@@ -182,6 +191,7 @@ const PaymentPage = () => {
             Notes:
           </label>
           <textarea
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
             id="notes"
             name="notes"
             className="form-input"
@@ -190,15 +200,20 @@ const PaymentPage = () => {
         </div>
 
         <div className="buttons-container">
-          <button type="submit" className="button full-width" to={selectedPayment === 'mpesa' ? '/mpesa-payment' : '#'}>
+          <button type="submit" className="continue-shopping" to={selectedPayment === 'mpesa' ? '/mpesa-payment' : '#'}>
             Pay Now
           </button>
-          <Link to="/tracking" className="button pay-on-delivery">
-            Pay Later
+          <Link to="/tracking">
+            <button className="continue-shopping">
+            Pay on Delivery
+            </button>
           </Link>
         </div>
+        </div>
+        </div>
       </form>
-      <HomeFooter />
+    </div>
+    <Footer />
     </div>
   );
 };

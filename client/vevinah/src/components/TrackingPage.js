@@ -4,7 +4,6 @@ import '../App.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-
 function TrackingPage() {
   const estimatedTime = 5;
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -12,7 +11,7 @@ function TrackingPage() {
   const [feedback, setFeedback] = useState('');
 
   const user = {
-    email: 'user@example.com', 
+    email: 'user@example.com',
   };
 
   useEffect(() => {
@@ -78,10 +77,20 @@ function TrackingPage() {
           key={i}
           onClick={() => handleRateClick(i)}
           className={i <= rate ? 'active' : ''}
+          style={{
+            transition: 'background-color 0.3s ease-in-out',
+            backgroundColor: 'transparent', // Set the background color to transparent
+            ':hover': { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
+          }}
         >
-          <Star className="star" color="currentColor" size={24} />
+          <Star
+            className="star"
+            color="currentColor"
+            size={28}
+          />
         </button>
       );
+      
     }
 
     return ratingIcons;
@@ -89,7 +98,7 @@ function TrackingPage() {
 
   return (
     <div>
-    <Navbar />
+      <Navbar />
       <div className="track-order-container">
         <div className="steps-container">
           {['Ordered', 'Preparing', 'In Transit', 'Arrived'].map((step, index) => (
@@ -112,25 +121,27 @@ function TrackingPage() {
 
         {/* Creative form for order status */}
         <div className="order-status-form">
-          <h2>Your feedback is important to us</h2>
-          <label htmlFor="status1">Rate our Service: </label>
+          <h3 style={{marginBottom:"30px", fontSize:"20px"}}>Your feedback is important to us:</h3>
+          <label htmlFor="status1"m style={{fontSize:"20px"}}>Rate our Service: </label>
           <div className="rating-container">{renderRatingIcons()}</div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="status2">What Makes You Feel This Way:</label>
-            <input
-              className='feedback'
-              type="text"
-              id="status2"
-              placeholder="Good Food, Fast delivery etc.."
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
+        <label htmlFor="status2">What Makes You Feel This Way</label>
+        <input
+          className="feedback"
+          type="text"
+          id="status2"
+          placeholder="Good Food, Fast delivery etc.."
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+        />
+        <button type="submit" className="continue-shoppingbtn">
+          Submit
+        </button>
+      </form>
         </div>
       </div>
       <Footer />
-      </div>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Logo from "../assets/logo.png";
+import Carousel1 from "../assets/dineinphoto.jpg";
 // import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -10,11 +10,13 @@ export default function SignUp() {
   let currentDateTime = new Date().toJSON();
   const [formData, setFormData] = useState({
     date_time: currentDateTime,
-    guest_number: "2",
+    guest_number: "",
     reservation_notes: "",
   });
 
+  const image = [Carousel1];
   const navigate = useNavigate();
+
 
   function handleChange(e) {
     const id = e.target.id;
@@ -52,13 +54,10 @@ export default function SignUp() {
 
   return (
       <div className="login-dialogue">
-        <div className="app-title">{/* <h1>Reservation</h1> */}</div>
-
-        {/* <img className="logo" alt="logo" src={Logo} /> */}
-        <div className="form-dialogue">
+        <img src={image} alt="menu-image" className="background-image"/>
+        <div className="form-dialogue" style={{backgroundColor:'rgba(255, 255, 255, 0.8)'}}>
           <form onSubmit={handleSubmit}>
-            <h2>Reservation</h2>
-
+            <h2 style={{marginLeft:'10px', marginTop:'0', marginBottom:'30px'}}>Reservation</h2>
             <div className="form-item">
               <label htmlFor="date"> Reservation Date:</label>
               <input
