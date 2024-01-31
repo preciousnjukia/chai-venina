@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from 'react-datepicker';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -54,6 +54,8 @@ const Reservation = () => {
 
   return (
     <div>
+      <Navbar />
+      <div className="reservation-form">
       <h1>Reservation</h1>
       <DatePicker selected={selectedDate} onChange={handleDateChange} />
       <select value={numberOfGuests} onChange={handleGuestsChange}>
@@ -72,6 +74,8 @@ const Reservation = () => {
       </select>
       <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
       <button onClick={handleBookNow}>Book Now</button>
+      </div>
+      <Footer />
     </div>
   );
 };
