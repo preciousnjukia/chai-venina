@@ -1,12 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // If using React Router
+import React, { useState } from "react";
 import "../App.css";
 import ImageCarousel from "./ImageCarousel";
 import TodaysSpecialSection from "./TodaysSpecialSection";
 import DineIn from "./dineIn";
 import ReviewSection from "./ReviewSection";
-// import Footer from "./Footer";
 import HomeFooter from "./HomeFooter";
+import Sidebar from "./sidebar";
 
 const HomePage = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -18,33 +17,7 @@ const HomePage = () => {
   return (
     <div className="app">
       <header>
-        <div
-          className="menu-icon"
-          onClick={toggleMenu}
-          style={{ fontSize: "28px" }}
-        >
-          &#9776; {/* Hamburger icon */}
-        </div>
-        <nav
-          className={`menu ${isMenuOpen ? "open" : ""}`}
-          tabIndex="0"
-          onBlur={() => setMenuOpen(false)}
-        >
-          <ul>
-            <li className="SideBar-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="SideBar-item">
-              <Link to="/menu">Menu</Link>
-            </li>
-            <li className="SideBar-item">
-              <Link to="/about-us">About Us</Link>
-            </li>
-            <li className="SideBar-item">
-              <Link to="/contact-us">Contact Us</Link>
-            </li>
-          </ul>
-        </nav>
+        <Sidebar /> {/* Replace the menu icon and nav with the Sidebar component */}
       </header>
 
       <main>

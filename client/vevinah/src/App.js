@@ -11,8 +11,7 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
 import DineInForm from './components/DineInForm';
-
-
+import MpesaPaymentPage from './components/PaymentForm';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -42,13 +41,11 @@ function App() {
         <Route path="/sign_up" element={<Register />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
+        <Route path="/mpesa_payment" element={<MpesaPaymentPage />} /> 
         <Route path="/dine-in" element={<DineInForm/>} />
-
-
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

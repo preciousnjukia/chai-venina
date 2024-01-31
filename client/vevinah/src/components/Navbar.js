@@ -1,10 +1,8 @@
-// Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "react-feather";
 import logo from "../assets/chai-vevinah-logo.png";
 import { useEffect, useState } from "react";
-
 function Navbar() {
   const savedCart = localStorage.getItem("cart");
   const [cartItems, setCartItems] = useState(
