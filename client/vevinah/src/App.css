@@ -1306,3 +1306,66 @@ input[type="password"] {
 .button.continue {
   margin-left: 20px;
 }
+
+/* DineIn-Reservation */
+
+@import "~react-datepicker/dist/react-datepicker.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  color: #000; 
+}
+
+.app {
+  text-align: left;
+  position: relative;
+  color: #fff;
+}
+
+.reservation-form {
+  margin-top: 1px; 
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-right: 600px;
+  margin-left: 100px;
+}
+
+h1, h3 {
+  color: #000000;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  width: 100%;
+}
+
+select,
+input[type="email"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+select,
+input[type="email"] {
+  background-color: #fff; 
+}
+
+button {
+  background-color: #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #9f4603e2;
+}

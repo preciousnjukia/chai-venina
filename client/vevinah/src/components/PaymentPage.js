@@ -29,20 +29,14 @@ const PaymentPage = () => {
     e.preventDefault();
 
     if (selectedPayment === 'mpesa') {
-
+      //setRedirect('/mpesa_payment');
       alert('Please make payment to Mpesa Till Number 707070.');
-
-//       setRedirect('/mpesa_payment');
-
     } else if (selectedPayment === 'cash') {
       alert('Please make payment upon delivery.');
     } else if (selectedPayment === 'paypal') {
       window.location.href = 'https://www.paypal.com/signin';
     } else if (selectedPayment === 'binance') {
-
-      window.location.href =
-        'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
-
+      window.location.href ='https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
     } else if (selectedPayment === 'visa') {
       window.location.href = 'https://www.visaonline.com/login/';
     }
