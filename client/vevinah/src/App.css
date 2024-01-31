@@ -19,6 +19,16 @@ header {
   width: 100%;
 }
 
+.menu-icon {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.728);
+  left: 95%;
+  position: absolute;
+  z-index: 2;
+}
+
 .menu {
   display: none;
   position: relative;
@@ -238,7 +248,7 @@ height: 180px;
 .card-section {
   display: flex;
   justify-content: space-around;
-  margin-top: -25px;
+  margin-top: -5px;
   margin-bottom: 55px;
 }
 
@@ -267,6 +277,15 @@ height: 180px;
   color: #555;
 }
 
+.notificationS {
+  position: fixed;
+  background-color: #fac898;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-left: 40%;
+  margin-top: 20%;
+}
 /****** CustomerReview.css ******/
 
 .review-cards {
@@ -864,6 +883,16 @@ button {
   align-items: center;
   padding: 20px;
   font-family: "Inter", sans-serif;
+  animation: fade-in 1s ease-in-out;
+  background-color: orange;
+}
+keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .navbar-nav {
@@ -882,11 +911,11 @@ button {
 .nav-link:hover {
   color: #210801;
   font-size: 18px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .navbar-brand img {
-  position: absolute;
+  position: relative;
   top: 7px;
   left: 10px;
   height: 1.4cm;
