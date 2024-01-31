@@ -103,10 +103,10 @@ function TodaysSpecialSection() {
         )}
         <div className="card-section">
           {menuItems.map((item) => (
-            <div key={item.id}>
-              <a href="#" onClick={(event) => handleAddToCart(item, event)}>
+            <div className="card" key={item.id}>
+              <Link to={'/cart'} onClick={(event) => handleAddToCart(item, event)}>
                 <img className="images" src={item.image} alt={item.name} />
-              </a>
+              </Link>
               <h3>{item.name}</h3>
               <p>Kshs {item.price}</p>
             </div>

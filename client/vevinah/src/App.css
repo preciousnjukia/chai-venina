@@ -231,40 +231,50 @@ height: 180px;
 .todays-special-heading h3 {
   padding: 15px;
   font-size: 30px;
-  margin-top: 10px;
-  color: #ff6a00;
+  margin-top: 5px;
+  color: #ff9d57;
   text-align: left;
 }
 .card-section {
   display: flex;
   justify-content: space-around;
-  margin-top: -25px;
+  margin-top: -22px;
   margin-bottom: 55px;
 }
 
 .card {
-  width: 350px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  /* border-radius: 8px; */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  width: 280px;
+  padding: 10px;
+  border: 1px solid #979797;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   text-align: left;
 }
 
 .card img {
-  width: 100%;
+  width: 80%;
   height: auto;
   margin-bottom: 10px;
 }
 
-.card h4 {
-  font-size: 19px;
+.card h3 {
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 1rem;
   color: #555;
+}
+
+.notificationS {
+  position: fixed;
+  background-color: #fac898;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-left: 40%;
+  margin-top: 20%;
 }
 
 /****** CustomerReview.css ******/
@@ -490,7 +500,7 @@ height: 180px;
   border: none;
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  background-color: #ff964c;
+  background-color: #b77638;
   padding: 10px;
   font-size: 15px;
   font-family: "Inter", sans-serif;
@@ -500,7 +510,7 @@ height: 180px;
   justify-content: center;
 }
 .add-to-cart-button:hover {
-  background-color: #9f4603e2;
+  background-color: #ee721444;
   transition: 0.7s;
 }
 

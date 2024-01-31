@@ -17,7 +17,7 @@ function TrackingPage() {
   const user = {
     email: "user@example.com",
   };
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setElapsedTime((prevTime) => prevTime + 1);
@@ -27,6 +27,8 @@ function TrackingPage() {
   }, []);
 
   // Calculate estimated time using distance calculated from Google Maps API
+  useEffect(() =>{
+  if (state && state.destination && state.origin){
   const url = `http://localhost:5000/distance?destinations=${state.destination.latitude},${state.destination.longitude}&origins=${state.origin.latitude},${state.origin.longitude}&key=${api_key}`;
 
   // send a GET request to the Distance Matrix API
@@ -40,6 +42,9 @@ function TrackingPage() {
       setEstimatedTime(newEstimatedTime);
     })
     .catch((error) => console.error("Error:", error));
+  }
+}, [state, defaultTime]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {

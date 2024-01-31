@@ -160,87 +160,8 @@ const PaymentPage = () => {
     <h2>Payment Details</h2>
     <div className="payment-container">
       <form onSubmit={handleSubmit}>
-        <div className="payment-card">
-          <strong>1. Delivery Address</strong>
-          <div className="delivery-address-form">
-            <label htmlFor="area" className="form-label">
-              Area:
-            </label>
-
-            <select id="fi-cityId" name="cityId" className="form-control">
-              <option value="" disabled="">
-                Please select
-              </option>
-              <option value="1027">* SELECT YOUR CITY / AREA BELOW *</option>
-
-              {locations.map((location) => (
-                <option key={location.id} value={location.id}>
-                  {location.name}
-                </option>
-              ))}
-            </select>
-
-            <label htmlFor="street" className="form-label">
-              Street:
-            </label>
-            <input
-              type="text"
-              id="street"
-              name="street"
-              className="form-input"
-              placeholder="Monrovia, UtaliiAve"
-              required
-            />
-
-            <label htmlFor="building" className="form-label">
-              Building:
-            </label>
-            <input
-              type="text"
-              id="building"
-              name="building"
-              className="form-input"
-              placeholder="GTC, Mirage, KICC, Chancery, UAP"
-              required
-            />
-
-            <label htmlFor="room" className="form-label">
-              Room:
-            </label>
-            <input
-              type="text"
-              id="room"
-              name="room"
-              className="form-input"
-              placeholder="Room No. House No. Office Name"
-              required
-            />
-          <label htmlFor="room" className="form-label">
-            Room:
-          </label>
-          <input
-            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
-            type="text"
-            id="room"
-            name="room"
-            className="form-input"
-            placeholder="Room No. House No. Office Name"
-            required
-          />
-
-            <label htmlFor="notes" className="form-label">
-              Notes:
-            </label>
-            <textarea
-              id="notes"
-              name="notes"
-              className="form-input"
-              placeholder="Anything we should know before entering your property"
-            />
-          </div>
-        </div>
-        <div className="payment-container">
-          <div className="payment-card">
+      <div className="payment-container">
+          <div className="card">
             <strong>2. Payment Options</strong>
             <br />
             <div className="payment-options">
@@ -267,7 +188,73 @@ const PaymentPage = () => {
               )}
             </div>
           </div>
-          <div className="payment-card">
+        <div className="card">
+          <strong>1. Delivery Address</strong>
+          <div className="delivery-address-form">
+            <label htmlFor="area" className="form-label">
+              Area:
+            </label>
+            <select id="fi-cityId" name="cityId" className="form-label">
+              <option value="" disabled="">
+                Please select
+              </option>
+              <option value="1027">* SELECT YOUR CITY / AREA BELOW *</option>
+
+              {locations.map((location) => (
+                <option key={location.id} value={location.id}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+            <br />
+            <label htmlFor="street" className="form-label">
+              Street:
+            </label>
+            <input
+              type="text"
+              id="street"
+              name="street"
+              className="form-input"
+              placeholder="Monrovia, UtaliiAve"
+              required
+            />
+
+            <label htmlFor="building" className="form-label">
+              Building:
+            </label>
+            <input
+              type="text"
+              id="building"
+              name="building"
+              className="form-input"
+              placeholder="GTC, Mirage, KICC, Chancery, UAP"
+              required
+            />
+          <label htmlFor="room" className="form-label">
+            Room:
+          </label>
+          <input
+            style={{fontFamily:'Times New Roman', fontSize:"13px"}}
+            type="text"
+            id="room"
+            name="room"
+            className="form-input"
+            placeholder="Room No. House No. Office Name"
+            required
+          />
+
+            <label htmlFor="notes" className="form-label">
+              Notes:
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              className="form-input"
+              placeholder="Anything we should know before entering your property"
+            />
+          </div>
+        </div>
+          <div className="card">
             <strong>3. Order Summary</strong>
             <hr />
             <p>Item's total:</p>
