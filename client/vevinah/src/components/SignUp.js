@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Carousel1 from "../assets/dineinphoto.jpg";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -15,6 +16,7 @@ const Register = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const navigate = useNavigate();
+  const image = [Carousel1];
 
   const handleChange = (e) => {
     const id = e.target.id;
@@ -45,10 +47,11 @@ const Register = () => {
   return (
     <div className="offset-lg-3 col-lg-6">
       <div className="card">
+      <img src={image} alt="menu-image" className="background-image"/>
         <div className="card-header">
           <h1>Sign up</h1>
         </div>
-        <div className="card-body">
+        <div style={{marginTop:"20%", borderRadius:"0"}} className="form-dialogue">
           <form className="container" onSubmit={handleSubmit}>
             <div className="row">
               {["First name", "Last name", "Email", "Phone", "Password"].map(
@@ -71,7 +74,7 @@ const Register = () => {
                 )
               )}
             </div>
-            <div className="form-footer">
+            <div className="form-diaolgue">
               <button type="submit" className="continue-shopping">
                 {registrationSuccess ? "Registered!" : "Signup"}
               </button>{" "}

@@ -20,7 +20,7 @@ const DineIn = () => {
       <div className="dine-in-description">
         <FontAwesomeIcon icon={faUtensils} className="utensils" />
         <h2>DINE IN</h2>
-        <p>
+        <p style={{color:"black"}}>
           Savor the essence of culinary bliss in our cozy ambiance. Join us for
           an unforgettable DINE IN experience!
         </p>

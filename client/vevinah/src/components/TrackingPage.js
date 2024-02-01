@@ -132,7 +132,7 @@ function TrackingPage() {
   return (
     <div>
       <Navbar />
-      <div className="track-order-container">
+      <div className="track-order-container" style={{backgroundColor: "#ff9d5723"}}>
         <div className="steps-container">
           {["Ordered", "Preparing", "In Transit", "Arrived"].map(
             (step, index) => (
@@ -167,20 +167,22 @@ function TrackingPage() {
           <h3 style={{marginBottom:"30px", fontSize:"20px"}}>Your feedback is important to us:</h3>
           <label htmlFor="status1"m style={{fontSize:"20px"}}>Rate our Service: </label>
           <div className="rating-container">{renderRatingIcons()}</div>
-          <form onSubmit={handleSubmit}>
-        <label htmlFor="status2">What Makes You Feel This Way</label>
-        <input
-          className="feedback"
-          type="text"
-          id="status2"
-          placeholder="Good Food, Fast delivery etc.."
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-        />
-        <button type="submit" className="continue-shoppingbtn">
-          Submit
-        </button>
-      </form>
+          <form className="feedback-form" onSubmit={handleSubmit}>
+          <label htmlFor="status2" className="feedback-label">
+            What Makes You Feel This Way
+          </label>
+          <input
+            className="feedback"
+            type="text"
+            id="status2"
+            placeholder="Good Food, Fast delivery, etc..."
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+          />
+          <button type="submit" className="continue-shoppingbtn">
+            Submit
+          </button>
+        </form>
         </div>
       </div>
       <Footer />

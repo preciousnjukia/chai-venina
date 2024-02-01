@@ -99,8 +99,8 @@ function Menu() {
         {showNotification && (
           <div className="notification">Item added to cart!</div>
         )}
-        <div className="container">
-          <div className="cards-container">
+        <div className="container" style={{backgroundColor: "#ff9d5723"}}>
+          <div className="cards-container" style={{display:"grid", gridTemplateColumns: "1fr 1fr 1fr 1fr"}}>
             {menuItems.map((item) => (
               <div key={item.id}>
                 <img className="images" src={item.image} alt={item.name} />

@@ -151,12 +151,12 @@ const PaymentPage = () => {
   return (
     <div>
     {<Navbar />}
-    <h2>Payment Details</h2>
-    <div className="payment-container">
+    <div className="payment-container" style={{backgroundColor: "#ff9d5723"}}>
+      <h2>Payment Details</h2>
       <form onSubmit={handleSubmit}>
       <div className="payment-container">
           <div className="card-payment1">
-            <strong>2. Payment Options</strong>
+            <strong>Payment Options</strong>
             <br />
             <div className="payment-options">
               {['mpesa', 'cash', 'paypal', 'visa', 'binance'].map(
@@ -183,7 +183,7 @@ const PaymentPage = () => {
             </div>
           </div>
         <div className="card-payment2">
-          <strong>1. Delivery Address</strong>
+          <strong>Delivery Address</strong>
           <div className="delivery-address-form">
             <label htmlFor="area" className="form-label">
               Area:
@@ -249,7 +249,7 @@ const PaymentPage = () => {
           </div>
         </div>
           <div className="card-total">
-            <strong>3. Order Summary</strong>
+            <strong>Order Summary</strong>
             <hr />
             <p>Item's total:</p>
             <p>Delivery fee:</p>

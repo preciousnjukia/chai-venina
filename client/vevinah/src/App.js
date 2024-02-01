@@ -12,7 +12,7 @@ import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
 import DineInForm from './components/DineInForm';
 import MpesaPaymentPage from './components/PaymentForm';
-import SignUpAndSignIn from './components/Sign_In_Up';
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -38,7 +38,8 @@ function App() {
         <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/signin_signup" element={<SignUpAndSignIn />} />
+        <Route path="/sign_up" element={<Register />} />
+        <Route path="/sign_in" element={<SignIn />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/tracking" element={<TrackingPage />} />
         <Route path="/mpesa_payment" element={<MpesaPaymentPage />} /> 

@@ -21,7 +21,7 @@ const ReviewCard = ({ customerReview}) => {
           </div>
         </div>
       </div>
-      <p className="review-content">{content}</p>
+      <p style={{color:"black"}} className="review-content">{content}</p>
     </div>
     
 
@@ -60,7 +60,7 @@ const ReviewSection = () => {
   return (
    <div className="review-cards">
    {customerReviews.map((review, index) => (
-     <ReviewCard key={index} customerReview={review} />
+     <ReviewCard style={{color:"black"}} key={index} customerReview={review} />
    ))}
  </div>
 

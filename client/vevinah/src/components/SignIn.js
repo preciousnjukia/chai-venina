@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Carousel1 from "../assets/dineinphoto.jpg";
 
 const SignIn = () => {
   const [userCredentials, setUserCredentials] = useState({
@@ -11,6 +12,7 @@ const SignIn = () => {
   const [userEmail, setUserEmail] = useState(""); // state to store user email
 
   const navigate = useNavigate();
+  const image = [Carousel1];
 
   useEffect(() => {
     sessionStorage.clear();
@@ -72,13 +74,14 @@ const SignIn = () => {
   return (
     <div className="row">
       <div className="offset-lg-3 col-lg-6" style={{ marginTop: "100px" }}>
+      <img src={image} alt="menu-image" className="background-image"/>
         <form onSubmit={proceedLogin} className="container">
-          <div className="card login-card">
-            <div className="card-header login-card-header">
-              <h2>Login</h2>
+          <div className="login-card">
+            <div className="login-header">
+              <h1>Login</h1>
             </div>
-            <div className="card-body login-card-body">
-              <div className="login-form-group">
+            <div className="form-dialogue" style={{borderRadius:"0"}}>
+              <div className="form-group">
                 <label>
                   User Name <span className="errmsg">*</span>
                 </label>
@@ -103,7 +106,7 @@ const SignIn = () => {
                 />
               </div>
             </div>
-            <div className="form-footer login-form-footer">
+            <div className="login-footer" style={{marginTop:"20%"}}>
               <Link to="/payment">
                 <button className="continue-shopping">
                   Login

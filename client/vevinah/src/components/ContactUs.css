@@ -1,5 +1,6 @@
 .contact-us-container {
     display: flex;
+    background-color: #ff9d5723;
     flex-direction: column;
     height: 62vh;
     font-family: 'Times New Roman', Times, serif;
@@ -42,7 +43,7 @@
     padding: 18px;
     margin-bottom: 8px;
     width: 70%;
-
+    border: 1px #424242;
   }
 
   input::placeholder {

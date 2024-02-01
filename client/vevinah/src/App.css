@@ -212,7 +212,7 @@ img.dark-box {
 .carousel-button {
   position: relative;
   bottom: 75px;
-  left: 10px;
+  left: 45%;
   padding: 10px 20px;
   background-color: #ff964c;
   cursor: pointer;
@@ -274,17 +274,19 @@ height: 180px;
 
 .card p {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
 }
 
-.notificationS {
+.notification {
   position: fixed;
-  background-color: #fac898;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin-left: 40%;
-  margin-top: 20%;
+  top: 10px;
+  right: 10px;
+  background-color: orange;
+  color: rgb(8, 8, 8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
 /****** CustomerReview.css ******/
 
@@ -381,7 +383,8 @@ height: 180px;
   border-radius: 40px;
   width: fit-content;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 40px;
+  margin-left: 38%;
 }
 
 .reservation-button:hover {
@@ -459,35 +462,22 @@ height: 180px;
 }
 .body {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.5;
+ 
 }
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-}
-  
+
 .cards-container {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
   border-radius: 10px;
   padding: 20px;
   justify-content: space-between;
   align-items: center;
-  flex: 1 1 21rem;
-  margin-left: -10%;
+  margin-left: 1%;
 }
   
 .images {
-  height: 250px;
-  width: 280px;
+  height: 230px;
+  width: 250px;
   object-fit: cover;
   border-radius: 20px;
 }  
@@ -516,7 +506,7 @@ height: 180px;
   color: #333;
   padding: 10px 20px;
   border-radius: 4px;
-  margin-left: 40%;
+  margin-right: 40%;
   margin-top: 20%;
 }
 /*..orders..*/
@@ -843,7 +833,7 @@ h2 {
 
 .rating-container button {
   background-color: transparent;
-  margin: -20px;
+  margin: -15px;
   cursor: pointer;
 }
 
@@ -857,34 +847,49 @@ h2 {
   fill: rgba(255, 200, 0, 0.799);
 }
 
-.feedback {
-  padding: 30px;
-  margin-top: 20px;
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  margin-bottom: -40px;
+}
+
+.feedback-label {
+  font-size: 16px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-.submit-review-button {
-  width: 150px;
-  height: 40px;
-  margin-right: 10px;
+.feedback {
+  width: 300px;
+  height: 50px;
+  padding: 5px;
   font-size: 14px;
-  background: #ff964c;
-  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-.submit-review-button:hover{
-  background: #9f4603e2;
+.continue-shoppingbtn {
+  width: fit-content;
+  font-size: 16px;
+  background-color: #ff964c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+.continue-shoppingbtn:hover {
+  background-color:#9f4603e2;
+}
 /*..navbar..*/
 .navbar {
   background-color: #f9680088;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 6px;
   font-family: "Inter", sans-serif;
 }
 
@@ -909,7 +914,7 @@ h2 {
 
 .navbar-brand img {
   position: relative;
-  top: 7px;
+  top: 0;
   left: 10px;
   height: 1.4cm;
 }
@@ -998,100 +1003,69 @@ h2 {
 
 /*..payment page..*/
 .payment-container {
+  background-color: #ff9d5723;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
-}
-
-h2 {
-  margin-bottom: 0;
-  margin-left: 10px;
-}
-
-.cards-container {
-  display:inline-flex;
-  justify-content:space-evenly;
-}
-
-.card-payment1 {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.card-payment2 {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.card-total {
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  margin-left: 120px;
-  margin-top: 20px;
 }
 
-.card-payment-options {
-  width:max-content;
+.payment-container h2 {
   margin-top: 0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.payment-card {
+  background-color: #fff;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.payment-card strong {
+  font-weight: bold;
 }
 
 .payment-options {
-  margin-bottom: 5px;
+  display: flex;
+  flex-direction:row;
+}
+.payment-container img {
+  width: 70%;
+  height: auto;
 }
 
 .other-option {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.other-option input[type="radio"] {
-  display: none;
+  margin-bottom: 10px;
 }
 
 .other-option label {
-  cursor: pointer;
+  margin-left: 10px;
 }
 
-.other-option img {
-  width: 70px;
-  height: auto;
+.submit-button {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.delivery-address-form {
-  width: 45%;
-  display: block ;
-  margin-left: 30px;
-}
-
-.form-label {
-  margin-left: -90px;
-}
-
-.form-input {
-  width: 180%;
+.payment-container select,
+.payment-container input[type='text'],
+.payment-container textarea {
+  width: 100%;
   padding: 8px;
-  margin-bottom: 15px;
-  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: -8px;
+.payment-container textarea {
+  height: 80px;
 }
-
 
 /*..Signup..*/
 .card {
@@ -1106,11 +1080,16 @@ h2 {
 }
 
 .card-header {
+  z-index: 1;
+  padding: 10px;
   width: 40%;
   padding: 20px;
   background-color: #fac898;
-  border-radius: 5px 0 0 5px;
+  border-radius: -20px;
+  height: 380px;
+  margin-top:20%;
 }
+
 .card-header h1 {
   margin-top:50%;
 }
@@ -1155,92 +1134,39 @@ input[type="password"] {
 
 /*..Login..*/
 .login-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  margin: 0 auto;
   background-color: transparent;
-  height: 300px;
-}
-
-.login-card-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #fac898;
   padding: 20px;
-  border-radius: 0 5px 5px 0;
-  width: 40%;
-}
-
-.login-card-body {
-  padding: 30px;
-  width: 60%;
-}
-
-.login-card-header h2 {
-  margin: 0;
-  margin-left: auto;
-}
-
-.login-form-footer {
-  text-align: center;
-  position: absolute;
-  margin-top: 18%;
-}
-.login-form-group {
-  margin-bottom: 2px;
-}
-
-/*signinandsignup*/
-.container {
+  height: 250px;
   display: flex;
-  justify-content: center;
+  margin: 0 50%;
+  z-index: 1;
+  width: 400px;
 }
 
-.left-section {
-  width:50%;
-  background-color: #fac898;
-}
-
-@media (max-width: 768px) {
-  .left-section {
-    width: 100%;
-  }
-}
-
-.line {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 1px;
-  background-color: #030303;
-}
-
-.col-lg-6 {
-  width: 70%;
+.login-header {
+  text-align: center;
+  margin-bottom: 20%;
+  height: 230px;
+  z-index: 1;
   padding: 10px;
+  width: 30%;
+  background-color: #fac898;
+  border-radius: -20px
 }
 
-.card {
-  margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-  .col-lg-6 {
-    width: 100%;
-  }
+.login-footer {
+  text-align: center;
+  position:absolute;
+  z-index: 1;
+  margin-left: 10%;
+  bottom: 45%;
 }
 
 /* Mpesa Payment Page */
-
 .login-dialogue {
   width: 100vw;
   height: 100vh;
+  background-image: url(https://www.posist.com/restaurant-times/wp-content/uploads/2023/07/How-Choosing-The-Right-Restaurant-Interior-Colors-Can-Influence-Customer-Choices-And-Increase-Sales-in-2023.jpg);
   color: rgb(24, 23, 23);
   text-align: center;
   display: flex;
@@ -1250,18 +1176,19 @@ input[type="password"] {
 }
 
 .form-dialogue {
-  background: #fff;
-  border: solid thin grey;
+  background:#f9f3f3 ;
+  border: transparent;
   padding: 20px;
   border-radius: 10px;
-  width: 350px;
+  width: 650px;
   padding-bottom: 20px;
 }
 
 .form-dialogue h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #ff9d57;
+  margin-right: 40px;
+  color: #f8a049;
 }
 
 .form-item {
@@ -1270,42 +1197,48 @@ input[type="password"] {
   row-gap: 10px;
 }
 
-.form-item label {
-  color: black;
+.form-itemP {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-item,
+.form-itemP label {
+  color: rgb(31, 31, 31);
   width: 100%;
   text-align: left;
 }
 
 .form-item input {
   border: solid thin lightgray;
-  border-radius: 3px;
-  background: white;
-  width: 100%;
+  border-radius: 13px;
+  background: #ffffff9e;
+  /* width: 190%; */
   padding: 12px;
   box-sizing: border-box;
+  margin-bottom: 8px;
+  width: 70%;
+  margin-right: 200px;
+}
+.form-itemP input {
+  border: solid thin lightgray;
+  border-radius: 13px;
+  background: #ffffff9e;
+  /* width: 190%; */
+  padding: 12px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  width: 70%;
+  margin-right: 200px;
 }
 
 .form-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-bottom: -217px;
 }
 
-.button-submit,
-.button.continue {
-  flex: 1;
-  padding: 10px;
-  background-color: #FFA500;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button.continue {
-  margin-left: 20px;
-}
 
 /* DineIn-Reservation */
 

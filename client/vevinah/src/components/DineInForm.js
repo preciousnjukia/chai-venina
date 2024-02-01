@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
-import Carousel1 from '/.assets/dineinphoto.jpg'
 
-const Reservation = () => {
+
+const DineInReservation = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   const [tableNumber, setTableNumber] = useState(1);
   const [email, setEmail] = useState('');
-  const [image] = Carousel1;
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -39,9 +38,9 @@ const Reservation = () => {
           tableNumber,
         }),
       });
-  
+
       const data = await response.json();
-  
+
       if (data.success) {
         alert('Reservation confirmed! Confirmation email sent.');
       } else {
@@ -55,28 +54,27 @@ const Reservation = () => {
   return (
     <div>
       <div className="reservation-form">
-      <img src={image} alt="menu-image" className="background-image"/>
-      <h1>Reservation</h1>
-      <DatePicker selected={selectedDate} onChange={handleDateChange} />
-      <select value={numberOfGuests} onChange={handleGuestsChange}>
-        {[...Array(10).keys()].map((num) => (
-          <option key={num + 1} value={num + 1}>
-            {num + 1} Guest{num !== 0 && 's'}
-          </option>
-        ))}
-      </select>
-      <select value={tableNumber} onChange={handleTableChange}>
-        {[...Array(10).keys()].map((num) => (
-          <option key={num + 1} value={num + 1}>
-            Table {num + 1}
-          </option>
-        ))}
-      </select>
-      <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
-      <button onClick={handleBookNow}>Book Now</button>
+        <h1>Reservation</h1>
+        <DatePicker selected={selectedDate} onChange={handleDateChange} />
+        <select value={numberOfGuests} onChange={handleGuestsChange}>
+          {[...Array(10).keys()].map((num) => (
+            <option key={num + 1} value={num + 1}>
+              {num + 1} Guest{num !== 0 && 's'}
+            </option>
+          ))}
+        </select>
+        <select value={tableNumber} onChange={handleTableChange}>
+          {[...Array(10).keys()].map((num) => (
+            <option key={num + 1} value={num + 1}>
+              Table {num + 1}
+            </option>
+          ))}
+        </select>
+        <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+        <button onClick={handleBookNow}>Book Now</button>
       </div>
     </div>
   );
 };
 
-export default Reservation;
+export default DineInReservation;

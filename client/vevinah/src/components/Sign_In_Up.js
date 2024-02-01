@@ -7,8 +7,7 @@ const SignUpAndSignIn = () => {
   const image = [Carousel1];
 
   return (
-    <div className="container">
-
+    <div style={{backgroundColor: "#ff9d5723"}}className="container">
         <div className="col-lg-6">
           <Register />
         </div>

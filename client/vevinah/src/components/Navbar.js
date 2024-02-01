@@ -30,19 +30,19 @@ function Navbar() {
       </a>
       <ul className="navbar-nav">
         <li className="navlink">
-          <Link to="/">Home</Link>
+          <Link style={{textDecoration:"none", color: "#000000"}}to="/">Home</Link>
         </li>
         <li className="navlink">
-          <Link to="/menu">Menu</Link>
+          <Link style={{textDecoration:"none", color: "#000000"}} to="/menu">Menu</Link>
         </li>
         <li className="navlink">
-          <Link to="/contact-us">Contact Us</Link>
+          <Link style={{textDecoration:"none", color: "#000000"}} to="/contact-us">Contact Us</Link>
         </li>
         <li className="navlink">
-          <Link to="/about-us">About Us</Link>
+          <Link style={{textDecoration:"none", color: "#000000"}} to="/about-us">About Us</Link>
         </li>
         <li className="navlink">
-          <Link to={{ pathname: "/cart", state: { cartItems: cartItems } }}>
+          <Link style={{textDecoration:"none", color: "#000000"}} to={{ pathname: "/cart", state: { cartItems: cartItems } }}>
             <ShoppingCart />
             {cartLength > 0 && <span>{cartLength}</span>}
           </Link>
