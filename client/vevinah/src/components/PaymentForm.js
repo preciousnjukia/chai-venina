@@ -21,7 +21,7 @@ const MpesaPaymentPage = () => {
     event.preventDefault();
     setLoading(true);
 
-    fetch("http://127.0.0.1:5000/payment", {
+    fetch("http://localhost:5000/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

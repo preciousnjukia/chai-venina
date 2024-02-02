@@ -29,8 +29,8 @@ const PaymentPage = () => {
     e.preventDefault();
 
     if (selectedPayment === 'mpesa') {
-      //setRedirect('/mpesa_payment');
-      alert('Please make payment to Mpesa Till Number 707070.');
+      navigate('/mpesa_payment');
+     // alert('Please make payment to Mpesa Till Number 707070.');
     } else if (selectedPayment === 'cash') {
       alert('Please make payment upon delivery.');
     } else if (selectedPayment === 'paypal') {
@@ -41,7 +41,7 @@ const PaymentPage = () => {
       window.location.href = 'https://www.visaonline.com/login/';
     }
     console.log('Payment submitted');
-    alert('Payment submitted');
+    alert('Address submitted');
 
 
     const data = new FormData(e.target);
@@ -75,7 +75,7 @@ const PaymentPage = () => {
     };
     console.log(JSON.stringify(order));
     // Navigate to tracking page with order details as props
-    navigate('/tracking', { replace: false, state: order });
+    navigate('/mpesa_payment', { replace: false, state: order });
 
   };
 
