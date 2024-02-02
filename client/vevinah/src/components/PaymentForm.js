@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+
 
 const MpesaPaymentPage = () => {
   const initialFormData = {
@@ -35,7 +36,7 @@ const MpesaPaymentPage = () => {
           window.alert("Payment made");
           setFormData(initialFormData);
         } else {
-          window.alert("Payment failed");
+          window.alert("Payment processing");
         }
       })
       .catch((error) => {

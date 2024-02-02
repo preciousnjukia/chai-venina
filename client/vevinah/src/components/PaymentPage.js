@@ -30,7 +30,7 @@ const PaymentPage = () => {
 
     if (selectedPayment === 'mpesa') {
       navigate('/mpesa_payment');
-     // alert('Please make payment to Mpesa Till Number 707070.');
+      //alert('Please make payment to Mpesa Till Number 707070.');
     } else if (selectedPayment === 'cash') {
       alert('Please make payment upon delivery.');
     } else if (selectedPayment === 'paypal') {
