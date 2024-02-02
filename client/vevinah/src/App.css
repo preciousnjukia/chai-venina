@@ -212,7 +212,7 @@ img.dark-box {
 .carousel-button {
   position: relative;
   bottom: 75px;
-  left: 45%;
+  right: -2%;
   padding: 10px 20px;
   background-color: #ff964c;
   cursor: pointer;
@@ -384,7 +384,7 @@ height: 180px;
   width: fit-content;
   height: 50px;
   margin-top: 40px;
-  margin-left: 38%;
+  margin-left: 4%;
 }
 
 .reservation-button:hover {
