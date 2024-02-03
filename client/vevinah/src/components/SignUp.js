@@ -5,7 +5,6 @@ import Carousel1 from "../assets/dineinphoto.jpg";
 
 const Register = () => {
   const [user, setUser] = useState({
-    id: "",
     first_name: "",
     last_name: "",
     password: "",
@@ -18,28 +17,35 @@ const Register = () => {
   const navigate = useNavigate();
   const image = [Carousel1];
 
-  const handleChange = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-
-    setUser({ ...user, [id]: value });
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/users", {
+    fetch("http://localhost:5000/signup", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+      },
       body: JSON.stringify(user),
     })
       .then((res) => {
-        toast.success("Registered successfully.");
-        setRegistrationSuccess(true);
-        navigate("/sign_in");
+        if (res.status === 200) {
+          toast.success("Registered successfully.");
+          setRegistrationSuccess(true);
+          navigate("/sign_in", { replace: true });
+        } else {
+          toast.error("Registration failed.");
+        }
       })
       .catch((err) => {
         toast.error("Failed: " + err.message);
+        console.log(err);
         alert("Invalid");
       });
   };
@@ -47,23 +53,27 @@ const Register = () => {
   return (
     <div className="offset-lg-3 col-lg-6">
       <div className="card">
-      <img src={image} alt="menu-image" className="background-image"/>
+        <img src={image} alt="menu-image" className="background-image" />
         <div className="card-header">
           <h1>Sign up</h1>
         </div>
-        <div style={{marginTop:"20%", borderRadius:"0"}} className="form-dialogue">
+        <div
+          style={{ marginTop: "20%", borderRadius: "0" }}
+          className="form-dialogue"
+        >
           <form className="container" onSubmit={handleSubmit}>
             <div className="row">
-              {["First name", "Last name", "Email", "Phone", "Password"].map(
+              {['first_name', 'last_name', 'email', 'phone', 'password'].map(
                 (field) => (
                   <div key={field} className="col-lg-6">
                     <div className="form-group">
                       <label>
-                        {field.charAt(0).toUpperCase() + field.slice(1)}{" "}
+                        {/* {field.charAt(0).toUpperCase() + field.slice(1)}{' '} */}
+                        {field}
                         <span className="errmsg">*</span>
                       </label>
                       <input
-                        type={field === "password" ? "password" : "text"}
+                        type={field === 'password' ? 'password' : 'text'}
                         value={user[field]}
                         onChange={handleChange}
                         name={field}
@@ -78,6 +88,10 @@ const Register = () => {
               <button type="submit" className="continue-shopping">
                 {registrationSuccess ? "Registered!" : "Signup"}
               </button>{" "}
+              <br />
+              <Link to="/sign_in" className="">
+                Already have an account? Sign in
+              </Link>
             </div>
           </form>
         </div>

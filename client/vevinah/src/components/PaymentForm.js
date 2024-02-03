@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate, useLocation} from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 
 const MpesaPaymentPage = () => {
+  const { state } = useLocation(); // Get order details from props
+  const order = state;
+  console.log("state: " + JSON.stringify(order));
+
+
   const initialFormData = {
     phone: "",
     amount: "",
@@ -18,6 +23,9 @@ const MpesaPaymentPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  // const handleContinueClick= ()=>{
+  //   navigate("/mpesa_payment", { replace: false, state: order });
+  // }
   const submitForm = (event) => {
     event.preventDefault();
     setLoading(true);
