@@ -3,21 +3,21 @@ import { Star } from "react-feather";
 import "../App.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useLocation } from "react-router-dom";
 const api_key = process.env.REACT_APP_MAPS_API_KEY;
 
 function TrackingPage() {
   const defaultTime = 20;
-  const [estimatedTime, setEstimatedTime] = useState(5);
+  const [estimatedTime, setEstimatedTime] = useState(defaultTime);
   const [elapsedTime, setElapsedTime] = useState(0);
-  const [feedback, setFeedback] = useState()
-  const { state } = useLocation(); // Get order details from props
-  // console.log(state)
+  const [feedback, setFeedback] = useState();
+  const state = JSON.parse(localStorage.getItem('order')); // Get order details from props
+  console.log("state: " + JSON.stringify(state));
+
   // TBC
   const user = {
     email: "user@example.com",
   };
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setElapsedTime((prevTime) => prevTime + 1);
@@ -27,24 +27,25 @@ function TrackingPage() {
   }, []);
 
   // Calculate estimated time using distance calculated from Google Maps API
-  useEffect(() =>{
-  if (state && state.destination && state.origin){
-  const url = `http://localhost:5000/distance?destinations=${state.destination.latitude},${state.destination.longitude}&origins=${state.origin.latitude},${state.origin.longitude}&key=${api_key}`;
-
-  // send a GET request to the Distance Matrix API
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      // calculate estimated time in minutes
-      const newEstimatedTime =
-        defaultTime + Math.floor(data.rows[0].elements[0].duration.value / 60);
-      setEstimatedTime(newEstimatedTime);
-    })
-    .catch((error) => console.error("Error:", error));
-  }
-}, [state, defaultTime]);
-
+  useEffect(() => {
+    if (state && state.destination && state.origin) {
+      const url = `http://localhost:5000/distance?destinations=${state.destination.latitude},${state.destination.longitude}&origins=${state.origin.latitude},${state.origin.longitude}&key=${api_key}`;
+      console.log("url;"+ url)
+      // send a GET request to the Distance Matrix API
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          const newEstimatedTime =
+            defaultTime +
+            Math.floor(data.rows[0].elements[0].duration.value / 60);
+          setEstimatedTime(newEstimatedTime);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }, [state, defaultTime, estimatedTime]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -111,19 +112,14 @@ function TrackingPage() {
           onClick={() => handleRateClick(i)}
           className={i <= rate ? "active" : ""}
           style={{
-            transition: 'background-color 0.3s ease-in-out',
-            backgroundColor: 'transparent', // Set the background color to transparent
-            ':hover': { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
+            transition: "background-color 0.3s ease-in-out",
+            backgroundColor: "transparent", // Set the background color to transparent
+            ":hover": { backgroundColor: "rgba(0, 0, 0, 0.2)" },
           }}
         >
-          <Star
-            className="star"
-            color="currentColor"
-            size={28}
-          />
+          <Star className="star" color="currentColor" size={28} />
         </button>
       );
-      
     }
 
     return ratingIcons;
@@ -132,7 +128,10 @@ function TrackingPage() {
   return (
     <div>
       <Navbar />
-      <div className="track-order-container" style={{backgroundColor: "#ff9d5723"}}>
+      <div
+        className="track-order-container"
+        style={{ backgroundColor: "#ff9d5723" }}
+      >
         <div className="steps-container">
           {["Ordered", "Preparing", "In Transit", "Arrived"].map(
             (step, index) => (
@@ -164,25 +163,29 @@ function TrackingPage() {
 
         {/* Creative form for order status */}
         <div className="order-status-form">
-          <h3 style={{marginBottom:"30px", fontSize:"20px"}}>Your feedback is important to us:</h3>
-          <label htmlFor="status1"m style={{fontSize:"20px"}}>Rate our Service: </label>
+          <h3 style={{ marginBottom: "30px", fontSize: "20px" }}>
+            Your feedback is important to us:
+          </h3>
+          <label htmlFor="status1" m style={{ fontSize: "20px" }}>
+            Rate our Service:{" "}
+          </label>
           <div className="rating-container">{renderRatingIcons()}</div>
           <form className="feedback-form" onSubmit={handleSubmit}>
-          <label htmlFor="status2" className="feedback-label">
-            What Makes You Feel This Way
-          </label>
-          <input
-            className="feedback"
-            type="text"
-            id="status2"
-            placeholder="Good Food, Fast delivery, etc..."
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-          />
-          <button type="submit" className="continue-shoppingbtn">
-            Submit
-          </button>
-        </form>
+            <label htmlFor="status2" className="feedback-label">
+              What Makes You Feel This Way
+            </label>
+            <input
+              className="feedback"
+              type="text"
+              id="status2"
+              placeholder="Good Food, Fast delivery, etc..."
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+            />
+            <button type="submit" className="continue-shoppingbtn">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
       <Footer />
