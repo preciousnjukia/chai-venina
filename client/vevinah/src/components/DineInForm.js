@@ -30,7 +30,7 @@ const DineInReservation = () => {
 
   const handleBookNow = async () => {
     try {
-      const response = await fetch('http://localhost:5000/send_confirmation', {
+      const response = await fetch('https://veni-vay2.onrender.com/send_confirmation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

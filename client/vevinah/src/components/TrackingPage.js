@@ -29,7 +29,7 @@ function TrackingPage() {
   // Calculate estimated time using distance calculated from Google Maps API
   useEffect(() => {
     if (state && state.destination && state.origin) {
-      const url = `https://chai-veninah.onrender.com/distance?destinations=${state.destination.latitude},${state.destination.longitude}&origins=${state.origin.latitude},${state.origin.longitude}&key=${api_key}`;
+      const url = `https://veni-vay2.onrender.com/distance?destinations=${state.destination.latitude},${state.destination.longitude}&origins=${state.origin.latitude},${state.origin.longitude}&key=${api_key}`;
       console.log("url;"+ url)
       // send a GET request to the Distance Matrix API
       fetch(url)
@@ -77,7 +77,7 @@ function TrackingPage() {
 
     // Make a POST request to the Flask API
     try {
-      const response = await fetch(`https://chai-veninah.onrender.com/reviews`, {
+      const response = await fetch(`https://veni-vay2.onrender.com/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

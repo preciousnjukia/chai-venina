@@ -59,7 +59,7 @@ function TodaysSpecialSection() {
   }, [cart]);
 
   useEffect(() => {
-    fetch("https://chai-veninah.onrender.com/dishes")
+    fetch("https://veni-vay2.onrender.com/dishes")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

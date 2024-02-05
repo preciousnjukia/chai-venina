@@ -43,7 +43,7 @@ function Menu() {
   };
 
   useEffect(() => {
-    fetch("https://chai-veninah.onrender.com/dishes")  // Update the URL here
+    fetch("https://veni-vay2.onrender.com/dishes")  // Update the URL here
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -54,7 +54,7 @@ function Menu() {
         console.error("Error fetching menu:", error);
       });
   }, []);
-  
+
   const handleAddToCart = (item) => {
     const existingCartItem = cart.find((cartItem) => cartItem.id === item.id);
     if (existingCartItem) {
