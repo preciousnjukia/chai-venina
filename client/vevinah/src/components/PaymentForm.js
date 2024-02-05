@@ -29,8 +29,8 @@ const MpesaPaymentPage = () => {
   const submitForm = (event) => {
     event.preventDefault();
     setLoading(true);
-
-    fetch("http://localhost:5000/payment", {
+    
+    fetch("https://chai-veninah.onrender.com/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

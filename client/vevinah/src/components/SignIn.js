@@ -21,7 +21,7 @@ const SignIn = () => {
     e.preventDefault();
 
     if (validate()) {
-      fetch("http://localhost:5000/login", {
+      fetch("https://chai-veninah.onrender.com/locations", {  
         method: "POST",
         headers: {
           "content-type": "application/json",
