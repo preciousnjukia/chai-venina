@@ -27,7 +27,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://veni-vay2.onrender.com/signup", {  // Update this URL
+    fetch("https://veni-vay2.onrender.com/signup", {  
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -21,7 +21,7 @@ const SignIn = () => {
     e.preventDefault();
 
     if (validate()) {
-      fetch("https://veni-vay2.onrender.com/locations", {  
+      fetch("https://veni-vay2.onrender.com/login", {  
         method: "POST",
         headers: {
           "content-type": "application/json",
