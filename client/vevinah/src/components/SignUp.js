@@ -27,7 +27,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://chai-veninah.onrender.com/signup", {  // Update this URL
+    fetch("https://veni-vay2.onrender.com/signup", {  // Update this URL
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,7 +49,7 @@ const Register = () => {
         alert("Invalid");
       });
   };
-  
+
   return (
     <div className="offset-lg-3 col-lg-6">
       <div className="card">

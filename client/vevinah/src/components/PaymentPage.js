@@ -21,7 +21,7 @@ const PaymentPage = () => {
 
 
   useEffect(() => {
-    fetch("https://chai-veninah.onrender.com/locations")  
+    fetch("https://veni-vay2.onrender.com/locations")  
       .then((response) => response.json())
       .then((data) => {
         setLocations(data);
