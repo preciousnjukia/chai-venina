@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   flex-direction: column;
-  height: 62vh;
+  height: 65vh;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -77,4 +77,16 @@ button:hover {
   font-size: 18px;
   color: rgba(164, 54, 7, 0.838);
   margin-top: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  /* Styles for small screens */
+  form {
+    width: 90%;
+  }
+  
+  button {
+    width: 40%;
+  }
 }
