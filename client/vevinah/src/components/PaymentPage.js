@@ -21,7 +21,7 @@ const PaymentPage = () => {
 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/locations")
+    fetch("https://chai-veninah.onrender.com/locations")  
       .then((response) => response.json())
       .then((data) => {
         setLocations(data);
@@ -29,6 +29,7 @@ const PaymentPage = () => {
       })
       .catch((error) => console.error("Error:", error));
   }, []);
+  
 
   // Fetch cart data from localStorage
   const cart = JSON.parse(localStorage.getItem("cart"));
