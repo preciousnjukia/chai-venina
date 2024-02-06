@@ -76,13 +76,11 @@ const SignIn = () => {
   return (
     <div className="row">
       <div className="offset-lg-3 col-lg-6" style={{ marginTop: "100px" }}>
-        <img src={image} alt="menu-image" className="background-image" />
+        <img src={image} alt="menu" className="background-image" />
         <form onSubmit={proceedLogin} className="container">
           <div className="login-card">
-            <div className="login-header">
-              <h1>Login</h1>
-            </div>
-            <div className="form-dialogue" style={{ borderRadius: "0" }}>
+            <div className="login-form-dialogue">
+            <h1 className="card-header">Login</h1>
               <div className="form-group">
                 <label>
                   Email <span className="errmsg">*</span>
@@ -108,12 +106,15 @@ const SignIn = () => {
                 />
               </div>
             </div>
-            <div className="login-footer" style={{ marginTop: '20%' }}>
+            <div className="login-footer">
               <button type="submit" className="continue-shopping">
                 Login
               </button>
-              <Link to="/sign_up" className="">
+              or
+              <Link to="/sign_up">
+                <button className="continue-shopping">
                 Sign Up
+                </button>
               </Link>
             </div>
           </div>

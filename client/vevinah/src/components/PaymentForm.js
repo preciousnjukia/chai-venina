@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link , useNavigate, useLocation} from "react-router-dom";
+import { Link , useLocation} from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -56,11 +56,10 @@ const MpesaPaymentPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="login-dialogue">
+      <div className="mpesa-dialogue">
         <div className="form-dialogue">
           <form onSubmit={submitForm}>
-            <h2>Mpesa Payment</h2>
-
+            <h1 className="card-header">Mpesa Payment</h1>
             <div className="form-itemP">
               <label htmlFor="phone">Phone:</label>
               <input
@@ -85,7 +84,7 @@ const MpesaPaymentPage = () => {
               />
             </div>
 
-            <div className="form-buttons">
+            <div className="mpesa-buttons">
               <button
                 type="submit"
                 className="continue-shopping"

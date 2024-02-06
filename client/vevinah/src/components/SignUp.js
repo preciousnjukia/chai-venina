@@ -52,50 +52,45 @@ const Register = () => {
 
   return (
     <div className="offset-lg-3 col-lg-6">
-      <div className="card">
-        <img src={image} alt="menu-image" className="background-image" />
-        <div className="card-header">
-          <h1>Sign up</h1>
-        </div>
-        <div
-          style={{ marginTop: "20%", borderRadius: "0" }}
-          className="form-dialogue"
-        >
-          <form className="container" onSubmit={handleSubmit}>
-            <div className="row">
-              {['first_name', 'last_name', 'email', 'phone', 'password'].map(
-                (field) => (
-                  <div key={field} className="col-lg-6">
-                    <div className="form-group">
-                      <label>
-                        {/* {field.charAt(0).toUpperCase() + field.slice(1)}{' '} */}
-                        {field}
-                        <span className="errmsg">*</span>
-                      </label>
-                      <input
-                        type={field === 'password' ? 'password' : 'text'}
-                        value={user[field]}
-                        onChange={handleChange}
-                        name={field}
-                        className="form-control"
-                      />
+        <img src={image} alt="menu" className="background-image" />
+        <div className="card">
+          <div className="signup-form-dialogue">
+          <h1 className="card-header" >Sign up</h1>
+            <form className="container" onSubmit={handleSubmit}>
+              <div className="row">
+                {['First name', 'Last name', 'Email', 'Phone', 'Password'].map(
+                  (field) => (
+                    <div key={field} className="col-lg-6">
+                      <div className="form-group">
+                        <label>
+                          {field}
+                          <span className="errmsg">*</span>
+                        </label>
+                        <input
+                          type={field === 'password' ? 'password' : 'text'}
+                          value={user[field]}
+                          onChange={handleChange}
+                          name={field}
+                        />
+                      </div>
                     </div>
-                  </div>
-                )
-              )}
-            </div>
-            <div className="form-diaolgue">
-              <button type="submit" className="continue-shopping">
-                {registrationSuccess ? "Registered!" : "Signup"}
-              </button>{" "}
-              <br />
-              <Link to="/sign_in" className="">
-                Already have an account? Sign in
-              </Link>
-            </div>
-          </form>
+                  )
+                )}
+              </div>
+              <div className="signup-footer">
+                <button type="submit" className="continue-shopping">
+                  {registrationSuccess ? "Registered!" : "Signup"}
+                </button>
+                or
+                <Link to="/sign_in">
+                  <button className="continue-shopping">
+                   Login
+                  </button>
+                </Link>
+                </div>
+            </form>
+          </div>
         </div>
-      </div>
       {registrationSuccess && (
         <div className="alert alert-success" role="alert">
           Registration successful! You can now sign in.

@@ -128,10 +128,7 @@ function TrackingPage() {
   return (
     <div>
       <Navbar />
-      <div
-        className="track-order-container"
-        style={{ backgroundColor: "#ff9d5723" }}
-      >
+      <div className="track-order-container">
         <div className="steps-container">
           {["Ordered", "Preparing", "In Transit", "Arrived"].map(
             (step, index) => (

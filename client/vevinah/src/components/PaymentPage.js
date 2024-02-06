@@ -4,7 +4,7 @@ import cashLogo from "./images/cash-logo.png";
 import paypalLogo from "./images/paypal-logo.png";
 import binanceLogo from "./images/binance-logo.png";
 import visaLogo from "./images/visa-logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -201,10 +201,7 @@ const PaymentPage = () => {
   return (
     <div>
       {<Navbar />}
-      <div
-        className="payment-container"
-        style={{ backgroundColor: "#ff9d5723" }}
-      >
+      <div className="payment-container" style={{border:"none"}}>
         <h2>Payment Details</h2>
         <form onSubmit={handleSubmit}>
           <div className="payment-container">

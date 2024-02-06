@@ -92,14 +92,14 @@ function Menu() {
     <div>
       <Navbar />
       <section className="menu-image">
-        <img src={image} alt="menu-image" />
+        <img src={image} alt="menu" />
         <h2 className="menu-title">Menu</h2>
       </section>
       <div className="home-container">
         {showNotification && (
           <div className="notification">Item added to cart!</div>
         )}
-        <div className="container" style={{backgroundColor: "#ff9d5723"}}>
+        <div className="container">
           <div className="cards-container" style={{display:"grid", gridTemplateColumns: "1fr 1fr 1fr 1fr"}}>
             {menuItems.map((item) => (
               <div key={item.id}>
