@@ -39,7 +39,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="social-icon">
+                <a href="https://www.instagram.com/chaivenina/?igsh=MXZrMms5bzRqYzh0NQ%3D%3D" className="social-icon">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>

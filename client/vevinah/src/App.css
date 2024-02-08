@@ -1382,12 +1382,13 @@ h2 {
 
 .payment-container h2 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
+  margin-right: -5em;
+
 }
 
 .payment-card {
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 400px;
   max-width: 100%;
