@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { Link , useLocation} from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const MpesaPaymentPage = () => {
   const { state } = useLocation(); // Get order details from props
   const order = state;
-  console.log("state: " + JSON.stringify(order));
-
+  // console.log('state: ' + JSON.stringify(order));
 
   const initialFormData = {
-    phone: "",
-    amount: "",
+    phone: '',
+    amount: parseFloat(state.amount.grandTotal),
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -21,6 +19,7 @@ const MpesaPaymentPage = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    console.log(JSON.stringify(formData));
   };
 
   // const handleContinueClick= ()=>{
@@ -28,12 +27,13 @@ const MpesaPaymentPage = () => {
   // }
   const submitForm = (event) => {
     event.preventDefault();
+    console.log(JSON.stringify(formData));
     setLoading(true);
 
-    fetch("https://veni-vay2.onrender.com/payment", {
-      method: "POST",
+    fetch('https://veni-vay2.onrender.com/payment', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
@@ -41,15 +41,15 @@ const MpesaPaymentPage = () => {
         setLoading(false);
 
         if (response.ok) {
-          window.alert("Payment made");
+          window.alert('Payment made');
           setFormData(initialFormData);
         } else {
-          window.alert("Payment processing");
+          window.alert('Payment processing');
         }
       })
       .catch((error) => {
         setLoading(false);
-        console.error("Error: ", error);
+        console.error('Error: ', error);
       });
   };
 
@@ -73,7 +73,10 @@ const MpesaPaymentPage = () => {
             </div>
 
             <div className="form-item">
-              <label htmlFor="amount">Amount:</label>
+              <br />
+              <label htmlFor="amount">
+                Total Amount: Ksh. {order.amount.grandTotal}
+              </label>
               <input
                 type="number"
                 id="amount"
@@ -81,6 +84,7 @@ const MpesaPaymentPage = () => {
                 value={formData.amount}
                 onChange={handleChange}
                 required
+                style={{ display: 'none', visibility: 'hidden' }} // Do not show this input field
               />
             </div>
 
@@ -90,12 +94,10 @@ const MpesaPaymentPage = () => {
                 className="continue-shopping"
                 disabled={loading}
               >
-                {loading ? "Processing..." : "Submit"}
+                {loading ? 'Processing...' : 'Submit'}
               </button>
-              <Link to="/tracking" >
-              <button className="continue-shopping">
-                Continue
-                </button>
+              <Link to="/tracking">
+                <button className="continue-shopping">Continue</button>
               </Link>
             </div>
           </form>

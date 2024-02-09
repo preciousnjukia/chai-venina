@@ -1,38 +1,36 @@
-import React, { useState, useEffect } from "react";
-import mpesaLogo from "./images/mpesa-logo.png";
-import cashLogo from "./images/cash-logo.png";
-import paypalLogo from "./images/paypal-logo.png";
-import binanceLogo from "./images/binance-logo.png";
-import visaLogo from "./images/visa-logo.png";
-import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import React, { useState, useEffect } from 'react';
+import mpesaLogo from './images/mpesa-logo.png';
+import cashLogo from './images/cash-logo.png';
+import paypalLogo from './images/paypal-logo.png';
+import binanceLogo from './images/binance-logo.png';
+import visaLogo from './images/visa-logo.png';
+import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const PaymentPage = () => {
-  const [selectedPayment, setSelectedPayment] = useState("");
+  const [selectedPayment, setSelectedPayment] = useState('');
   const [locations, setLocations] = useState([]);
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   const [deliveryFee, setDeliveryFee] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
-  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState('');
   const [globalOrder, setGlobalOrder] = useState({});
   const [paymentType, setPaymentType] = useState('');
 
-
   useEffect(() => {
-    fetch("https://veni-vay2.onrender.com/locations")  
+    fetch('https://veni-vay2.onrender.com/locations')
       .then((response) => response.json())
       .then((data) => {
         setLocations(data);
         console.log(data);
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error('Error:', error));
   }, []);
-  
 
   // Fetch cart data from localStorage
-  const cart = JSON.parse(localStorage.getItem("cart"));
+  const cart = JSON.parse(localStorage.getItem('cart'));
 
   // Calculate total price of items in cart
   useEffect(() => {
@@ -89,6 +87,7 @@ const PaymentPage = () => {
       },
       paymentMethod: formObject.paymentMethod,
       destination: {
+        destinationid: destination.id,
         latitude: destination.latitude,
         longitude: destination.longitude,
       },
@@ -96,30 +95,34 @@ const PaymentPage = () => {
         latitude: origin[0],
         longitude: origin[1],
       },
+      amount: {
+        subTotal: totalPrice,
+        grandTotal: grandTotal,
+      },
     };
-    setGlobalOrder(()=> order);
+    setGlobalOrder(() => order);
     console.log(JSON.stringify(order));
 
     console.log(JSON.stringify(globalOrder));
-    localStorage.setItem("order", order);
+    localStorage.setItem('order', order);
     // Navigate to tracking page with order details as props
     // navigate("/mpesa_payment", { replace: false, state: order });
     // navigate("/tracking", { replace: false, state: order });
-    if (selectedPayment === "mpesa") {
+    if (selectedPayment === 'mpesa') {
       // navigate("/mpesa_payment");
       //alert('Please make payment to Mpesa Till Number 707070.');
-    } else if (selectedPayment === "cash") {
-      alert("Please make payment upon delivery.");
-    } else if (selectedPayment === "paypal") {
-      window.location.href = "https://www.paypal.com/signin";
-    } else if (selectedPayment === "binance") {
+    } else if (selectedPayment === 'cash') {
+      alert('Please make payment upon delivery.');
+    } else if (selectedPayment === 'paypal') {
+      window.location.href = 'https://www.paypal.com/signin';
+    } else if (selectedPayment === 'binance') {
       window.location.href =
-        "https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327";
-    } else if (selectedPayment === "visa") {
-      window.location.href = "https://www.visaonline.com/login/";
+        'https://accounts.binance.com/en/login?gclid=EAIaIQobChMI7ZvOsvOZgwMVfopoCR06AwmyEAAYASAAEgI42_D_BwE&ref=804491327';
+    } else if (selectedPayment === 'visa') {
+      window.location.href = 'https://www.visaonline.com/login/';
     }
-    console.log("Payment submitted");
-    alert("Address submitted");
+    console.log('Payment submitted');
+    alert('Address submitted');
 
     // Navigate to tdifferent page based on payment method
     if (paymentType === 'payNow') {
@@ -131,8 +134,24 @@ const PaymentPage = () => {
       setGlobalOrder(order);
       navigate('/tracking', { replace: false, state: order });
     }
-    
   };
+
+  function postOrder() {
+    fetch('https://veni-vay2.onrender.com/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(globalOrder),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
   // TBC
 
@@ -201,7 +220,7 @@ const PaymentPage = () => {
   return (
     <div>
       {<Navbar />}
-      <div className="payment-container" style={{border:"none"}}>
+      <div className="payment-container" style={{ border: 'none' }}>
         <h2>Payment Details</h2>
         <form onSubmit={handleSubmit}>
           <div className="payment-container">
@@ -209,7 +228,7 @@ const PaymentPage = () => {
               <strong>Payment Options</strong>
               <br />
               <div className="payment-options">
-                {["mpesa", "cash", "paypal", "visa", "binance"].map(
+                {['mpesa', 'cash', 'paypal', 'visa', 'binance'].map(
                   (paymentOption) => (
                     <div key={paymentOption} className="other-option">
                       <input
@@ -286,7 +305,7 @@ const PaymentPage = () => {
                   Room:
                 </label>
                 <input
-                  style={{ fontFamily: "Times New Roman", fontSize: "13px" }}
+                  style={{ fontFamily: 'Times New Roman', fontSize: '13px' }}
                   type="text"
                   id="room"
                   name="room"
@@ -315,7 +334,7 @@ const PaymentPage = () => {
               <p>Total: Ksh. {grandTotal}</p>
               <hr />
               <div className="buttons-container">
-              <button
+                <button
                   type="submit"
                   className="continue-shopping"
                   name="paymentType"
@@ -334,7 +353,6 @@ const PaymentPage = () => {
                 >
                   Pay on Delivery
                 </button>
-
               </div>
             </div>
           </div>
@@ -347,18 +365,18 @@ const PaymentPage = () => {
 
 const getImageSource = (paymentOption) => {
   switch (paymentOption) {
-    case "mpesa":
+    case 'mpesa':
       return mpesaLogo;
-    case "cash":
+    case 'cash':
       return cashLogo;
-    case "paypal":
+    case 'paypal':
       return paypalLogo;
-    case "visa":
+    case 'visa':
       return visaLogo;
-    case "binance":
+    case 'binance':
       return binanceLogo;
     default:
-      return "";
+      return '';
   }
 };
 
